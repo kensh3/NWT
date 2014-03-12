@@ -1,0 +1,8 @@
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\bin\NWTServisiVjezba.dll.config
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\bin\NWTServisiVjezba.dll
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\bin\NWTServisiVjezba.pdb
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\obj\Debug\NWTServisiVjezba.csprojResolveAssemblyReference.cache
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\obj\Debug\NWTServisiVjezba.dll
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\obj\Debug\NWTServisiVjezba.pdb
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\bin\Model.dll
+C:\Users\Amar\Desktop\NWTServisiVjezba\NWTServisiVjezba\bin\Model.pdb

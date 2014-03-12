@@ -8,7 +8,7 @@ using System.Runtime.Serialization;
 namespace NWTServisiVjezba.Model
 {
     /// <summary>
-    /// 
+    /// Model Student
     /// </summary>
     [Serializable]
     [DataContract]

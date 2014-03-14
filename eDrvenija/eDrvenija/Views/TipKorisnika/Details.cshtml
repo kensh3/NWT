@@ -1,0 +1,22 @@
+﻿@model eDrvenija.eDrvenija.Models.tipovikorisnika
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>tipovikorisnika</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nazivTipaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nazivTipaKorisnika)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idTipaKorisnika }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

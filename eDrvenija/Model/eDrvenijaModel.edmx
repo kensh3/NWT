@@ -1,0 +1,1062 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.5" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="dokumenti">
+          <Key>
+            <PropertyRef Name="idDokumenta" />
+          </Key>
+          <Property Name="idDokumenta" Type="int" Nullable="false" />
+          <Property Name="nazivDokumenta" Type="varchar" MaxLength="45" />
+          <Property Name="opisDokumenta" Type="varchar" MaxLength="1000" />
+          <Property Name="datumObjaveDokumenta" Type="datetime" Precision="0" />
+          <Property Name="brojPreuzimanjaDokumenta" Type="int" />
+          <Property Name="dokument" Type="varbinary" MaxLength="1000" />
+          <Property Name="idOglasa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="kategorije">
+          <Key>
+            <PropertyRef Name="idKategorije" />
+          </Key>
+          <Property Name="idKategorije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazivKategorije" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="komentari">
+          <Key>
+            <PropertyRef Name="idKomentara" />
+          </Key>
+          <Property Name="idKomentara" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tekstKomentara" Type="varchar" MaxLength="45" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+          <Property Name="idOglasa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="korisnici">
+          <Key>
+            <PropertyRef Name="idKorisnika" />
+          </Key>
+          <Property Name="idKorisnika" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="imeKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="prezimeKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="eMailKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="brojTelefonaKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="avatarKorisnika" Type="varbinary" MaxLength="100" />
+          <Property Name="korisnickoImeKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="lozinkaKorisnika" Type="varchar" MaxLength="45" />
+          <Property Name="idTipaKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="korisnicikategorije">
+          <Key>
+            <PropertyRef Name="idKorisnikaKategorije" />
+          </Key>
+          <Property Name="idKorisnikaKategorije" Type="int" Nullable="false" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+          <Property Name="idKategorije" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="logovi">
+          <Key>
+            <PropertyRef Name="idLoga" />
+          </Key>
+          <Property Name="idLoga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="akcijaLoga" Type="varchar" MaxLength="45" />
+          <Property Name="vrijemeLoga" Type="datetime" Precision="0" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ocjene">
+          <Key>
+            <PropertyRef Name="idOcjene" />
+          </Key>
+          <Property Name="idOcjene" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ocjena" Type="double" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="oglasi">
+          <Key>
+            <PropertyRef Name="idOglasa" />
+          </Key>
+          <Property Name="idOglasa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazivOglasa" Type="varchar" MaxLength="45" />
+          <Property Name="datumObjaveOglasa" Type="datetime" Precision="0" />
+          <Property Name="opisOglasa" Type="varchar" MaxLength="1000" />
+          <Property Name="brojPregledaOglasa" Type="int" />
+          <Property Name="idTipaOglasa" Type="int" Nullable="false" />
+          <Property Name="idKategorije" Type="int" Nullable="false" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="poruke">
+          <Key>
+            <PropertyRef Name="idPoruke" />
+          </Key>
+          <Property Name="idPoruke" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naslovPoruke" Type="varchar" MaxLength="45" />
+          <Property Name="tekstPoruke" Type="varchar" MaxLength="1000" />
+          <Property Name="idKorisnikaPosiljaoca" Type="int" Nullable="false" />
+          <Property Name="idKorisnikaPrimaoca" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="statusi">
+          <Key>
+            <PropertyRef Name="idStatusa" />
+          </Key>
+          <Property Name="idStatusa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="brojProdaja" Type="int" />
+          <Property Name="brojKupovina" Type="int" />
+          <Property Name="korisnikAktivanOd" Type="datetime" Precision="0" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tipovikorisnika">
+          <Key>
+            <PropertyRef Name="idTipaKorisnika" />
+          </Key>
+          <Property Name="idTipaKorisnika" Type="int" Nullable="false" />
+          <Property Name="nazivTipaKorisnika" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="tipovioglasa">
+          <Key>
+            <PropertyRef Name="idTipaOglasa" />
+          </Key>
+          <Property Name="idTipaOglasa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nazivTipaOglasa" Type="varchar" MaxLength="45" />
+        </EntityType>
+        <EntityType Name="transakcije">
+          <Key>
+            <PropertyRef Name="idTransakcije" />
+          </Key>
+          <Property Name="idTransakcije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="datumTransakcije" Type="datetime" Precision="0" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+          <Property Name="idOglasa" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="upiti">
+          <Key>
+            <PropertyRef Name="idUpita" />
+          </Key>
+          <Property Name="idUpita" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="naslovUpita" Type="varchar" MaxLength="45" />
+          <Property Name="tekstUpita" Type="varchar" MaxLength="1000" />
+          <Property Name="idKorisnika" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="fk_Dokumenti_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="dokumenti" Type="Self.dokumenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="dokumenti">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Komentari_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="komentari" Type="Self.komentari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="komentari">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Komentari_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="komentari" Type="Self.komentari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="komentari">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Korisnici_TipoviKorisnika1">
+          <End Role="tipovikorisnika" Type="Self.tipovikorisnika" Multiplicity="1" />
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipovikorisnika">
+              <PropertyRef Name="idTipaKorisnika" />
+            </Principal>
+            <Dependent Role="korisnici">
+              <PropertyRef Name="idTipaKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_KorisniciKategorije_Kategorije1">
+          <End Role="kategorije" Type="Self.kategorije" Multiplicity="1" />
+          <End Role="korisnicikategorije" Type="Self.korisnicikategorije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategorije">
+              <PropertyRef Name="idKategorije" />
+            </Principal>
+            <Dependent Role="korisnicikategorije">
+              <PropertyRef Name="idKategorije" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_KorisniciKategorije_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="korisnicikategorije" Type="Self.korisnicikategorije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="korisnicikategorije">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Logovi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="logovi" Type="Self.logovi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="logovi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ocjene_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="ocjene" Type="Self.ocjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="ocjene">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_Kategorije1">
+          <End Role="kategorije" Type="Self.kategorije" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategorije">
+              <PropertyRef Name="idKategorije" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idKategorije" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_TipoviOglasa1">
+          <End Role="tipovioglasa" Type="Self.tipovioglasa" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipovioglasa">
+              <PropertyRef Name="idTipaOglasa" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idTipaOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Poruke_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="poruke" Type="Self.poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="poruke">
+              <PropertyRef Name="idKorisnikaPosiljaoca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Poruke_Korisnici2">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="poruke" Type="Self.poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="poruke">
+              <PropertyRef Name="idKorisnikaPrimaoca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Statusi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="statusi" Type="Self.statusi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="statusi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Transakcije_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="transakcije" Type="Self.transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="transakcije">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Transakcije_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="transakcije" Type="Self.transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="transakcije">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Upiti_Korisnici">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="upiti" Type="Self.upiti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="upiti">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="dokumenti" EntityType="Self.dokumenti" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="kategorije" EntityType="Self.kategorije" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="komentari" EntityType="Self.komentari" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="korisnici" EntityType="Self.korisnici" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="korisnicikategorije" EntityType="Self.korisnicikategorije" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="logovi" EntityType="Self.logovi" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="ocjene" EntityType="Self.ocjene" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="oglasi" EntityType="Self.oglasi" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="poruke" EntityType="Self.poruke" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="statusi" EntityType="Self.statusi" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="tipovikorisnika" EntityType="Self.tipovikorisnika" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="tipovioglasa" EntityType="Self.tipovioglasa" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="transakcije" EntityType="Self.transakcije" Schema="edrvenijabaza" store:Type="Tables" />
+          <EntitySet Name="upiti" EntityType="Self.upiti" Schema="edrvenijabaza" store:Type="Tables" />
+          <AssociationSet Name="fk_Dokumenti_Oglasi1" Association="Self.fk_Dokumenti_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="dokumenti" EntitySet="dokumenti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Komentari_Korisnici1" Association="Self.fk_Komentari_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="komentari" EntitySet="komentari" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Komentari_Oglasi1" Association="Self.fk_Komentari_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="komentari" EntitySet="komentari" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Korisnici_TipoviKorisnika1" Association="Self.fk_Korisnici_TipoviKorisnika1">
+            <End Role="tipovikorisnika" EntitySet="tipovikorisnika" />
+            <End Role="korisnici" EntitySet="korisnici" />
+          </AssociationSet>
+          <AssociationSet Name="fk_KorisniciKategorije_Kategorije1" Association="Self.fk_KorisniciKategorije_Kategorije1">
+            <End Role="kategorije" EntitySet="kategorije" />
+            <End Role="korisnicikategorije" EntitySet="korisnicikategorije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_KorisniciKategorije_Korisnici1" Association="Self.fk_KorisniciKategorije_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="korisnicikategorije" EntitySet="korisnicikategorije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Logovi_Korisnici1" Association="Self.fk_Logovi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="logovi" EntitySet="logovi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ocjene_Korisnici1" Association="Self.fk_Ocjene_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="ocjene" EntitySet="ocjene" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_Kategorije1" Association="Self.fk_Oglasi_Kategorije1">
+            <End Role="kategorije" EntitySet="kategorije" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_Korisnici1" Association="Self.fk_Oglasi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_TipoviOglasa1" Association="Self.fk_Oglasi_TipoviOglasa1">
+            <End Role="tipovioglasa" EntitySet="tipovioglasa" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Poruke_Korisnici1" Association="Self.fk_Poruke_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="poruke" EntitySet="poruke" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Poruke_Korisnici2" Association="Self.fk_Poruke_Korisnici2">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="poruke" EntitySet="poruke" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Statusi_Korisnici1" Association="Self.fk_Statusi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="statusi" EntitySet="statusi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Transakcije_Korisnici1" Association="Self.fk_Transakcije_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="transakcije" EntitySet="transakcije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Transakcije_Oglasi1" Association="Self.fk_Transakcije_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="transakcije" EntitySet="transakcije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Upiti_Korisnici" Association="Self.fk_Upiti_Korisnici">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="upiti" EntitySet="upiti" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="dokumenti">
+          <Key>
+            <PropertyRef Name="idDokumenta" />
+          </Key>
+          <Property Name="idDokumenta" Type="Int32" Nullable="false" />
+          <Property Name="nazivDokumenta" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="opisDokumenta" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="datumObjaveDokumenta" Type="DateTime" />
+          <Property Name="brojPreuzimanjaDokumenta" Type="Int32" />
+          <Property Name="dokument" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="idOglasa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Dokumenti_Oglasi1" FromRole="dokumenti" ToRole="oglasi" />
+        </EntityType>
+        <EntityType Name="kategorije">
+          <Key>
+            <PropertyRef Name="idKategorije" />
+          </Key>
+          <Property Name="idKategorije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazivKategorije" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="korisnicikategorije" Relationship="Self.fk_KorisniciKategorije_Kategorije1" FromRole="kategorije" ToRole="korisnicikategorije" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Oglasi_Kategorije1" FromRole="kategorije" ToRole="oglasi" />
+        </EntityType>
+        <EntityType Name="komentari">
+          <Key>
+            <PropertyRef Name="idKomentara" />
+          </Key>
+          <Property Name="idKomentara" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tekstKomentara" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="idOglasa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Komentari_Korisnici1" FromRole="komentari" ToRole="korisnici" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Komentari_Oglasi1" FromRole="komentari" ToRole="oglasi" />
+        </EntityType>
+        <EntityType Name="korisnici">
+          <Key>
+            <PropertyRef Name="idKorisnika" />
+          </Key>
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="imeKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="prezimeKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="eMailKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="brojTelefonaKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="avatarKorisnika" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="korisnickoImeKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="lozinkaKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="idTipaKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="komentari" Relationship="Self.fk_Komentari_Korisnici1" FromRole="korisnici" ToRole="komentari" />
+          <NavigationProperty Name="tipovikorisnika" Relationship="Self.fk_Korisnici_TipoviKorisnika1" FromRole="korisnici" ToRole="tipovikorisnika" />
+          <NavigationProperty Name="korisnicikategorije" Relationship="Self.fk_KorisniciKategorije_Korisnici1" FromRole="korisnici" ToRole="korisnicikategorije" />
+          <NavigationProperty Name="logovi" Relationship="Self.fk_Logovi_Korisnici1" FromRole="korisnici" ToRole="logovi" />
+          <NavigationProperty Name="ocjene" Relationship="Self.fk_Ocjene_Korisnici1" FromRole="korisnici" ToRole="ocjene" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Oglasi_Korisnici1" FromRole="korisnici" ToRole="oglasi" />
+          <NavigationProperty Name="poruke" Relationship="Self.fk_Poruke_Korisnici1" FromRole="korisnici" ToRole="poruke" />
+          <NavigationProperty Name="poruke1" Relationship="Self.fk_Poruke_Korisnici2" FromRole="korisnici" ToRole="poruke" />
+          <NavigationProperty Name="statusi" Relationship="Self.fk_Statusi_Korisnici1" FromRole="korisnici" ToRole="statusi" />
+          <NavigationProperty Name="transakcije" Relationship="Self.fk_Transakcije_Korisnici1" FromRole="korisnici" ToRole="transakcije" />
+          <NavigationProperty Name="upiti" Relationship="Self.fk_Upiti_Korisnici" FromRole="korisnici" ToRole="upiti" />
+        </EntityType>
+        <EntityType Name="korisnicikategorije">
+          <Key>
+            <PropertyRef Name="idKorisnikaKategorije" />
+          </Key>
+          <Property Name="idKorisnikaKategorije" Type="Int32" Nullable="false" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="idKategorije" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="kategorije" Relationship="Self.fk_KorisniciKategorije_Kategorije1" FromRole="korisnicikategorije" ToRole="kategorije" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_KorisniciKategorije_Korisnici1" FromRole="korisnicikategorije" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="logovi">
+          <Key>
+            <PropertyRef Name="idLoga" />
+          </Key>
+          <Property Name="idLoga" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="akcijaLoga" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="vrijemeLoga" Type="DateTime" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Logovi_Korisnici1" FromRole="logovi" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="ocjene">
+          <Key>
+            <PropertyRef Name="idOcjene" />
+          </Key>
+          <Property Name="idOcjene" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ocjena" Type="Double" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Ocjene_Korisnici1" FromRole="ocjene" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="oglasi">
+          <Key>
+            <PropertyRef Name="idOglasa" />
+          </Key>
+          <Property Name="idOglasa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazivOglasa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="datumObjaveOglasa" Type="DateTime" />
+          <Property Name="opisOglasa" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="brojPregledaOglasa" Type="Int32" />
+          <Property Name="idTipaOglasa" Type="Int32" Nullable="false" />
+          <Property Name="idKategorije" Type="Int32" Nullable="false" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="dokumenti" Relationship="Self.fk_Dokumenti_Oglasi1" FromRole="oglasi" ToRole="dokumenti" />
+          <NavigationProperty Name="kategorije" Relationship="Self.fk_Oglasi_Kategorije1" FromRole="oglasi" ToRole="kategorije" />
+          <NavigationProperty Name="komentari" Relationship="Self.fk_Komentari_Oglasi1" FromRole="oglasi" ToRole="komentari" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Oglasi_Korisnici1" FromRole="oglasi" ToRole="korisnici" />
+          <NavigationProperty Name="tipovioglasa" Relationship="Self.fk_Oglasi_TipoviOglasa1" FromRole="oglasi" ToRole="tipovioglasa" />
+          <NavigationProperty Name="transakcije" Relationship="Self.fk_Transakcije_Oglasi1" FromRole="oglasi" ToRole="transakcije" />
+        </EntityType>
+        <EntityType Name="poruke">
+          <Key>
+            <PropertyRef Name="idPoruke" />
+          </Key>
+          <Property Name="idPoruke" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naslovPoruke" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="tekstPoruke" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idKorisnikaPosiljaoca" Type="Int32" Nullable="false" />
+          <Property Name="idKorisnikaPrimaoca" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Poruke_Korisnici1" FromRole="poruke" ToRole="korisnici" />
+          <NavigationProperty Name="korisnici1" Relationship="Self.fk_Poruke_Korisnici2" FromRole="poruke" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="statusi">
+          <Key>
+            <PropertyRef Name="idStatusa" />
+          </Key>
+          <Property Name="idStatusa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="brojProdaja" Type="Int32" />
+          <Property Name="brojKupovina" Type="Int32" />
+          <Property Name="korisnikAktivanOd" Type="DateTime" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Statusi_Korisnici1" FromRole="statusi" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="tipovikorisnika">
+          <Key>
+            <PropertyRef Name="idTipaKorisnika" />
+          </Key>
+          <Property Name="idTipaKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="nazivTipaKorisnika" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Korisnici_TipoviKorisnika1" FromRole="tipovikorisnika" ToRole="korisnici" />
+        </EntityType>
+        <EntityType Name="tipovioglasa">
+          <Key>
+            <PropertyRef Name="idTipaOglasa" />
+          </Key>
+          <Property Name="idTipaOglasa" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nazivTipaOglasa" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Oglasi_TipoviOglasa1" FromRole="tipovioglasa" ToRole="oglasi" />
+        </EntityType>
+        <EntityType Name="transakcije">
+          <Key>
+            <PropertyRef Name="idTransakcije" />
+          </Key>
+          <Property Name="idTransakcije" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="datumTransakcije" Type="DateTime" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <Property Name="idOglasa" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Transakcije_Korisnici1" FromRole="transakcije" ToRole="korisnici" />
+          <NavigationProperty Name="oglasi" Relationship="Self.fk_Transakcije_Oglasi1" FromRole="transakcije" ToRole="oglasi" />
+        </EntityType>
+        <EntityType Name="upiti">
+          <Key>
+            <PropertyRef Name="idUpita" />
+          </Key>
+          <Property Name="idUpita" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="naslovUpita" Type="String" MaxLength="45" FixedLength="false" Unicode="false" />
+          <Property Name="tekstUpita" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" />
+          <Property Name="idKorisnika" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="korisnici" Relationship="Self.fk_Upiti_Korisnici" FromRole="upiti" ToRole="korisnici" />
+        </EntityType>
+        <Association Name="fk_Dokumenti_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="dokumenti" Type="Self.dokumenti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="dokumenti">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_KorisniciKategorije_Kategorije1">
+          <End Role="kategorije" Type="Self.kategorije" Multiplicity="1" />
+          <End Role="korisnicikategorije" Type="Self.korisnicikategorije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategorije">
+              <PropertyRef Name="idKategorije" />
+            </Principal>
+            <Dependent Role="korisnicikategorije">
+              <PropertyRef Name="idKategorije" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_Kategorije1">
+          <End Role="kategorije" Type="Self.kategorije" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="kategorije">
+              <PropertyRef Name="idKategorije" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idKategorije" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Komentari_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="komentari" Type="Self.komentari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="komentari">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Komentari_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="komentari" Type="Self.komentari" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="komentari">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Korisnici_TipoviKorisnika1">
+          <End Role="tipovikorisnika" Type="Self.tipovikorisnika" Multiplicity="1" />
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipovikorisnika">
+              <PropertyRef Name="idTipaKorisnika" />
+            </Principal>
+            <Dependent Role="korisnici">
+              <PropertyRef Name="idTipaKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_KorisniciKategorije_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="korisnicikategorije" Type="Self.korisnicikategorije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="korisnicikategorije">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Logovi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="logovi" Type="Self.logovi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="logovi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Ocjene_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="ocjene" Type="Self.ocjene" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="ocjene">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Poruke_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="poruke" Type="Self.poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="poruke">
+              <PropertyRef Name="idKorisnikaPosiljaoca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Poruke_Korisnici2">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="poruke" Type="Self.poruke" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="poruke">
+              <PropertyRef Name="idKorisnikaPrimaoca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Statusi_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="statusi" Type="Self.statusi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="statusi">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Transakcije_Korisnici1">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="transakcije" Type="Self.transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="transakcije">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Upiti_Korisnici">
+          <End Role="korisnici" Type="Self.korisnici" Multiplicity="1" />
+          <End Role="upiti" Type="Self.upiti" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="korisnici">
+              <PropertyRef Name="idKorisnika" />
+            </Principal>
+            <Dependent Role="upiti">
+              <PropertyRef Name="idKorisnika" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Oglasi_TipoviOglasa1">
+          <End Role="tipovioglasa" Type="Self.tipovioglasa" Multiplicity="1" />
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tipovioglasa">
+              <PropertyRef Name="idTipaOglasa" />
+            </Principal>
+            <Dependent Role="oglasi">
+              <PropertyRef Name="idTipaOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_Transakcije_Oglasi1">
+          <End Role="oglasi" Type="Self.oglasi" Multiplicity="1" />
+          <End Role="transakcije" Type="Self.transakcije" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="oglasi">
+              <PropertyRef Name="idOglasa" />
+            </Principal>
+            <Dependent Role="transakcije">
+              <PropertyRef Name="idOglasa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="edrvenijabazaEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="dokumenti" EntityType="Self.dokumenti" />
+          <EntitySet Name="kategorije" EntityType="Self.kategorije" />
+          <EntitySet Name="komentari" EntityType="Self.komentari" />
+          <EntitySet Name="korisnici" EntityType="Self.korisnici" />
+          <EntitySet Name="korisnicikategorije" EntityType="Self.korisnicikategorije" />
+          <EntitySet Name="logovi" EntityType="Self.logovi" />
+          <EntitySet Name="ocjene" EntityType="Self.ocjene" />
+          <EntitySet Name="oglasi" EntityType="Self.oglasi" />
+          <EntitySet Name="poruke" EntityType="Self.poruke" />
+          <EntitySet Name="statusi" EntityType="Self.statusi" />
+          <EntitySet Name="tipovikorisnika" EntityType="Self.tipovikorisnika" />
+          <EntitySet Name="tipovioglasa" EntityType="Self.tipovioglasa" />
+          <EntitySet Name="transakcije" EntityType="Self.transakcije" />
+          <EntitySet Name="upiti" EntityType="Self.upiti" />
+          <AssociationSet Name="fk_Dokumenti_Oglasi1" Association="Self.fk_Dokumenti_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="dokumenti" EntitySet="dokumenti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_KorisniciKategorije_Kategorije1" Association="Self.fk_KorisniciKategorije_Kategorije1">
+            <End Role="kategorije" EntitySet="kategorije" />
+            <End Role="korisnicikategorije" EntitySet="korisnicikategorije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_Kategorije1" Association="Self.fk_Oglasi_Kategorije1">
+            <End Role="kategorije" EntitySet="kategorije" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Komentari_Korisnici1" Association="Self.fk_Komentari_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="komentari" EntitySet="komentari" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Komentari_Oglasi1" Association="Self.fk_Komentari_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="komentari" EntitySet="komentari" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Korisnici_TipoviKorisnika1" Association="Self.fk_Korisnici_TipoviKorisnika1">
+            <End Role="tipovikorisnika" EntitySet="tipovikorisnika" />
+            <End Role="korisnici" EntitySet="korisnici" />
+          </AssociationSet>
+          <AssociationSet Name="fk_KorisniciKategorije_Korisnici1" Association="Self.fk_KorisniciKategorije_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="korisnicikategorije" EntitySet="korisnicikategorije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Logovi_Korisnici1" Association="Self.fk_Logovi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="logovi" EntitySet="logovi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Ocjene_Korisnici1" Association="Self.fk_Ocjene_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="ocjene" EntitySet="ocjene" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_Korisnici1" Association="Self.fk_Oglasi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Poruke_Korisnici1" Association="Self.fk_Poruke_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="poruke" EntitySet="poruke" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Poruke_Korisnici2" Association="Self.fk_Poruke_Korisnici2">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="poruke" EntitySet="poruke" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Statusi_Korisnici1" Association="Self.fk_Statusi_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="statusi" EntitySet="statusi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Transakcije_Korisnici1" Association="Self.fk_Transakcije_Korisnici1">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="transakcije" EntitySet="transakcije" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Upiti_Korisnici" Association="Self.fk_Upiti_Korisnici">
+            <End Role="korisnici" EntitySet="korisnici" />
+            <End Role="upiti" EntitySet="upiti" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Oglasi_TipoviOglasa1" Association="Self.fk_Oglasi_TipoviOglasa1">
+            <End Role="tipovioglasa" EntitySet="tipovioglasa" />
+            <End Role="oglasi" EntitySet="oglasi" />
+          </AssociationSet>
+          <AssociationSet Name="fk_Transakcije_Oglasi1" Association="Self.fk_Transakcije_Oglasi1">
+            <End Role="oglasi" EntitySet="oglasi" />
+            <End Role="transakcije" EntitySet="transakcije" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="edrvenijabazaEntities">
+          <EntitySetMapping Name="dokumenti">
+            <EntityTypeMapping TypeName="Model.dokumenti">
+              <MappingFragment StoreEntitySet="dokumenti">
+                <ScalarProperty Name="idDokumenta" ColumnName="idDokumenta" />
+                <ScalarProperty Name="nazivDokumenta" ColumnName="nazivDokumenta" />
+                <ScalarProperty Name="opisDokumenta" ColumnName="opisDokumenta" />
+                <ScalarProperty Name="datumObjaveDokumenta" ColumnName="datumObjaveDokumenta" />
+                <ScalarProperty Name="brojPreuzimanjaDokumenta" ColumnName="brojPreuzimanjaDokumenta" />
+                <ScalarProperty Name="dokument" ColumnName="dokument" />
+                <ScalarProperty Name="idOglasa" ColumnName="idOglasa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="kategorije">
+            <EntityTypeMapping TypeName="Model.kategorije">
+              <MappingFragment StoreEntitySet="kategorije">
+                <ScalarProperty Name="idKategorije" ColumnName="idKategorije" />
+                <ScalarProperty Name="nazivKategorije" ColumnName="nazivKategorije" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="komentari">
+            <EntityTypeMapping TypeName="Model.komentari">
+              <MappingFragment StoreEntitySet="komentari">
+                <ScalarProperty Name="idKomentara" ColumnName="idKomentara" />
+                <ScalarProperty Name="tekstKomentara" ColumnName="tekstKomentara" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+                <ScalarProperty Name="idOglasa" ColumnName="idOglasa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="korisnici">
+            <EntityTypeMapping TypeName="Model.korisnici">
+              <MappingFragment StoreEntitySet="korisnici">
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+                <ScalarProperty Name="imeKorisnika" ColumnName="imeKorisnika" />
+                <ScalarProperty Name="prezimeKorisnika" ColumnName="prezimeKorisnika" />
+                <ScalarProperty Name="eMailKorisnika" ColumnName="eMailKorisnika" />
+                <ScalarProperty Name="brojTelefonaKorisnika" ColumnName="brojTelefonaKorisnika" />
+                <ScalarProperty Name="avatarKorisnika" ColumnName="avatarKorisnika" />
+                <ScalarProperty Name="korisnickoImeKorisnika" ColumnName="korisnickoImeKorisnika" />
+                <ScalarProperty Name="lozinkaKorisnika" ColumnName="lozinkaKorisnika" />
+                <ScalarProperty Name="idTipaKorisnika" ColumnName="idTipaKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="korisnicikategorije">
+            <EntityTypeMapping TypeName="Model.korisnicikategorije">
+              <MappingFragment StoreEntitySet="korisnicikategorije">
+                <ScalarProperty Name="idKorisnikaKategorije" ColumnName="idKorisnikaKategorije" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+                <ScalarProperty Name="idKategorije" ColumnName="idKategorije" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="logovi">
+            <EntityTypeMapping TypeName="Model.logovi">
+              <MappingFragment StoreEntitySet="logovi">
+                <ScalarProperty Name="idLoga" ColumnName="idLoga" />
+                <ScalarProperty Name="akcijaLoga" ColumnName="akcijaLoga" />
+                <ScalarProperty Name="vrijemeLoga" ColumnName="vrijemeLoga" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ocjene">
+            <EntityTypeMapping TypeName="Model.ocjene">
+              <MappingFragment StoreEntitySet="ocjene">
+                <ScalarProperty Name="idOcjene" ColumnName="idOcjene" />
+                <ScalarProperty Name="ocjena" ColumnName="ocjena" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="oglasi">
+            <EntityTypeMapping TypeName="Model.oglasi">
+              <MappingFragment StoreEntitySet="oglasi">
+                <ScalarProperty Name="idOglasa" ColumnName="idOglasa" />
+                <ScalarProperty Name="nazivOglasa" ColumnName="nazivOglasa" />
+                <ScalarProperty Name="datumObjaveOglasa" ColumnName="datumObjaveOglasa" />
+                <ScalarProperty Name="opisOglasa" ColumnName="opisOglasa" />
+                <ScalarProperty Name="brojPregledaOglasa" ColumnName="brojPregledaOglasa" />
+                <ScalarProperty Name="idTipaOglasa" ColumnName="idTipaOglasa" />
+                <ScalarProperty Name="idKategorije" ColumnName="idKategorije" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="poruke">
+            <EntityTypeMapping TypeName="Model.poruke">
+              <MappingFragment StoreEntitySet="poruke">
+                <ScalarProperty Name="idPoruke" ColumnName="idPoruke" />
+                <ScalarProperty Name="naslovPoruke" ColumnName="naslovPoruke" />
+                <ScalarProperty Name="tekstPoruke" ColumnName="tekstPoruke" />
+                <ScalarProperty Name="idKorisnikaPosiljaoca" ColumnName="idKorisnikaPosiljaoca" />
+                <ScalarProperty Name="idKorisnikaPrimaoca" ColumnName="idKorisnikaPrimaoca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="statusi">
+            <EntityTypeMapping TypeName="Model.statusi">
+              <MappingFragment StoreEntitySet="statusi">
+                <ScalarProperty Name="idStatusa" ColumnName="idStatusa" />
+                <ScalarProperty Name="brojProdaja" ColumnName="brojProdaja" />
+                <ScalarProperty Name="brojKupovina" ColumnName="brojKupovina" />
+                <ScalarProperty Name="korisnikAktivanOd" ColumnName="korisnikAktivanOd" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipovikorisnika">
+            <EntityTypeMapping TypeName="Model.tipovikorisnika">
+              <MappingFragment StoreEntitySet="tipovikorisnika">
+                <ScalarProperty Name="idTipaKorisnika" ColumnName="idTipaKorisnika" />
+                <ScalarProperty Name="nazivTipaKorisnika" ColumnName="nazivTipaKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tipovioglasa">
+            <EntityTypeMapping TypeName="Model.tipovioglasa">
+              <MappingFragment StoreEntitySet="tipovioglasa">
+                <ScalarProperty Name="idTipaOglasa" ColumnName="idTipaOglasa" />
+                <ScalarProperty Name="nazivTipaOglasa" ColumnName="nazivTipaOglasa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="transakcije">
+            <EntityTypeMapping TypeName="Model.transakcije">
+              <MappingFragment StoreEntitySet="transakcije">
+                <ScalarProperty Name="idTransakcije" ColumnName="idTransakcije" />
+                <ScalarProperty Name="datumTransakcije" ColumnName="datumTransakcije" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+                <ScalarProperty Name="idOglasa" ColumnName="idOglasa" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="upiti">
+            <EntityTypeMapping TypeName="Model.upiti">
+              <MappingFragment StoreEntitySet="upiti">
+                <ScalarProperty Name="idUpita" ColumnName="idUpita" />
+                <ScalarProperty Name="naslovUpita" ColumnName="naslovUpita" />
+                <ScalarProperty Name="tekstUpita" ColumnName="tekstUpita" />
+                <ScalarProperty Name="idKorisnika" ColumnName="idKorisnika" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

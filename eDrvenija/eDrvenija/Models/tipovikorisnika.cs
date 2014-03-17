@@ -11,7 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class tipovikorisnika
     {
@@ -19,8 +18,7 @@ namespace eDrvenija.eDrvenija.Models
         {
             this.korisnici = new HashSet<korisnici>();
         }
-        
-        [Key]
+    
         public int idTipaKorisnika { get; set; }
         public string nazivTipaKorisnika { get; set; }
     

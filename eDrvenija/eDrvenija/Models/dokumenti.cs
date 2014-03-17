@@ -11,17 +11,13 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class dokumenti
     {
-        [Key]
         public int idDokumenta { get; set; }
-        public string nazivDokumenta { get; set; }
-        public string opisDokumenta { get; set; }
-        public Nullable<System.DateTime> datumObjaveDokumenta { get; set; }
-        public Nullable<int> brojPreuzimanjaDokumenta { get; set; }
         public byte[] dokument { get; set; }
+        public Nullable<int> brojPreuzimanja { get; set; }
+        public int idOglasa { get; set; }
     
         public virtual oglasi oglasi { get; set; }
     }

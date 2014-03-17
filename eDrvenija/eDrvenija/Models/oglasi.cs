@@ -11,7 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class oglasi
     {
@@ -22,12 +21,17 @@ namespace eDrvenija.eDrvenija.Models
             this.transakcije = new HashSet<transakcije>();
         }
     
-        [Key]
         public int idOglasa { get; set; }
         public string nazivOglasa { get; set; }
         public Nullable<System.DateTime> datumObjaveOglasa { get; set; }
         public string opisOglasa { get; set; }
+        public Nullable<double> cijena { get; set; }
         public Nullable<int> brojPregledaOglasa { get; set; }
+        public Nullable<bool> zavrsenaTransakcija { get; set; }
+        public Nullable<bool> aktivan { get; set; }
+        public int idTipaOglasa { get; set; }
+        public int idKategorije { get; set; }
+        public int idKorisnika { get; set; }
     
         public virtual ICollection<dokumenti> dokumenti { get; set; }
         public virtual kategorije kategorije { get; set; }

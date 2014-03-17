@@ -171,7 +171,6 @@
     <Compile Include="Models\dokumenti.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\eDrvenijaContext.cs" />
     <Compile Include="Models\eDrvenijaModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

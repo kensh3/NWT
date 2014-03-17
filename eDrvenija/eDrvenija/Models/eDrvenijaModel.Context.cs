@@ -13,10 +13,10 @@ namespace eDrvenija.eDrvenija.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class edrvenijabazaEntities1 : DbContext
+    public partial class edrvenijabazaEntities2 : DbContext
     {
-        public edrvenijabazaEntities1()
-            : base("name=edrvenijabazaEntities1")
+        public edrvenijabazaEntities2()
+            : base("name=edrvenijabazaEntities2")
         {
         }
     

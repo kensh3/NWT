@@ -11,7 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class korisnici
     {
@@ -28,16 +27,19 @@ namespace eDrvenija.eDrvenija.Models
             this.transakcije = new HashSet<transakcije>();
             this.upiti = new HashSet<upiti>();
         }
-
-        [Key]
+    
         public int idKorisnika { get; set; }
         public string imeKorisnika { get; set; }
         public string prezimeKorisnika { get; set; }
         public string eMailKorisnika { get; set; }
         public string brojTelefonaKorisnika { get; set; }
         public byte[] avatarKorisnika { get; set; }
+        public Nullable<double> ocjena { get; set; }
+        public Nullable<System.DateTime> korisnikAktivanOd { get; set; }
         public string korisnickoImeKorisnika { get; set; }
         public string lozinkaKorisnika { get; set; }
+        public Nullable<bool> aktivan { get; set; }
+        public int idTipaKorisnika { get; set; }
     
         public virtual ICollection<komentari> komentari { get; set; }
         public virtual tipovikorisnika tipovikorisnika { get; set; }

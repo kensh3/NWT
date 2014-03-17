@@ -11,7 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class tipovioglasa
     {
@@ -20,7 +19,6 @@ namespace eDrvenija.eDrvenija.Models
             this.oglasi = new HashSet<oglasi>();
         }
     
-        [Key]
         public int idTipaOglasa { get; set; }
         public string nazivTipaOglasa { get; set; }
     

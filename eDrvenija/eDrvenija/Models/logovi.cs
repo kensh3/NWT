@@ -11,14 +11,13 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class logovi
     {
-        [Key]
         public int idLoga { get; set; }
         public string akcijaLoga { get; set; }
         public Nullable<System.DateTime> vrijemeLoga { get; set; }
+        public int idKorisnika { get; set; }
     
         public virtual korisnici korisnici { get; set; }
     }

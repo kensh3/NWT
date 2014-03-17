@@ -11,7 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class kategorije
     {
@@ -21,7 +20,6 @@ namespace eDrvenija.eDrvenija.Models
             this.oglasi = new HashSet<oglasi>();
         }
     
-        [Key]
         public int idKategorije { get; set; }
         public string nazivKategorije { get; set; }
     

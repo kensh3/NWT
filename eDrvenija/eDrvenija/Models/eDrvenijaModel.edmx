@@ -42,7 +42,7 @@
           <Property Name="brojTelefonaKorisnika" Type="varchar" MaxLength="45" />
           <Property Name="avatarKorisnika" Type="varbinary" MaxLength="100" />
           <Property Name="ocjena" Type="double" />
-          <Property Name="korisnikAktivanOd" Type="datetime" Precision="0" />
+          <Property Name="korisnikAktivanOd" Type="datetime"  />
           <Property Name="korisnickoImeKorisnika" Type="varchar" MaxLength="45" />
           <Property Name="lozinkaKorisnika" Type="varchar" MaxLength="45" />
           <Property Name="aktivan" Type="bool" />
@@ -62,7 +62,7 @@
           </Key>
           <Property Name="idLoga" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="akcijaLoga" Type="varchar" MaxLength="45" />
-          <Property Name="vrijemeLoga" Type="datetime" Precision="0" />
+          <Property Name="vrijemeLoga" Type="datetime"  />
           <Property Name="idKorisnika" Type="int" Nullable="false" />
         </EntityType>
         <EntityType Name="ocjene">
@@ -79,7 +79,7 @@
           </Key>
           <Property Name="idOglasa" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="nazivOglasa" Type="varchar" MaxLength="45" />
-          <Property Name="datumObjaveOglasa" Type="datetime" Precision="0" />
+          <Property Name="datumObjaveOglasa" Type="datetime" />
           <Property Name="opisOglasa" Type="varchar" MaxLength="1000" />
           <Property Name="cijena" Type="double" />
           <Property Name="brojPregledaOglasa" Type="int" />
@@ -128,7 +128,7 @@
             <PropertyRef Name="idTransakcije" />
           </Key>
           <Property Name="idTransakcije" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="datumTransakcije" Type="datetime" Precision="0" />
+          <Property Name="datumTransakcije" Type="datetime"  />
           <Property Name="idKorisnika" Type="int" Nullable="false" />
           <Property Name="idOglasa" Type="int" Nullable="false" />
         </EntityType>

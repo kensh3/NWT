@@ -1,0 +1,33 @@
+﻿@model eDrvenija.eDrvenija.Models.tipovikorisnika
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>tipovikorisnika</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idTipaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idTipaKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nazivTipaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nazivTipaKorisnika)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

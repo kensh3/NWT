@@ -1,0 +1,92 @@
+﻿@model eDrvenija.eDrvenija.Models.korisnici
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>korisnici</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.idKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.idKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.imeKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.prezimeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.prezimeKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.eMailKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.eMailKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.brojTelefonaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.brojTelefonaKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.ocjena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.ocjena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnikAktivanOd)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnikAktivanOd)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnickoImeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnickoImeKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.lozinkaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.lozinkaKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.aktivan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aktivan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipovikorisnika.nazivTipaKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipovikorisnika.nazivTipaKorisnika)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

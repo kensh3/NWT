@@ -1,0 +1,44 @@
+﻿@model eDrvenija.eDrvenija.Models.kategorije
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>kategorije</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idKategorije)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.idKategorije)
+            @Html.ValidationMessageFor(model => model.idKategorije)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nazivKategorije)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nazivKategorije)
+            @Html.ValidationMessageFor(model => model.nazivKategorije)
+        </div>
+
+        <p>
+            <input type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

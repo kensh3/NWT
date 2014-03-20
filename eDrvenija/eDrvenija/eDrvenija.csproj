@@ -162,9 +162,11 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Class1.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\TipKorisnikaController.cs" />
+    <Compile Include="Controllers\KategorijeController.cs" />
+    <Compile Include="Controllers\KorisniciController.cs" />
+    <Compile Include="Controllers\TipoviKorisnikaController.cs" />
+    <Compile Include="Controllers\TipoviOglasaController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -357,11 +359,26 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Error.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
-    <Content Include="Views\TipKorisnika\Index.cshtml" />
-    <Content Include="Views\TipKorisnika\Details.cshtml" />
-    <Content Include="Views\TipKorisnika\Create.cshtml" />
-    <Content Include="Views\TipKorisnika\Edit.cshtml" />
-    <Content Include="Views\TipKorisnika\Delete.cshtml" />
+    <Content Include="Views\TipoviKorisnika\Index.cshtml" />
+    <Content Include="Views\TipoviKorisnika\Details.cshtml" />
+    <Content Include="Views\TipoviKorisnika\Create.cshtml" />
+    <Content Include="Views\TipoviKorisnika\Edit.cshtml" />
+    <Content Include="Views\TipoviKorisnika\Delete.cshtml" />
+    <Content Include="Views\Korisnici\Index.cshtml" />
+    <Content Include="Views\Korisnici\Details.cshtml" />
+    <Content Include="Views\Korisnici\Create.cshtml" />
+    <Content Include="Views\Korisnici\Edit.cshtml" />
+    <Content Include="Views\Korisnici\Delete.cshtml" />
+    <Content Include="Views\TipoviOglasa\Index.cshtml" />
+    <Content Include="Views\TipoviOglasa\Details.cshtml" />
+    <Content Include="Views\TipoviOglasa\Create.cshtml" />
+    <Content Include="Views\TipoviOglasa\Edit.cshtml" />
+    <Content Include="Views\TipoviOglasa\Delete.cshtml" />
+    <Content Include="Views\Kategorije\Index.cshtml" />
+    <Content Include="Views\Kategorije\Details.cshtml" />
+    <Content Include="Views\Kategorije\Create.cshtml" />
+    <Content Include="Views\Kategorije\Edit.cshtml" />
+    <Content Include="Views\Kategorije\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

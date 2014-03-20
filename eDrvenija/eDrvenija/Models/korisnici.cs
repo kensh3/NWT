@@ -11,6 +11,8 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     
     public partial class korisnici
     {
@@ -28,15 +30,44 @@ namespace eDrvenija.eDrvenija.Models
             this.upiti = new HashSet<upiti>();
         }
     
+        [ScaffoldColumn(false)]
         public int idKorisnika { get; set; }
+        
+        [DisplayName("Ime")]
+        [Required(ErrorMessage = "Potrebno je unijeti ime korisnika i ne smije biti duže od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string imeKorisnika { get; set; }
+        
+        [DisplayName("Prezime")]
+        [Required(ErrorMessage = "Potrebno je unijeti prezime korisnika i ne smije biti duže od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string prezimeKorisnika { get; set; }
+
+        [DisplayName("E-Mail")]
+        [Required(ErrorMessage = "Potrebno je unijeti email korisnika i ne smije biti duži od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string eMailKorisnika { get; set; }
+
+        [DisplayName("Broj telefona")]
+        [Required(ErrorMessage = "Potrebno je unijeti broj telefona korisnika i ne smije biti duži od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string brojTelefonaKorisnika { get; set; }
         public byte[] avatarKorisnika { get; set; }
+
+        [DisplayName("Ocjena")]
+        [Range(1.00, 5.00,
+            ErrorMessage = "Ocjena mora biti izmeðu 1 i 5")]
         public Nullable<double> ocjena { get; set; }
         public Nullable<System.DateTime> korisnikAktivanOd { get; set; }
+
+        [DisplayName("Korisnièko ime")]
+        [Required(ErrorMessage = "Potrebno je unijeti korisnièko ime korisnika i ne smije biti duže od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string korisnickoImeKorisnika { get; set; }
+
+        [DisplayName("Lozinka")]
+        [Required(ErrorMessage = "Potrebno je unijeti lozinku korisnika i ne smije biti duža od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string lozinkaKorisnika { get; set; }
         public Nullable<bool> aktivan { get; set; }
         public int idTipaKorisnika { get; set; }

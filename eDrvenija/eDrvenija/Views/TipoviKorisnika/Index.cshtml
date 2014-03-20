@@ -12,9 +12,6 @@
 <table>
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.idTipaKorisnika)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.nazivTipaKorisnika)
         </th>
         <th></th>
@@ -23,15 +20,12 @@
 @foreach (var item in Model) {
     <tr>
         <td>
-            @Html.DisplayFor(modelItem => item.idTipaKorisnika)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.nazivTipaKorisnika)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new {  id=item.idTipaKorisnika  }) |
+            @Html.ActionLink("Details", "Details", new { id = item.idTipaKorisnika }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.idTipaKorisnika })
         </td>
     </tr>
 }

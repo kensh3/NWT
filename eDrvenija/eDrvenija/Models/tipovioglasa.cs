@@ -11,6 +11,8 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class tipovioglasa
     {
@@ -19,7 +21,11 @@ namespace eDrvenija.eDrvenija.Models
             this.oglasi = new HashSet<oglasi>();
         }
     
+        [ScaffoldColumn(false)]
         public int idTipaOglasa { get; set; }
+        [DisplayName("Tip oglasa")]
+        [Required(ErrorMessage = "Potrebno je unijeti naziv tipa oglasa i ne smije biti duži od 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string nazivTipaOglasa { get; set; }
     
         public virtual ICollection<oglasi> oglasi { get; set; }

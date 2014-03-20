@@ -10,13 +10,6 @@
     <legend>tipovikorisnika</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.idTipaKorisnika)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.idTipaKorisnika)
-    </div>
-
-    <div class="display-label">
          @Html.DisplayNameFor(model => model.nazivTipaKorisnika)
     </div>
     <div class="display-field">
@@ -24,6 +17,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { /* id=Model.PrimaryKey */ }) |
+    @Html.ActionLink("Edit", "Edit", new { id = Model.idTipaKorisnika }) |
     @Html.ActionLink("Back to List", "Index")
 </p>

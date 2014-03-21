@@ -150,6 +150,18 @@ namespace eDrvenija.eDrvenija.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, korisnici);
         }
 
+        public IEnumerable<korisnici> GetTopKorisnike(int broj)
+        {
+            var lista = (from korisnici in db.korisnici
+                         from oglasi in db.oglasi
+                         from dokumenti in db.dokumenti
+                         where korisnici.idKorisnika == oglasi.idKorisnika
+                         where dokumenti.idOglasa == oglasi.idOglasa
+                         orderby dokumenti.brojPreuzimanja descending
+                         select korisnici).Take(broj);
+            return lista.AsEnumerable();
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

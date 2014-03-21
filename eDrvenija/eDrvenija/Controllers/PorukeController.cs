@@ -102,6 +102,45 @@ namespace eDrvenija.eDrvenija.Controllers
             return Request.CreateResponse(HttpStatusCode.OK, poruke);
         }
 
+        public IEnumerable<poruke> DajSvePrimljenePoruke(int id)
+        {
+
+            var lista = from poruke in db.poruke
+                        where poruke.idKorisnikaPrimaoca == id
+                        select poruke;
+            return lista.AsEnumerable();
+        }
+
+        public IEnumerable<poruke> DajSvePoslanePoruke(int id)
+        {
+
+            var lista = from poruke in db.poruke
+                        where poruke.idKorisnikaPosiljaoca == id
+                        select poruke;
+            return lista.AsEnumerable();
+        }
+
+        public IEnumerable<poruke> DajSveNotifikacije(int id)
+        {
+
+            var lista = from poruke in db.poruke
+                        where poruke.idKorisnikaPrimaoca == id 
+                        where poruke.idKorisnikaPosiljaoca == 1
+                        select poruke;
+            return lista.AsEnumerable();
+        }
+
+        public IEnumerable<poruke> DajSvePrimljenePorukePoKorisnickomImenu(string username)
+        {
+
+            var lista = from poruke in db.poruke
+                        from korisnici in db.korisnici
+                        where poruke.idKorisnikaPrimaoca == korisnici.idKorisnika
+                        where korisnici.korisnickoImeKorisnika == username
+                        select poruke;
+            return lista.AsEnumerable();
+        }
+
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

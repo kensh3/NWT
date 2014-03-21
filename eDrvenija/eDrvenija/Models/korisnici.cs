@@ -30,6 +30,7 @@ namespace eDrvenija.eDrvenija.Models
             this.upiti = new HashSet<upiti>();
         }
     
+        [Key]
         [ScaffoldColumn(false)]
         public int idKorisnika { get; set; }
         

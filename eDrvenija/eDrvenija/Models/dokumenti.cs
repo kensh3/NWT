@@ -11,9 +11,11 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class dokumenti
     {
+        [Key]
         public int idDokumenta { get; set; }
         public byte[] dokument { get; set; }
         public Nullable<int> brojPreuzimanja { get; set; }

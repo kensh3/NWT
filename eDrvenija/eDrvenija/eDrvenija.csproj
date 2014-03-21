@@ -200,14 +200,12 @@
     <Compile Include="Models\komentari.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KomentariContext.cs" />
     <Compile Include="Models\korisnici.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\korisnicikategorije.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\KorisnikContext.cs" />
     <Compile Include="Models\logovi.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
@@ -220,7 +218,6 @@
     <Compile Include="Models\poruke.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\PorukeContext.cs" />
     <Compile Include="Models\statusi.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>

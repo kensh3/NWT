@@ -14,18 +14,18 @@ namespace eDrvenija.eDrvenija.Controllers
 {
     public class KorisnikController : ApiController
     {
-        private KorisnikContext db = new KorisnikContext();
+        private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
         // GET api/Korisnik
         public IEnumerable<korisnici> Getkorisnicis()
         {
-            return db.korisnicis.AsEnumerable();
+            return db.korisnici.AsEnumerable();
         }
 
         // GET api/Korisnik/5
         public korisnici Getkorisnici(int id)
         {
-            korisnici korisnici = db.korisnicis.Find(id);
+            korisnici korisnici = db.korisnici.Find(id);
             if (korisnici == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -37,7 +37,7 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Korisnik/email
         public korisnici GetkorisniciByEmail(string email)
         {
-            korisnici korisnici = db.korisnicis.Find(email);
+            korisnici korisnici = db.korisnici.Find(email);
             if (korisnici == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -49,7 +49,7 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Korisnik/username
         public korisnici GetkorisniciByUsername(string user)
         {
-            korisnici korisnici = db.korisnicis.Find(user);
+            korisnici korisnici = db.korisnici.Find(user);
             if (korisnici == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -61,7 +61,7 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Korisnik/login
         public korisnici Login([FromBody]string username, [FromBody]string password)
         {
-            korisnici korisnici = db.korisnicis.Find(username, password);
+            korisnici korisnici = db.korisnici.Find(username, password);
             if (korisnici == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -73,7 +73,7 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Korisnik/logout
         public korisnici Login([FromBody]int id)
         {
-            korisnici korisnici = db.korisnicis.Find(id);
+            korisnici korisnici = db.korisnici.Find(id);
             if (korisnici == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -114,7 +114,7 @@ namespace eDrvenija.eDrvenija.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.korisnicis.Add(korisnici);
+                db.korisnici.Add(korisnici);
                 db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, korisnici);
@@ -130,13 +130,13 @@ namespace eDrvenija.eDrvenija.Controllers
         // DELETE api/Korisnik/5
         public HttpResponseMessage Deletekorisnici(int id)
         {
-            korisnici korisnici = db.korisnicis.Find(id);
+            korisnici korisnici = db.korisnici.Find(id);
             if (korisnici == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.korisnicis.Remove(korisnici);
+            db.korisnici.Remove(korisnici);
 
             try
             {

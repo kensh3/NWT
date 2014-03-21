@@ -22,6 +22,7 @@ namespace eDrvenija.eDrvenija.Models
             this.korisnici = new HashSet<korisnici>();
         }
     
+        [Key]
         [ScaffoldColumn(false)]
         public int idTipaKorisnika { get; set; }
         [DisplayName("Tip korisnika")]

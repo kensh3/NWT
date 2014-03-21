@@ -14,18 +14,18 @@ namespace eDrvenija.eDrvenija.Controllers
 {
     public class KomentariController : ApiController
     {
-        private KomentariContext db = new KomentariContext();
+        private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
         // GET api/Komentari
         public IEnumerable<komentari> Getkomentaris()
         {
-            return db.komentaris.AsEnumerable();
+            return db.komentari.AsEnumerable();
         }
 
         // GET api/Komentari/5
         public komentari Getkomentari(int id)
         {
-            komentari komentari = db.komentaris.Find(id);
+            komentari komentari = db.komentari.Find(id);
             if (komentari == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -66,7 +66,7 @@ namespace eDrvenija.eDrvenija.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.komentaris.Add(komentari);
+                db.komentari.Add(komentari);
                 db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, komentari);
@@ -82,13 +82,13 @@ namespace eDrvenija.eDrvenija.Controllers
         // DELETE api/Komentari/5
         public HttpResponseMessage Deletekomentari(int id)
         {
-            komentari komentari = db.komentaris.Find(id);
+            komentari komentari = db.komentari.Find(id);
             if (komentari == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.komentaris.Remove(komentari);
+            db.komentari.Remove(komentari);
 
             try
             {

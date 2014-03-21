@@ -21,6 +21,7 @@ namespace eDrvenija.eDrvenija.Models
             this.oglasi = new HashSet<oglasi>();
         }
     
+        [Key]
         [ScaffoldColumn(false)]
         public int idTipaOglasa { get; set; }
         [DisplayName("Tip oglasa")]

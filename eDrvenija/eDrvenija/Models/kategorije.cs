@@ -16,12 +16,14 @@ namespace eDrvenija.eDrvenija.Models
     
     public partial class kategorije
     {
+        
         public kategorije()
         {
             this.korisnicikategorije = new HashSet<korisnicikategorije>();
             this.oglasi = new HashSet<oglasi>();
         }
-    
+
+        [Key]
         [ScaffoldColumn(false)]
         public int idKategorije { get; set; }
         [DisplayName("Kategorija")]

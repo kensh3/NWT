@@ -11,9 +11,11 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class ocjene
     {
+        [Key]
         public int idOcjene { get; set; }
         public Nullable<double> ocjena { get; set; }
         public int idKorisnika { get; set; }

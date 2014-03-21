@@ -14,18 +14,18 @@ namespace eDrvenija.eDrvenija.Controllers
 {
     public class PorukeController : ApiController
     {
-        private PorukeContext db = new PorukeContext();
+        private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
         // GET api/Poruke
         public IEnumerable<poruke> Getporukes()
         {
-            return db.porukes.AsEnumerable();
+            return db.poruke.AsEnumerable();
         }
 
         // GET api/Poruke/5
         public poruke Getporuke(int id)
         {
-            poruke poruke = db.porukes.Find(id);
+            poruke poruke = db.poruke.Find(id);
             if (poruke == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -66,7 +66,7 @@ namespace eDrvenija.eDrvenija.Controllers
         {
             if (ModelState.IsValid)
             {
-                db.porukes.Add(poruke);
+                db.poruke.Add(poruke);
                 db.SaveChanges();
 
                 HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, poruke);
@@ -82,13 +82,13 @@ namespace eDrvenija.eDrvenija.Controllers
         // DELETE api/Poruke/5
         public HttpResponseMessage Deleteporuke(int id)
         {
-            poruke poruke = db.porukes.Find(id);
+            poruke poruke = db.poruke.Find(id);
             if (poruke == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.porukes.Remove(poruke);
+            db.poruke.Remove(poruke);
 
             try
             {

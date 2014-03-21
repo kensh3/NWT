@@ -12,6 +12,7 @@ namespace eDrvenija.eDrvenija.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
+    using System.Data.Entity.ModelConfiguration.Conventions;
     
     public partial class edrvenijabazaEntities2 : DbContext
     {
@@ -22,6 +23,7 @@ namespace eDrvenija.eDrvenija.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             throw new UnintentionalCodeFirstException();
         }
     

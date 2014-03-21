@@ -11,9 +11,11 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
     
     public partial class statusi
     {
+        [Key]
         public int idStatusa { get; set; }
         public Nullable<int> brojProdaja { get; set; }
         public Nullable<int> brojKupovina { get; set; }

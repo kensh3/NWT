@@ -171,6 +171,7 @@
     <Compile Include="Controllers\KorisnikController.cs" />
     <Compile Include="Controllers\OglasiController.cs" />
     <Compile Include="Controllers\PorukeController.cs" />
+    <Compile Include="Controllers\StatusiController.cs" />
     <Compile Include="Controllers\TipoviKorisnikaController.cs" />
     <Compile Include="Controllers\TipoviOglasaController.cs" />
     <Compile Include="Controllers\TransakcijeController.cs" />

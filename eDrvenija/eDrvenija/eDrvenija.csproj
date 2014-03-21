@@ -169,9 +169,11 @@
     <Compile Include="Controllers\KomentariController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
     <Compile Include="Controllers\KorisnikController.cs" />
+    <Compile Include="Controllers\OglasiController.cs" />
     <Compile Include="Controllers\PorukeController.cs" />
     <Compile Include="Controllers\TipoviKorisnikaController.cs" />
     <Compile Include="Controllers\TipoviOglasaController.cs" />
+    <Compile Include="Controllers\TransakcijeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>

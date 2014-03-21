@@ -35,6 +35,7 @@ namespace eDrvenija.eDrvenija.Controllers
             return oglasi;
         }
 
+
         // PUT api/Oglasi/5
         public HttpResponseMessage Putoglasi(int id, oglasi oglasi)
         {
@@ -112,6 +113,80 @@ namespace eDrvenija.eDrvenija.Controllers
                         select oglasi;
             return lista.AsEnumerable();
         }
+
+
+        // GET api/Oglasi/zavrseni
+       public IEnumerable<oglasi> DajSveZavrseneOglase()
+        {
+
+            var lista = from oglasi in db.oglasi
+                        where oglasi.zavrsenaTransakcija == true
+                        select oglasi;
+            if (lista == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return lista.AsEnumerable();
+        }
+
+
+       // GET api/Oglasi/kategorija
+        public IEnumerable<oglasi> DajOglasePoKategoriji(int IDkat)
+        {
+
+            var lista = from oglasi in db.oglasi
+                        from kategorije in db.kategorije
+                        where oglasi.idKategorije == kategorije.idKategorije
+                        where oglasi.idKategorije == IDkat
+                        select oglasi;
+
+            if (lista == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return lista.AsEnumerable();
+        }
+
+        // GET api/Oglasi/brojPregleda
+        public IEnumerable<oglasi> DajOglasePoBrojuPregleda()
+        {
+
+            var lista = from oglasi in db.oglasi orderby oglasi.brojPregledaOglasa descending
+                        select oglasi;
+
+            if (lista == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return lista.AsEnumerable();
+        }
+
+        // GET api/Oglasi/brojPreuzimanja
+        public IEnumerable<dokumenti> DajOglasePoBrojuPreuzimanja()
+        {
+
+            var lista = from dokumenti in db.dokumenti
+                        orderby dokumenti.brojPreuzimanja descending
+                        select dokumenti;
+
+            if (lista == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            return lista.AsEnumerable();
+        }
+
+
+
+
+
+
+
+
 
         protected override void Dispose(bool disposing)
         {

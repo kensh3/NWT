@@ -23,6 +23,7 @@ namespace eDrvenija.eDrvenija.Controllers
         }
 
         // GET api/Korisnik/5
+        [HttpGet]
         public korisnici Getkorisnici(int id)
         {
             korisnici korisnici = db.korisnici.Find(id);
@@ -37,41 +38,47 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Korisnik/email
         public korisnici GetkorisniciByEmail(string email)
         {
-            korisnici korisnici = db.korisnici.Find(email);
-            if (korisnici == null)
+            korisnici korisnik = db.korisnici.FirstOrDefault(kor => kor.eMailKorisnika == email);
+
+            if (korisnik == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return korisnici;
+            return korisnik;
         }
 
         // GET api/Korisnik/username
         public korisnici GetkorisniciByUsername(string user)
         {
-            korisnici korisnici = db.korisnici.Find(user);
-            if (korisnici == null)
+            korisnici korisnik = db.korisnici.FirstOrDefault(kor => kor.korisnickoImeKorisnika == user);
+            if (korisnik == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return korisnici;
+            return korisnik;
         }
 
         // GET api/Korisnik/login
-        public korisnici Login([FromBody]string username, [FromBody]string password)
+        [HttpPost]
+        public korisnici Login(string username, string password)
         {
-            korisnici korisnici = db.korisnici.Find(username, password);
-            if (korisnici == null)
+            korisnici korisnik = (from korisnici in db.korisnici
+                                  where korisnici.korisnickoImeKorisnika == username && korisnici.lozinkaKorisnika == password
+                                  select korisnici).First();
+                            
+            if (korisnik == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return korisnici;
+            return korisnik;
         }
 
         // GET api/Korisnik/logout
-        public korisnici Login([FromBody]int id)
+        [HttpGet]
+        public korisnici Logout(int id)
         {
             korisnici korisnici = db.korisnici.Find(id);
             if (korisnici == null)

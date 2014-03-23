@@ -12,12 +12,21 @@ namespace eDrvenija.eDrvenija.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     
     public partial class komentari
     {
         [Key]
+        [ScaffoldColumn(false)]
         public int idKomentara { get; set; }
+
+        [DisplayName("Tekst komentara")]
+        [Required(ErrorMessage="Potrebno je unijeti tekst komentara i ne smije biti duži od 1000 znakova")]
+        [MaxLength(1000, ErrorMessage="Maksimalna dužina je 1000 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string tekstKomentara { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
         public int idKorisnika { get; set; }
         public int idOglasa { get; set; }

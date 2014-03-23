@@ -1,0 +1,85 @@
+﻿@model eDrvenija.eDrvenija.Models.oglasi
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>oglasi</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nazivOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nazivOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.datumObjaveOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datumObjaveOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.opisOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opisOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cijena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cijena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.brojPregledaOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.brojPregledaOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.zavrsenaTransakcija)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zavrsenaTransakcija)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.aktivan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aktivan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipovioglasa.nazivTipaOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipovioglasa.nazivTipaOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.kategorije.nazivKategorije)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.kategorije.nazivKategorije)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnici.imeKorisnika)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idOglasa }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

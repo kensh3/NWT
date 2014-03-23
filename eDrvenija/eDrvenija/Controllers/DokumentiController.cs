@@ -2,105 +2,121 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web;
-using System.Web.Http;
+using System.Web.Mvc;
 using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class DokumentiController : ApiController
+    public class DokumentiController : Controller
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
-        // GET api/Dokumenti
-        public IEnumerable<dokumenti> Getdokumentis()
+        //
+        // GET: /Dokumenti/
+
+        public ActionResult Index()
         {
             var dokumenti = db.dokumenti.Include(d => d.oglasi);
-            return dokumenti.AsEnumerable();
+            return View(dokumenti.ToList());
         }
 
-        // GET api/Dokumenti/5
-        public dokumenti Getdokumenti(int id)
+        //
+        // GET: /Dokumenti/Details/5
+
+        public ActionResult Details(int id = 0)
         {
             dokumenti dokumenti = db.dokumenti.Find(id);
             if (dokumenti == null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                return HttpNotFound();
             }
-
-            return dokumenti;
+            return View(dokumenti);
         }
 
-        // PUT api/Dokumenti/5
-        public HttpResponseMessage Putdokumenti(int id, dokumenti dokumenti)
+        //
+        // GET: /Dokumenti/Create
+
+        public ActionResult Create()
         {
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
-            if (id != dokumenti.idDokumenta)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-
-            db.Entry(dokumenti).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            ViewBag.idOglasa = new SelectList(db.oglasi, "idOglasa", "nazivOglasa");
+            return View();
         }
 
-        // POST api/Dokumenti
-        public HttpResponseMessage Postdokumenti(dokumenti dokumenti)
+        //
+        // POST: /Dokumenti/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(dokumenti dokumenti)
         {
             if (ModelState.IsValid)
             {
                 db.dokumenti.Add(dokumenti);
                 db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, dokumenti);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = dokumenti.idDokumenta }));
-                return response;
-            }
-            else
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
+            ViewBag.idOglasa = new SelectList(db.oglasi, "idOglasa", "nazivOglasa", dokumenti.idOglasa);
+            return View(dokumenti);
         }
 
-        // DELETE api/Dokumenti/5
-        public HttpResponseMessage Deletedokumenti(int id)
+        //
+        // GET: /Dokumenti/Edit/5
+
+        public ActionResult Edit(int id = 0)
         {
             dokumenti dokumenti = db.dokumenti.Find(id);
             if (dokumenti == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return HttpNotFound();
             }
+            ViewBag.idOglasa = new SelectList(db.oglasi, "idOglasa", "nazivOglasa", dokumenti.idOglasa);
+            return View(dokumenti);
+        }
 
-            db.dokumenti.Remove(dokumenti);
+        //
+        // POST: /Dokumenti/Edit/5
 
-            try
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(dokumenti dokumenti)
+        {
+            if (ModelState.IsValid)
             {
+                db.Entry(dokumenti).State = EntityState.Modified;
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-            }
+            ViewBag.idOglasa = new SelectList(db.oglasi, "idOglasa", "nazivOglasa", dokumenti.idOglasa);
+            return View(dokumenti);
+        }
 
-            return Request.CreateResponse(HttpStatusCode.OK, dokumenti);
+        //
+        // GET: /Dokumenti/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            dokumenti dokumenti = db.dokumenti.Find(id);
+            if (dokumenti == null)
+            {
+                return HttpNotFound();
+            }
+            return View(dokumenti);
+        }
+
+        //
+        // POST: /Dokumenti/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            dokumenti dokumenti = db.dokumenti.Find(id);
+            db.dokumenti.Remove(dokumenti);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

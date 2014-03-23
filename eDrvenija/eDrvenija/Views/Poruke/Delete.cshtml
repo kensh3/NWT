@@ -1,0 +1,54 @@
+﻿@model eDrvenija.eDrvenija.Models.poruke
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>poruke</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.naslovPoruke)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.naslovPoruke)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tekstPoruke)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tekstPoruke)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.aktivan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aktivan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnici.imeKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnici1.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnici1.imeKorisnika)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

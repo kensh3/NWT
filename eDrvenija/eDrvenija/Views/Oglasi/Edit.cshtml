@@ -1,0 +1,110 @@
+﻿@model eDrvenija.eDrvenija.Models.oglasi
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>oglasi</legend>
+
+        @Html.HiddenFor(model => model.idOglasa)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.nazivOglasa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.nazivOglasa)
+            @Html.ValidationMessageFor(model => model.nazivOglasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.datumObjaveOglasa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.datumObjaveOglasa)
+            @Html.ValidationMessageFor(model => model.datumObjaveOglasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.opisOglasa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.opisOglasa)
+            @Html.ValidationMessageFor(model => model.opisOglasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.cijena)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.cijena)
+            @Html.ValidationMessageFor(model => model.cijena)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.brojPregledaOglasa)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.brojPregledaOglasa)
+            @Html.ValidationMessageFor(model => model.brojPregledaOglasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.zavrsenaTransakcija)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.zavrsenaTransakcija)
+            @Html.ValidationMessageFor(model => model.zavrsenaTransakcija)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.aktivan)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.aktivan)
+            @Html.ValidationMessageFor(model => model.aktivan)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idTipaOglasa, "tipovioglasa")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("idTipaOglasa", String.Empty)
+            @Html.ValidationMessageFor(model => model.idTipaOglasa)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idKategorije, "kategorije")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("idKategorije", String.Empty)
+            @Html.ValidationMessageFor(model => model.idKategorije)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.idKorisnika, "korisnici")
+        </div>
+        <div class="editor-field">
+            @Html.DropDownList("idKorisnika", String.Empty)
+            @Html.ValidationMessageFor(model => model.idKorisnika)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

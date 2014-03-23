@@ -12,7 +12,7 @@ using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class StatusiController : ApiController
+    public class StatusiApiController : ApiController
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 

@@ -27,16 +27,10 @@
             @Html.DisplayNameFor(model => model.ocjena)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.korisnikAktivanOd)
-        </th>
-        <th>
             @Html.DisplayNameFor(model => model.korisnickoImeKorisnika)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.lozinkaKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.aktivan)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.tipovikorisnika.nazivTipaKorisnika)
@@ -62,24 +56,18 @@
             @Html.DisplayFor(modelItem => item.ocjena)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.korisnikAktivanOd)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.korisnickoImeKorisnika)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.lozinkaKorisnika)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.aktivan)
-        </td>
-        <td>
             @Html.DisplayFor(modelItem => item.tipovikorisnika.nazivTipaKorisnika)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            @Html.ActionLink("Edit", "Edit", new { id=item.idKorisnika }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idKorisnika }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idKorisnika })
         </td>
     </tr>
 }

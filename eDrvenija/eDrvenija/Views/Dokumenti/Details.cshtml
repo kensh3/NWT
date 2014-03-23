@@ -1,0 +1,29 @@
+﻿@model eDrvenija.eDrvenija.Models.dokumenti
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>dokumenti</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.brojPreuzimanja)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.brojPreuzimanja)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.oglasi.nazivOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.oglasi.nazivOglasa)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idDokumenta }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

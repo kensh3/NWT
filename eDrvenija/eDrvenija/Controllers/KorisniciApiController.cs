@@ -12,7 +12,7 @@ using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class KorisnikController : ApiController
+    public class KorisniciApiController : ApiController
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 

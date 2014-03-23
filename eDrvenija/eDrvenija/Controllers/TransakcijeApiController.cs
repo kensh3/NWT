@@ -12,43 +12,43 @@ using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class KorisnickeKategorijaController : ApiController
+    public class TransakcijeApiController : ApiController
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
-        // GET api/KorisnickeKategorija
-        public IEnumerable<korisnicikategorije> Getkorisnicikategorijes()
+        // GET api/Transakcije
+        public IEnumerable<transakcije> Gettransakcijes()
         {
-            var korisnicikategorije = db.korisnicikategorije.Include(k => k.kategorije).Include(k => k.korisnici);
-            return korisnicikategorije.AsEnumerable();
+            var transakcije = db.transakcije.Include(t => t.korisnici).Include(t => t.oglasi);
+            return transakcije.AsEnumerable();
         }
 
-        // GET api/KorisnickeKategorija/5
-        public korisnicikategorije Getkorisnicikategorije(int id)
+        // GET api/Transakcije/5
+        public transakcije Gettransakcije(int id)
         {
-            korisnicikategorije korisnicikategorije = db.korisnicikategorije.Find(id);
-            if (korisnicikategorije == null)
+            transakcije transakcije = db.transakcije.Find(id);
+            if (transakcije == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return korisnicikategorije;
+            return transakcije;
         }
 
-        // PUT api/KorisnickeKategorija/5
-        public HttpResponseMessage Putkorisnicikategorije(int id, korisnicikategorije korisnicikategorije)
+        // PUT api/Transakcije/5
+        public HttpResponseMessage Puttransakcije(int id, transakcije transakcije)
         {
             if (!ModelState.IsValid)
             {
                 return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
             }
 
-            if (id != korisnicikategorije.idKorisnikaKategorije)
+            if (id != transakcije.idTransakcije)
             {
                 return Request.CreateResponse(HttpStatusCode.BadRequest);
             }
 
-            db.Entry(korisnicikategorije).State = EntityState.Modified;
+            db.Entry(transakcije).State = EntityState.Modified;
 
             try
             {
@@ -62,16 +62,16 @@ namespace eDrvenija.eDrvenija.Controllers
             return Request.CreateResponse(HttpStatusCode.OK);
         }
 
-        // POST api/KorisnickeKategorija
-        public HttpResponseMessage Postkorisnicikategorije(korisnicikategorije korisnicikategorije)
+        // POST api/Transakcije
+        public HttpResponseMessage Posttransakcije(transakcije transakcije)
         {
             if (ModelState.IsValid)
             {
-                db.korisnicikategorije.Add(korisnicikategorije);
+                db.transakcije.Add(transakcije);
                 db.SaveChanges();
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, korisnicikategorije);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = korisnicikategorije.idKorisnikaKategorije }));
+                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, transakcije);
+                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = transakcije.idTransakcije }));
                 return response;
             }
             else
@@ -80,16 +80,16 @@ namespace eDrvenija.eDrvenija.Controllers
             }
         }
 
-        // DELETE api/KorisnickeKategorija/5
-        public HttpResponseMessage Deletekorisnicikategorije(int id)
+        // DELETE api/Transakcije/5
+        public HttpResponseMessage Deletetransakcije(int id)
         {
-            korisnicikategorije korisnicikategorije = db.korisnicikategorije.Find(id);
-            if (korisnicikategorije == null)
+            transakcije transakcije = db.transakcije.Find(id);
+            if (transakcije == null)
             {
                 return Request.CreateResponse(HttpStatusCode.NotFound);
             }
 
-            db.korisnicikategorije.Remove(korisnicikategorije);
+            db.transakcije.Remove(transakcije);
 
             try
             {
@@ -100,8 +100,18 @@ namespace eDrvenija.eDrvenija.Controllers
                 return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
             }
 
-            return Request.CreateResponse(HttpStatusCode.OK, korisnicikategorije);
+            return Request.CreateResponse(HttpStatusCode.OK, transakcije);
         }
+
+        public IEnumerable<transakcije> GetKorisniciTransakcije(int idkorisnika)
+        {
+
+            var lista = from transakcije in db.transakcije
+                        where transakcije.idKorisnika==idkorisnika
+                        select transakcije;
+            return lista.AsEnumerable();
+        }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<eDrvenija.eDrvenija.Models.komentari>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.tekstKomentara)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.oglasi.nazivOglasa)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tekstKomentara)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.korisnici.imeKorisnika)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.oglasi.nazivOglasa)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idKomentara }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idKomentara }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idKomentara })
+        </td>
+    </tr>
+}
+
+</table>

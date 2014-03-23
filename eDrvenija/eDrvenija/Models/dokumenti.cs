@@ -12,13 +12,25 @@ namespace eDrvenija.eDrvenija.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     
     public partial class dokumenti
     {
         [Key]
+        [ScaffoldColumn(false)]
         public int idDokumenta { get; set; }
+
+        [DisplayName("Dokument")]
+        [Required(ErrorMessage="Potrebno je unijeti dokument")]
         public byte[] dokument { get; set; }
+
+        [DisplayName("Broj preuzimanja")]
+        [ReadOnly(true)]
         public Nullable<int> brojPreuzimanja { get; set; }
+
+        [DisplayName("Odaberite oglas")]
+        [Required(ErrorMessage="Potrebno je odabrati oglas")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int idOglasa { get; set; }
     
         public virtual oglasi oglasi { get; set; }

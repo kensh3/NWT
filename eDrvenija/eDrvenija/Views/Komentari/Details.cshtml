@@ -1,0 +1,43 @@
+﻿@model eDrvenija.eDrvenija.Models.komentari
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>komentari</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tekstKomentara)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tekstKomentara)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.aktivan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aktivan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnici.imeKorisnika)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.oglasi.nazivOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.oglasi.nazivOglasa)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.idKomentara }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

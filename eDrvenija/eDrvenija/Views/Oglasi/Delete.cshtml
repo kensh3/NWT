@@ -1,0 +1,89 @@
+﻿@model eDrvenija.eDrvenija.Models.oglasi
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>oglasi</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.nazivOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.nazivOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.datumObjaveOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.datumObjaveOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.opisOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.opisOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.cijena)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.cijena)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.brojPregledaOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.brojPregledaOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.zavrsenaTransakcija)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.zavrsenaTransakcija)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.aktivan)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.aktivan)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.tipovioglasa.nazivTipaOglasa)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.tipovioglasa.nazivTipaOglasa)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.kategorije.nazivKategorije)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.kategorije.nazivKategorije)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.korisnici.imeKorisnika)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}

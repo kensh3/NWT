@@ -2,143 +2,125 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
-using System.Data.Entity.Infrastructure;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web;
-using System.Web.Http;
+using System.Web.Mvc;
 using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class PorukeController : ApiController
+    public class PorukeController : Controller
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
-        // GET api/Poruke
-        public IEnumerable<poruke> Getporukes()
+        //
+        // GET: /Poruke/
+
+        public ActionResult Index()
         {
-            return db.poruke.AsEnumerable();
+            var poruke = db.poruke.Include(p => p.korisnici).Include(p => p.korisnici1);
+            return View(poruke.ToList());
         }
 
-        // GET api/Poruke/5
-        public poruke Getporuke(int id)
+        //
+        // GET: /Poruke/Details/5
+
+        public ActionResult Details(int id = 0)
         {
             poruke poruke = db.poruke.Find(id);
             if (poruke == null)
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                return HttpNotFound();
             }
-
-            return poruke;
+            return View(poruke);
         }
 
-        // PUT api/Poruke/5
-        public HttpResponseMessage Putporuke(int id, poruke poruke)
+        //
+        // GET: /Poruke/Create
+
+        public ActionResult Create()
         {
-            if (!ModelState.IsValid)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
-
-            if (id != poruke.idPoruke)
-            {
-                return Request.CreateResponse(HttpStatusCode.BadRequest);
-            }
-
-            db.Entry(poruke).State = EntityState.Modified;
-
-            try
-            {
-                db.SaveChanges();
-            }
-            catch (DbUpdateConcurrencyException ex)
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
-            }
-
-            return Request.CreateResponse(HttpStatusCode.OK);
+            ViewBag.idKorisnikaPosiljaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika");
+            ViewBag.idKorisnikaPrimaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika");
+            return View();
         }
 
-        // POST api/Poruke
-        public HttpResponseMessage Postporuke(poruke poruke)
+        //
+        // POST: /Poruke/Create
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Create(poruke poruke)
         {
             if (ModelState.IsValid)
             {
                 db.poruke.Add(poruke);
                 db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-                HttpResponseMessage response = Request.CreateResponse(HttpStatusCode.Created, poruke);
-                response.Headers.Location = new Uri(Url.Link("DefaultApi", new { id = poruke.idPoruke }));
-                return response;
-            }
-            else
-            {
-                return Request.CreateErrorResponse(HttpStatusCode.BadRequest, ModelState);
-            }
+            ViewBag.idKorisnikaPosiljaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPosiljaoca);
+            ViewBag.idKorisnikaPrimaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPrimaoca);
+            return View(poruke);
         }
 
-        // DELETE api/Poruke/5
-        public HttpResponseMessage Deleteporuke(int id)
+        //
+        // GET: /Poruke/Edit/5
+
+        public ActionResult Edit(int id = 0)
         {
             poruke poruke = db.poruke.Find(id);
             if (poruke == null)
             {
-                return Request.CreateResponse(HttpStatusCode.NotFound);
+                return HttpNotFound();
             }
+            ViewBag.idKorisnikaPosiljaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPosiljaoca);
+            ViewBag.idKorisnikaPrimaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPrimaoca);
+            return View(poruke);
+        }
 
-            db.poruke.Remove(poruke);
+        //
+        // POST: /Poruke/Edit/5
 
-            try
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(poruke poruke)
+        {
+            if (ModelState.IsValid)
             {
+                db.Entry(poruke).State = EntityState.Modified;
                 db.SaveChanges();
+                return RedirectToAction("Index");
             }
-            catch (DbUpdateConcurrencyException ex)
+            ViewBag.idKorisnikaPosiljaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPosiljaoca);
+            ViewBag.idKorisnikaPrimaoca = new SelectList(db.korisnici, "idKorisnika", "imeKorisnika", poruke.idKorisnikaPrimaoca);
+            return View(poruke);
+        }
+
+        //
+        // GET: /Poruke/Delete/5
+
+        public ActionResult Delete(int id = 0)
+        {
+            poruke poruke = db.poruke.Find(id);
+            if (poruke == null)
             {
-                return Request.CreateErrorResponse(HttpStatusCode.NotFound, ex);
+                return HttpNotFound();
             }
-
-            return Request.CreateResponse(HttpStatusCode.OK, poruke);
+            return View(poruke);
         }
 
-        public IEnumerable<poruke> DajSvePrimljenePoruke(int id)
+        //
+        // POST: /Poruke/Delete/5
+
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
         {
-
-            var lista = from poruke in db.poruke
-                        where poruke.idKorisnikaPrimaoca == id
-                        select poruke;
-            return lista.AsEnumerable();
-        }
-
-        public IEnumerable<poruke> DajSvePoslanePoruke(int id)
-        {
-
-            var lista = from poruke in db.poruke
-                        where poruke.idKorisnikaPosiljaoca == id
-                        select poruke;
-            return lista.AsEnumerable();
-        }
-
-        public IEnumerable<poruke> DajSveNotifikacije(int id)
-        {
-
-            var lista = from poruke in db.poruke
-                        where poruke.idKorisnikaPrimaoca == id 
-                        where poruke.idKorisnikaPosiljaoca == 1
-                        select poruke;
-            return lista.AsEnumerable();
-        }
-
-        public IEnumerable<poruke> DajSvePrimljenePorukePoKorisnickomImenu(string username)
-        {
-
-            var lista = from poruke in db.poruke
-                        from korisnici in db.korisnici
-                        where poruke.idKorisnikaPrimaoca == korisnici.idKorisnika
-                        where korisnici.korisnickoImeKorisnika == username
-                        select poruke;
-            return lista.AsEnumerable();
+            poruke poruke = db.poruke.Find(id);
+            db.poruke.Remove(poruke);
+            db.SaveChanges();
+            return RedirectToAction("Index");
         }
 
         protected override void Dispose(bool disposing)

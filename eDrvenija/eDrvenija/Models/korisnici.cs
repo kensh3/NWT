@@ -21,13 +21,11 @@ namespace eDrvenija.eDrvenija.Models
             this.komentari = new HashSet<komentari>();
             this.korisnicikategorije = new HashSet<korisnicikategorije>();
             this.logovi = new HashSet<logovi>();
-            this.ocjene = new HashSet<ocjene>();
             this.oglasi = new HashSet<oglasi>();
             this.poruke = new HashSet<poruke>();
             this.poruke1 = new HashSet<poruke>();
             this.statusi = new HashSet<statusi>();
             this.transakcije = new HashSet<transakcije>();
-            this.upiti = new HashSet<upiti>();
         }
     
         [Key]
@@ -36,53 +34,73 @@ namespace eDrvenija.eDrvenija.Models
         
         [DisplayName("Ime")]
         [Required(ErrorMessage = "Potrebno je unijeti ime korisnika i ne smije biti duže od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string imeKorisnika { get; set; }
         
         [DisplayName("Prezime")]
         [Required(ErrorMessage = "Potrebno je unijeti prezime korisnika i ne smije biti duže od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string prezimeKorisnika { get; set; }
 
         [DisplayName("E-Mail")]
         [Required(ErrorMessage = "Potrebno je unijeti email korisnika i ne smije biti duži od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [DataType(DataType.EmailAddress)]
+        [EmailAddress(ErrorMessage = "Primjer validne email adrese: primjer@email.ba")]
         public string eMailKorisnika { get; set; }
 
         [DisplayName("Broj telefona")]
         [Required(ErrorMessage = "Potrebno je unijeti broj telefona korisnika i ne smije biti duži od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [DataType(DataType.PhoneNumber)]
+        [Phone(ErrorMessage = "Broj nije validan")]
         public string brojTelefonaKorisnika { get; set; }
+
         public byte[] avatarKorisnika { get; set; }
 
+        [ScaffoldColumn(false)]
         [DisplayName("Ocjena")]
         [Range(1.00, 5.00,
             ErrorMessage = "Ocjena mora biti izmeðu 1 i 5")]
         public Nullable<double> ocjena { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<System.DateTime> korisnikAktivanOd { get; set; }
 
         [DisplayName("Korisnièko ime")]
         [Required(ErrorMessage = "Potrebno je unijeti korisnièko ime korisnika i ne smije biti duže od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string korisnickoImeKorisnika { get; set; }
 
         [DisplayName("Lozinka")]
         [Required(ErrorMessage = "Potrebno je unijeti lozinku korisnika i ne smije biti duža od 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [DataType(DataType.Password)]
+        [PasswordPropertyText]
         public string lozinkaKorisnika { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
+
+        [DisplayName("Tip korisnika")]
+        [Required(ErrorMessage = "Potrebno je odabrati tip korisnika")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int idTipaKorisnika { get; set; }
     
         public virtual ICollection<komentari> komentari { get; set; }
         public virtual tipovikorisnika tipovikorisnika { get; set; }
         public virtual ICollection<korisnicikategorije> korisnicikategorije { get; set; }
         public virtual ICollection<logovi> logovi { get; set; }
-        public virtual ICollection<ocjene> ocjene { get; set; }
         public virtual ICollection<oglasi> oglasi { get; set; }
         public virtual ICollection<poruke> poruke { get; set; }
         public virtual ICollection<poruke> poruke1 { get; set; }
         public virtual ICollection<statusi> statusi { get; set; }
         public virtual ICollection<transakcije> transakcije { get; set; }
-        public virtual ICollection<upiti> upiti { get; set; }
     }
 }

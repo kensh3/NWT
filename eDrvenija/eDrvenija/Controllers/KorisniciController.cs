@@ -119,21 +119,6 @@ namespace eDrvenija.eDrvenija.Controllers
             return RedirectToAction("Index");
         }
 
-        public IEnumerable<korisnici> GetNajKorisnici(int broj)
-        {
-          //placeholder
-            
-            return null;
-        }
-
-        public IEnumerable<korisnici> GetNajaktivnijiKorisnici(int broj)
-        {
-            var lista = (from korisnici in db.korisnici
-                         orderby korisnici.oglasi.Count() descending
-                         select korisnici).Take(broj);
-            return lista.AsEnumerable();
-        }
-
         protected override void Dispose(bool disposing)
         {
             db.Dispose();

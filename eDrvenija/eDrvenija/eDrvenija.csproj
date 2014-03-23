@@ -164,19 +164,26 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\DokumentiApiController.cs" />
     <Compile Include="Controllers\DokumentiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategorijeApiController.cs" />
     <Compile Include="Controllers\KategorijeController.cs" />
+    <Compile Include="Controllers\KomentariApiController.cs" />
     <Compile Include="Controllers\KomentariController.cs" />
     <Compile Include="Controllers\KorisniciController.cs" />
-    <Compile Include="Controllers\KorisnickeKategorijaController.cs" />
-    <Compile Include="Controllers\KorisnikController.cs" />
+    <Compile Include="Controllers\KorisniciKategorijeApiController.cs" />
+    <Compile Include="Controllers\KorisniciApiController.cs" />
+    <Compile Include="Controllers\OglasiApiController.cs" />
     <Compile Include="Controllers\OglasiController.cs" />
+    <Compile Include="Controllers\PorukeApiController.cs" />
     <Compile Include="Controllers\PorukeController.cs" />
-    <Compile Include="Controllers\StatusiController.cs" />
+    <Compile Include="Controllers\StatusiApiController.cs" />
+    <Compile Include="Controllers\TipoviKorisnikaApiController.cs" />
     <Compile Include="Controllers\TipoviKorisnikaController.cs" />
+    <Compile Include="Controllers\TipoviOglasaApiController.cs" />
     <Compile Include="Controllers\TipoviOglasaController.cs" />
-    <Compile Include="Controllers\TransakcijeController.cs" />
+    <Compile Include="Controllers\TransakcijeApiController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -214,9 +221,6 @@
     <Compile Include="Models\logovi.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\ocjene.cs">
-      <DependentUpon>eDrvenijaModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\oglasi.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
@@ -233,9 +237,6 @@
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\transakcije.cs">
-      <DependentUpon>eDrvenijaModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\upiti.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -389,6 +390,26 @@
     <Content Include="Views\Kategorije\Create.cshtml" />
     <Content Include="Views\Kategorije\Edit.cshtml" />
     <Content Include="Views\Kategorije\Delete.cshtml" />
+    <Content Include="Views\Dokumenti\Index.cshtml" />
+    <Content Include="Views\Dokumenti\Details.cshtml" />
+    <Content Include="Views\Dokumenti\Create.cshtml" />
+    <Content Include="Views\Dokumenti\Edit.cshtml" />
+    <Content Include="Views\Dokumenti\Delete.cshtml" />
+    <Content Include="Views\Komentari\Index.cshtml" />
+    <Content Include="Views\Komentari\Details.cshtml" />
+    <Content Include="Views\Komentari\Create.cshtml" />
+    <Content Include="Views\Komentari\Edit.cshtml" />
+    <Content Include="Views\Komentari\Delete.cshtml" />
+    <Content Include="Views\Oglasi\Index.cshtml" />
+    <Content Include="Views\Oglasi\Details.cshtml" />
+    <Content Include="Views\Oglasi\Create.cshtml" />
+    <Content Include="Views\Oglasi\Edit.cshtml" />
+    <Content Include="Views\Oglasi\Delete.cshtml" />
+    <Content Include="Views\Poruke\Index.cshtml" />
+    <Content Include="Views\Poruke\Details.cshtml" />
+    <Content Include="Views\Poruke\Create.cshtml" />
+    <Content Include="Views\Poruke\Edit.cshtml" />
+    <Content Include="Views\Poruke\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

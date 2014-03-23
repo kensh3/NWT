@@ -12,6 +12,7 @@ namespace eDrvenija.eDrvenija.Models
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
     
     public partial class oglasi
     {
@@ -23,16 +24,46 @@ namespace eDrvenija.eDrvenija.Models
         }
     
         [Key]
+        [ScaffoldColumn(false)]
         public int idOglasa { get; set; }
+
+        [DisplayName("Naziv oglasa")]
+        [Required(ErrorMessage="Potrebno je unijeti naziv oglasa i ne smije biti duži od 45 znakova")]
+        [MaxLength(45, ErrorMessage="Maksimalna dužina je 45 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string nazivOglasa { get; set; }
         public Nullable<System.DateTime> datumObjaveOglasa { get; set; }
+
+        [DisplayName("Opis oglasa")]
+        [Required(ErrorMessage = "Potrebno je unijeti opis oglasa i ne smije biti duži od 1000 znakova")]
+        [MaxLength(1000, ErrorMessage = "Maksimalna dužina je 1000 znakova")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string opisOglasa { get; set; }
+
+        [DisplayName("Cijena")]
+        [Required(ErrorMessage = "Potrebno je unijeti cijenu")]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public Nullable<double> cijena { get; set; }
+
+        [DisplayName("Broj pregleda oglasa")]
+        [ReadOnly(true)]
         public Nullable<int> brojPregledaOglasa { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> zavrsenaTransakcija { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
+
+        [DisplayName("Tip oglasa")]
+        [Required(ErrorMessage = "Potrebno je odabrati tip oglasa")]
         public int idTipaOglasa { get; set; }
+
+        [DisplayName("Kategorija")]
+        [Required(ErrorMessage = "Potrebno je odabrati kategoriju")]
         public int idKategorije { get; set; }
+
+        [ScaffoldColumn(false)]
         public int idKorisnika { get; set; }
     
         public virtual ICollection<dokumenti> dokumenti { get; set; }

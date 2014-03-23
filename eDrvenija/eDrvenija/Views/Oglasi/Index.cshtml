@@ -1,0 +1,87 @@
+﻿@model IEnumerable<eDrvenija.eDrvenija.Models.oglasi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table>
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.nazivOglasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.datumObjaveOglasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.opisOglasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cijena)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.brojPregledaOglasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.zavrsenaTransakcija)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.aktivan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipovioglasa.nazivTipaOglasa)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.kategorije.nazivKategorije)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.korisnici.imeKorisnika)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nazivOglasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.datumObjaveOglasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.opisOglasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cijena)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.brojPregledaOglasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.zavrsenaTransakcija)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.aktivan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipovioglasa.nazivTipaOglasa)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.kategorije.nazivKategorije)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.korisnici.imeKorisnika)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idOglasa }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idOglasa }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idOglasa })
+        </td>
+    </tr>
+}
+
+</table>

@@ -14,12 +14,44 @@ namespace eDrvenija.eDrvenija.Controllers
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
         //
+        // Login
+
+        public ActionResult Login()
+        {
+            return View();
+        }
+        
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login(korisnici korisnik)
+        {
+            if (ModelState.IsValidField("Korisničko ime") && ModelState.IsValidField("Lozinka"))
+            {
+                
+                var v = db.korisnici.Where(a => a.korisnickoImeKorisnika.Equals(korisnik.korisnickoImeKorisnika) && a.lozinkaKorisnika.Equals(korisnik.lozinkaKorisnika)).FirstOrDefault();
+                if (v != null)
+                {
+                    Session["KorisnikId"] = v.idKorisnika.ToString();
+                    return RedirectToAction("Index", "Korisnici");
+                }
+            }
+            return View(korisnik);
+        }
+
+        //
         // GET: /Korisnici/
 
         public ActionResult Index()
         {
-            var korisnici = db.korisnici.Include(k => k.tipovikorisnika);
-            return View(korisnici.ToList());
+            if (Session["KorisnikId"] != null)
+            {
+                var korisnici = db.korisnici.Include(k => k.tipovikorisnika);
+                return View(korisnici.ToList());
+            }
+            else
+            {
+                return RedirectToAction("Login");
+            }
         }
 
         //
@@ -55,7 +87,7 @@ namespace eDrvenija.eDrvenija.Controllers
             {
                 db.korisnici.Add(korisnici);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Login");
             }
 
             ViewBag.idTipaKorisnika = new SelectList(db.tipovikorisnika, "idTipaKorisnika", "nazivTipaKorisnika", korisnici.idTipaKorisnika);

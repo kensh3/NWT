@@ -1,0 +1,58 @@
+﻿@model eDrvenija.eDrvenija.Models.korisnici
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<h2>Login</h2>
+
+
+@using (Html.BeginForm("Login", "Korisnici", FormMethod.Post))
+{
+    //this  is for create form tag
+    @Html.AntiForgeryToken()          // this is for prevent CSRF attack
+    @Html.ValidationSummary(true)
+    if (@ViewBag.Message != null)
+    {
+        <div style="border:1px solid red">
+            @ViewBag.Message
+        </div>
+    }
+    <table>
+        
+        <tr>
+            <td>@Html.LabelFor(a => a.korisnickoImeKorisnika)</td>
+            <td>@Html.TextBoxFor(a => a.korisnickoImeKorisnika)</td>
+            <td>@Html.ValidationMessageFor(a => a.korisnickoImeKorisnika)</td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(a => a.lozinkaKorisnika)
+            </td>
+            <td>
+                @Html.PasswordFor(a => a.lozinkaKorisnika)
+            </td>
+            <td>
+                @Html.ValidationMessageFor(a => a.lozinkaKorisnika)
+            </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Login" />
+            </td>
+            <td></td>
+        </tr>
+        <tr>
+            <td colspan="2" align="right">
+                @Html.ActionLink("Register", "Create", "Korisnici")
+            </td>
+        </tr>
+    </table>
+}
+
+@* This below line is for create javascript section *@
+
+@section Scripts{
+    @Scripts.Render("~/bundles/jqueryval")
+}

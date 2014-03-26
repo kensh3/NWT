@@ -11,26 +11,16 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class kategorije
     {
-        
         public kategorije()
         {
             this.korisnicikategorije = new HashSet<korisnicikategorije>();
             this.oglasi = new HashSet<oglasi>();
         }
-
-        [Key]
-        [ScaffoldColumn(false)]
+    
         public int idKategorije { get; set; }
-
-        [DisplayName("Kategorija")]
-        [Required(ErrorMessage = "Potrebno je unijeti naziv kategorije i ne smije biti duži od 45 znakova")]
-        [MaxLength(45, ErrorMessage="Maksimalna dužina je 45 znakova")]
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string nazivKategorije { get; set; }
     
         public virtual ICollection<korisnicikategorije> korisnicikategorije { get; set; }

@@ -11,9 +11,6 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-    using System.ComponentModel;
-    
     
     public partial class tipovikorisnika
     {
@@ -22,14 +19,7 @@ namespace eDrvenija.eDrvenija.Models
             this.korisnici = new HashSet<korisnici>();
         }
     
-        [Key]
-        [ScaffoldColumn(false)]
         public int idTipaKorisnika { get; set; }
-
-        [DisplayName("Tip korisnika")]
-        [Required(ErrorMessage="Potrebno je unijeti naziv tipa korisnika i ne smije biti duži od 45 znakova")]
-        [MaxLength(45, ErrorMessage="Maksimalna dužina je 45 znakova")]
-        [DisplayFormat(ConvertEmptyStringToNull=false)]
         public string nazivTipaKorisnika { get; set; }
     
         public virtual ICollection<korisnici> korisnici { get; set; }

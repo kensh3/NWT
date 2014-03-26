@@ -12,7 +12,6 @@ namespace eDrvenija.eDrvenija.Models
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
-    using System.Data.Entity.ModelConfiguration.Conventions;
     
     public partial class edrvenijabazaEntities2 : DbContext
     {
@@ -23,7 +22,6 @@ namespace eDrvenija.eDrvenija.Models
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
             throw new UnintentionalCodeFirstException();
         }
     
@@ -33,13 +31,11 @@ namespace eDrvenija.eDrvenija.Models
         public DbSet<korisnici> korisnici { get; set; }
         public DbSet<korisnicikategorije> korisnicikategorije { get; set; }
         public DbSet<logovi> logovi { get; set; }
-        public DbSet<ocjene> ocjene { get; set; }
         public DbSet<oglasi> oglasi { get; set; }
         public DbSet<poruke> poruke { get; set; }
         public DbSet<statusi> statusi { get; set; }
         public DbSet<tipovikorisnika> tipovikorisnika { get; set; }
         public DbSet<tipovioglasa> tipovioglasa { get; set; }
         public DbSet<transakcije> transakcije { get; set; }
-        public DbSet<upiti> upiti { get; set; }
     }
 }

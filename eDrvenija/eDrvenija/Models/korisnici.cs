@@ -64,8 +64,7 @@ namespace eDrvenija.eDrvenija.Models
 
         [ScaffoldColumn(false)]
         [DisplayName("Ocjena")]
-        [Range(1.00, 5.00,
-            ErrorMessage = "Ocjena mora biti izmeðu 1 i 5")]
+        [Range(1.00, 5.00, ErrorMessage = "Ocjena mora biti izmeðu 1 i 5")]
         public Nullable<double> ocjena { get; set; }
 
         [ScaffoldColumn(false)]

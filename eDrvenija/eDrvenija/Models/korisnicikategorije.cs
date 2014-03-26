@@ -11,11 +11,9 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
     
     public partial class korisnicikategorije
     {
-        [Key]
         public int idKorisnikaKategorije { get; set; }
         public int idKorisnika { get; set; }
         public int idKategorije { get; set; }

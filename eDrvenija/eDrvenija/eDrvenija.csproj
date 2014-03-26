@@ -410,6 +410,7 @@
     <Content Include="Views\Poruke\Create.cshtml" />
     <Content Include="Views\Poruke\Edit.cshtml" />
     <Content Include="Views\Poruke\Delete.cshtml" />
+    <Content Include="Views\Korisnici\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

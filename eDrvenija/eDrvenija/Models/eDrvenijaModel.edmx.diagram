@@ -11,14 +11,12 @@
         <EntityTypeShape EntityType="edrvenijaModel.korisnici" Width="1.5" PointX="3" PointY="11.75" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.korisnicikategorije" Width="1.5" PointX="8.25" PointY="13.5" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.logovi" Width="1.5" PointX="5.25" PointY="13.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="edrvenijaModel.ocjene" Width="1.5" PointX="5.25" PointY="16.375" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.oglasi" Width="1.5" PointX="8.25" PointY="8.25" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.poruke" Width="1.5" PointX="5.25" PointY="24" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.statusi" Width="1.5" PointX="5.25" PointY="27.25" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.tipovikorisnika" Width="1.5" PointX="0.75" PointY="13.625" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.tipovioglasa" Width="1.5" PointX="6" PointY="4.875" IsExpanded="true" />
         <EntityTypeShape EntityType="edrvenijaModel.transakcije" Width="1.5" PointX="10.5" PointY="12.625" IsExpanded="true" />
-        <EntityTypeShape EntityType="edrvenijaModel.upiti" Width="1.5" PointX="5.25" PointY="30" IsExpanded="true" />
         <AssociationConnector Association="edrvenijaModel.fk_Dokumenti_Oglasi1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_KorisniciKategorije_Kategorije1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Oglasi_Kategorije1" ManuallyRouted="false" />
@@ -27,13 +25,11 @@
         <AssociationConnector Association="edrvenijaModel.fk_Korisnici_TipoviKorisnika1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_KorisniciKategorije_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Logovi_Korisnici1" ManuallyRouted="false" />
-        <AssociationConnector Association="edrvenijaModel.fk_Ocjene_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Oglasi_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Poruke_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Poruke_Korisnici2" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Statusi_Korisnici1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Transakcije_Korisnici1" ManuallyRouted="false" />
-        <AssociationConnector Association="edrvenijaModel.fk_Upiti_Korisnici" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Oglasi_TipoviOglasa1" ManuallyRouted="false" />
         <AssociationConnector Association="edrvenijaModel.fk_Transakcije_Oglasi1" ManuallyRouted="false" />
       </Diagram>

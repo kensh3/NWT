@@ -1,4 +1,4 @@
-﻿// T4 code generation is enabled for model 'C:\Users\Amel\Documents\GitHub\NWT\eDrvenija\eDrvenija\Models\eDrvenijaModel.edmx'. 
+﻿// T4 code generation is enabled for model 'C:\Users\Amar\Desktop\nwt2\eDrvenija\eDrvenija\Models\eDrvenijaModel.edmx'. 
 // To enable legacy code generation, change the value of the 'Code Generation Strategy' designer
 // property to 'Legacy ObjectContext'. This property is available in the Properties Window when the model
 // is open in the designer.

@@ -27,27 +27,8 @@ namespace eDrvenija.eDrvenija.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(korisnici korisnik)
+        public ActionResult Login(korisnici korisnik)
         {
-
-            //Captcha provjera
-
-            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
-
-            if (String.IsNullOrEmpty(recaptchaHelper.Response))
-            {
-                ModelState.AddModelError("", "Captcha answer cannot be empty.");
-                return View(korisnik);
-            }
-
-            RecaptchaVerificationResult recaptchaResult = await recaptchaHelper.VerifyRecaptchaResponseTaskAsync();
-            if (recaptchaResult != RecaptchaVerificationResult.Success)
-            {
-                ModelState.AddModelError("", "Incorrect captcha answer.");
-                return View(korisnik);
-            }
-
-
 
             if (ModelState.IsValidField("Korisničko ime") && ModelState.IsValidField("Lozinka"))
             {
@@ -105,8 +86,26 @@ namespace eDrvenija.eDrvenija.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(korisnici korisnici)
+        public async Task<ActionResult> Create(korisnici korisnici)
         {
+            //Captcha provjera
+
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(korisnici);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = await recaptchaHelper.VerifyRecaptchaResponseTaskAsync();
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+                return View(korisnici);
+            }
+
+
             if (ModelState.IsValid)
             {
                 db.korisnici.Add(korisnici);

@@ -1,5 +1,4 @@
-﻿@using Recaptcha.Web.Mvc;
-@model eDrvenija.eDrvenija.Models.korisnici
+﻿@model eDrvenija.eDrvenija.Models.korisnici
 
 
 @{
@@ -42,14 +41,6 @@
         <tr>
             <td></td>
             <td>
-                @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
-            </td>
-            <td></td>
-        </tr>
-
-        <tr>
-            <td></td>
-            <td>
                 <input type="submit" value="Login" />
             </td>
             <td></td>
@@ -63,7 +54,7 @@
 }
 
 @* This below line is for create javascript section *@
-
-@section Scripts{
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@*
+    @section Scripts{
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

@@ -2046,7 +2046,7 @@ table {
 }
 
 .table-bordered {
-  border: 1px solid #dddddd;
+  border: 1px solid #000000;
   border-collapse: separate;
   *border-collapse: collapse;
   border-left: 0;
@@ -2057,7 +2057,7 @@ table {
 
 .table-bordered th,
 .table-bordered td {
-  border-left: 1px solid #dddddd;
+  border-left: 1px solid #000000;
 }
 
 .table-bordered caption + thead tr:first-child th,
@@ -2140,7 +2140,7 @@ table {
 
 .table-striped tbody > tr:nth-child(odd) > td,
 .table-striped tbody > tr:nth-child(odd) > th {
-  background-color: #f9f9f9;
+  background-color: lightskyblue;
 }
 
 .table-hover tbody tr:hover > td,

@@ -1,4 +1,5 @@
 ﻿@model eDrvenija.eDrvenija.Models.korisnici
+@using Recaptcha.Web.Mvc;
 
 @{
     ViewBag.Title = "Create";
@@ -76,6 +77,9 @@
             @Html.DropDownList("idTipaKorisnika", String.Empty)
             @Html.ValidationMessageFor(model => model.idTipaKorisnika)
         </div>
+        <div>
+            @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+        </div>
 
         <p>
             <input type="submit" value="Create" />
@@ -86,7 +90,7 @@
 <div>
     @Html.ActionLink("Back to List", "Index")
 </div>
-
-@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}
+@*
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

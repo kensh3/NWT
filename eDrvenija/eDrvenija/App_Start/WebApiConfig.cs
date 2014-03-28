@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web.Http;
 using System.Net.Http;
 using System.Web.Http.Routing;
+using System.Web.Routing;
+using eDrvenija.eDrvenija;
 
 namespace eDrvenija
 {
@@ -12,11 +14,17 @@ namespace eDrvenija
         public static void Register(HttpConfiguration config)
         {
 
-            config.Routes.MapHttpRoute(
+            /*config.Routes.MapHttpRoute(
                 name: "DefaultApi",
                 routeTemplate: "api/{controller}/{action}/{id}",
                 defaults: new { id = RouteParameter.Optional }
-            );
+            );*/
+
+            RouteTable.Routes.MapHttpRoute(
+                name: "DefaultApi",
+                routeTemplate: "api/{controller}/{action}/{id}",
+                defaults: new { id = RouteParameter.Optional }
+            ).RouteHandler = new MyHttpControllerRouteHandler();
 
             // CUSTOM ROUTES
 
@@ -26,29 +34,29 @@ namespace eDrvenija
                 name: "GetKorisniciByUsername",
                 routeTemplate: "Korisnik/GetkorisniciByUsername/{user}",
                 defaults: new { controller = "Korisnik", Action = "GetkorisniciByUsername", user = RouteParameter.Optional },
-                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
             );
 
             config.Routes.MapHttpRoute(
                 name: "GetKorisnikByEmail",
                 routeTemplate: "Korisnik/GetkorisniciByEmail/{email}",
                 defaults: new { controller = "Korisnik", Action = "GetkorisniciByEmail", email = RouteParameter.Optional },
-                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
             );
-/*
+
             config.Routes.MapHttpRoute(
                 name: "Login",
                 routeTemplate: "Korisnik/Login",
                 defaults: new { controller = "Korisnik", Action = "Login"},
-                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Post) }
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Post) }
             );
 
             config.Routes.MapHttpRoute(
                 name: "Logout",
                 routeTemplate: "Korisnik/Logout/{id}",
                 defaults: new { controller = "Korisnik", Action = "Logout", id = RouteParameter.Optional },
-                constraints: new { httpMethod = new HttpMethodConstraint(HttpMethod.Get) }
-            );*/
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
+            );
 
             #endregion
 

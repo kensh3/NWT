@@ -67,13 +67,29 @@ namespace eDrvenija.eDrvenija.Controllers
             korisnici korisnik = (from korisnici in db.korisnici
                                   where korisnici.korisnickoImeKorisnika == username && korisnici.lozinkaKorisnika == password
                                   select korisnici).First();
-                            
+            
+            var session = HttpContext.Current.Session;
+            session["id"]=korisnik.idKorisnika;
+            
             if (korisnik == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
-
+            
             return korisnik;
+        }
+
+        // GET api/Korisnik/loginstatus
+        [HttpGet]
+        public string loginstatus ()
+        {
+            var session = HttpContext.Current.Session;
+            if (session == null || session["id"] == null)
+            {
+                session["nesto"] = "blabla";
+                return "Niste logovani"+session["nesto"];
+            }
+            else return "Logovani ste vas id je:" + session["id"];
         }
 
         // GET api/Korisnik/logout

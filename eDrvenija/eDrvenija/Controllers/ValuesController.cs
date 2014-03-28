@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 
-namespace eDrvenija.Controllers
+namespace eDrvenija.eDrvenija
 {
     public class ValuesController : ApiController
     {

@@ -4,29 +4,35 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+    @Styles.Render("~/Content/bootstrapcss")
+  
 </head>
 <body>
-    <header>
-        <div class="content-wrapper">
-            <div class="float-left">
-                <p class="site-title">
-                    <a href="~/">ASP.NET Web API</a></p>
-            </div>
-            <div class="float-right">
-                <nav>
-                    <ul id="menu">
-                        <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
-                        <li>@Html.ActionLink("API", "Index", "Help", new { area = "" }, null)</li>
+    <div class="container-fluid">
+        <div class="row-fluid">
+            <div class="span3">
+                <div class="well sidebar-nav">
+                    <ul class="nav nav-list">
+                        <li class="nav-header">Linkovi</li>
+                        <li>@Html.ActionLink("Početna stranica", "../")</li>
+                        <li>@Html.ActionLink("Oglasi", "../")</li>
+                        <li>@Html.ActionLink("Korisnici", "../")</li>
+                 
+                        <li class="nav-header">Informacije</li>
+                        <li>@Html.ActionLink("Kontaktiraj nas", "../")</li>
+                        <li>@Html.ActionLink("O nama", "../")</li>
                     </ul>
-                </nav>
+                </div>
+            </div>
+            <div class="span9">
+                @RenderSection("featured", required: false)
+                <div class="row-fluid">
+                    @RenderBody()
+                </div>
             </div>
         </div>
-    </header>
-    @RenderBody()
-
+    </div>
     @Scripts.Render("~/bundles/jquery")
-    @RenderSection("scripts", required: false)
+    @Scripts.Render("~/bundles/bootstrapjs")
 </body>
 </html>

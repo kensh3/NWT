@@ -44,6 +44,7 @@ namespace eDrvenija.eDrvenija.Controllers
             if (recaptchaResult != RecaptchaVerificationResult.Success)
             {
                 ModelState.AddModelError("", "Incorrect captcha answer.");
+                return View(korisnik);
             }
 
 

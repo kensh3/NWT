@@ -1,9 +1,0 @@
-- ne moze u drugi projekat, mora biti u onom gdje ce se dodati controlleri i scaffoldirat?
-
-- ef generise mala slova, neke virtualne propertye i kontruktore cudne?
-
-- cuvati citav objekat ili samo id?
-
-- kako dodati ogranicenja, da bi na stranici bila validacija?
-
-- scaffold ide sve na engleskom, od konstruktora do stranice?

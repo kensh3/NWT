@@ -5,7 +5,11 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using System.Threading.Tasks;
 using eDrvenija.eDrvenija.Models;
+using Recaptcha.Web;
+using Recaptcha.Web.Mvc;
+
 
 namespace eDrvenija.eDrvenija.Controllers
 {
@@ -23,8 +27,27 @@ namespace eDrvenija.eDrvenija.Controllers
         
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Login(korisnici korisnik)
+        public async Task<ActionResult> Login(korisnici korisnik)
         {
+
+            //Captcha provjera
+
+            RecaptchaVerificationHelper recaptchaHelper = this.GetRecaptchaVerificationHelper();
+
+            if (String.IsNullOrEmpty(recaptchaHelper.Response))
+            {
+                ModelState.AddModelError("", "Captcha answer cannot be empty.");
+                return View(korisnik);
+            }
+
+            RecaptchaVerificationResult recaptchaResult = await recaptchaHelper.VerifyRecaptchaResponseTaskAsync();
+            if (recaptchaResult != RecaptchaVerificationResult.Success)
+            {
+                ModelState.AddModelError("", "Incorrect captcha answer.");
+            }
+
+
+
             if (ModelState.IsValidField("Korisničko ime") && ModelState.IsValidField("Lozinka"))
             {
                 
@@ -150,6 +173,7 @@ namespace eDrvenija.eDrvenija.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
 
         protected override void Dispose(bool disposing)
         {

@@ -1,4 +1,6 @@
-﻿@model eDrvenija.eDrvenija.Models.korisnici
+﻿@using Recaptcha.Web.Mvc;
+@model eDrvenija.eDrvenija.Models.korisnici
+
 
 @{
     ViewBag.Title = "Login";
@@ -9,6 +11,7 @@
 
 @using (Html.BeginForm("Login", "Korisnici", FormMethod.Post))
 {
+    
     //this  is for create form tag
     @Html.AntiForgeryToken()          // this is for prevent CSRF attack
     @Html.ValidationSummary(true)
@@ -36,6 +39,14 @@
                 @Html.ValidationMessageFor(a => a.lozinkaKorisnika)
             </td>
         </tr>
+        <tr>
+            <td></td>
+            <td>
+                @Html.Recaptcha(theme: Recaptcha.Web.RecaptchaTheme.Clean)
+            </td>
+            <td></td>
+        </tr>
+
         <tr>
             <td></td>
             <td>

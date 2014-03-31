@@ -9,7 +9,7 @@ using eDrvenija.eDrvenija.Models;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class TipoviKorisnikaController : Controller
+    public class TipoviKorisnikaController : BaseController
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 

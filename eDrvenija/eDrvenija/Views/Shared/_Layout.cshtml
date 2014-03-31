@@ -6,7 +6,7 @@
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/bootstrap.css" type="text/css" />
     @Styles.Render("~/Content/bootstrap.css")
-  
+
 </head>
 <body>
     <div class="container-fluid">
@@ -18,7 +18,7 @@
                         <li>@Html.ActionLink("Početna stranica", "../")</li>
                         <li>@Html.ActionLink("Oglasi", "../")</li>
                         <li>@Html.ActionLink("Korisnici", "../")</li>
-                 
+
                         <li class="nav-header">Informacije</li>
                         <li>@Html.ActionLink("Kontaktiraj nas", "../")</li>
                         <li>@Html.ActionLink("O nama", "../")</li>
@@ -33,6 +33,7 @@
             </div>
         </div>
     </div>
+    @RenderSection("Scripts", false)
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapjs")
 </body>

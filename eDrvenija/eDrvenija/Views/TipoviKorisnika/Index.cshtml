@@ -1,10 +1,40 @@
 ﻿@model IEnumerable<eDrvenija.eDrvenija.Models.tipovikorisnika>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = Resursi.Index;
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
 }
+@helper selected(string c, string cul) 
+{ 
+    if (c == cul)
+    {
+       @:checked = "checked";
+    }
+} 
 
-<h2>Index</h2>
+<h2>@Resursi.Index</h2>
+
+@using (Html.BeginForm("SetCulture", "Home"))
+{
+        <fieldset>
+            <legend>@Resursi.IzaberiteJezik</legend>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="en-us">
+                        <input name="culture" id="bs" value="bs-Latn-BA" type="radio" @selected("bs-Latn-BA", culture) /> Bosanski
+                    </label>
+                </div>
+            </div>
+            <div class="control-group">
+                <div class="controls">
+                    <label for="es">
+                        <input name="culture" id="en" value="en" type="radio" @selected("en", culture) /> English
+                    </label>
+                </div>
+            </div>
+
+        </fieldset>
+}
 
 <p>
     @Html.ActionLink("Create New", "Create")
@@ -31,3 +61,14 @@
 }
 
 </table>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    <script type="text/javascript">
+        (function sub($) {
+            $('input[type=radio]').click(function () {
+                $(this).closest("form").submit();
+            });
+
+        })(jQuery);
+    </script>
+}

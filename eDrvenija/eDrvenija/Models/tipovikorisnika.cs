@@ -11,6 +11,8 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Resursi;
     
     public partial class tipovikorisnika
     {
@@ -19,7 +21,13 @@ namespace eDrvenija.eDrvenija.Models
             this.korisnici = new HashSet<korisnici>();
         }
     
+        [Key]
+        [ScaffoldColumn(false)]
         public int idTipaKorisnika { get; set; }
+
+        [Display(Name = "NazivTipaKorisnika", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "NazivTipaKorisnikaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [StringLength(45, ErrorMessageResourceName = "NazivTipaKorisnikaLen", ErrorMessageResourceType = typeof(Resursi))]
         public string nazivTipaKorisnika { get; set; }
     
         public virtual ICollection<korisnici> korisnici { get; set; }

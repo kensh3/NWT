@@ -5,8 +5,9 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/bootstrap.css" type="text/css" />
+    <script src="~/Scripts/jquery-1.8.2.js"></script>
     @Styles.Render("~/Content/bootstrap.css")
-
+    @RenderSection("Scripts", false)
 </head>
 <body>
     <div class="container-fluid">
@@ -14,14 +15,14 @@
             <div class="span3">
                 <div class="well sidebar-nav">
                     <ul class="nav nav-list">
-                        <li class="nav-header">Linkovi</li>
-                        <li>@Html.ActionLink("Početna stranica", "../")</li>
-                        <li>@Html.ActionLink("Oglasi", "../")</li>
-                        <li>@Html.ActionLink("Korisnici", "../")</li>
+                        <li class="nav-header">@Resursi.Linkovi</li>
+                        <li>@Html.ActionLink(@Resursi.Index, "../")</li>
+                        <li>@Html.ActionLink(@Resursi.Oglasi, "../")</li>
+                        <li>@Html.ActionLink(@Resursi.Korisnici, "../")</li>
 
-                        <li class="nav-header">Informacije</li>
-                        <li>@Html.ActionLink("Kontaktiraj nas", "../")</li>
-                        <li>@Html.ActionLink("O nama", "../")</li>
+                        <li class="nav-header">@Resursi.Informacije</li>
+                        <li>@Html.ActionLink(@Resursi.KontaktirajNas, "../")</li>
+                        <li>@Html.ActionLink(@Resursi.Onama, "../")</li>
                     </ul>
                 </div>
             </div>
@@ -33,7 +34,7 @@
             </div>
         </div>
     </div>
-    @RenderSection("Scripts", false)
+    
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapjs")
 </body>

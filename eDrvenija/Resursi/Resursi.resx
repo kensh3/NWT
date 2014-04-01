@@ -117,19 +117,64 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Detalji" xml:space="preserve">
+    <value>Detalji</value>
+  </data>
   <data name="Index" xml:space="preserve">
-    <value>Pocetna</value>
+    <value>Početna stranica</value>
+  </data>
+  <data name="Informacije" xml:space="preserve">
+    <value>Informacije</value>
   </data>
   <data name="IzaberiteJezik" xml:space="preserve">
     <value>Izaberite jezik</value>
+  </data>
+  <data name="KontaktirajNas" xml:space="preserve">
+    <value>Kontaktiraj nas</value>
+  </data>
+  <data name="Korisnici" xml:space="preserve">
+    <value>Korisnici</value>
+  </data>
+  <data name="Kreiraj" xml:space="preserve">
+    <value>Kreiraj</value>
+  </data>
+  <data name="KreirajNovi" xml:space="preserve">
+    <value>Kreiraj novi</value>
+  </data>
+  <data name="Linkovi" xml:space="preserve">
+    <value>Linkovi</value>
+  </data>
+  <data name="NazadNaPocetnu" xml:space="preserve">
+    <value>Nazad na početnu</value>
   </data>
   <data name="NazivTipaKorisnika" xml:space="preserve">
     <value>Naziv tipa korisnika</value>
   </data>
   <data name="NazivTipaKorisnikaLen" xml:space="preserve">
-    <value>Maksimalna duzina je 45 znakova</value>
+    <value>Maksimalna dužina je 45 znakova</value>
   </data>
   <data name="NazivTipaKorisnikaReq" xml:space="preserve">
     <value>Potrebno je unijeti naziv tipa korisnika</value>
+  </data>
+  <data name="Obrisi" xml:space="preserve">
+    <value>Obriši</value>
+  </data>
+  <data name="ObrisiPitanje" xml:space="preserve">
+    <value>Da li ste sigurni da ovo želite obrisati?</value>
+  </data>
+  <data name="Oglasi" xml:space="preserve">
+    <value>Oglasi</value>
+  </data>
+  <data name="Onama" xml:space="preserve">
+    <value>O nama</value>
+  </data>
+  <data name="Sacuvaj" xml:space="preserve">
+    <value>Sačuvaj</value>
+  </data>
+  <data name="TipoviKorisnika" xml:space="preserve">
+    <value>Tipovi korisnika</value>
+  </data>
+  <data name="Uredi" xml:space="preserve">
+    <value>Uredi</value>
   </data>
 </root>

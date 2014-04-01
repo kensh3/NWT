@@ -14,30 +14,60 @@
 
 <h2>@Resursi.Index</h2>
 
-@using (Html.BeginForm("SetCulture", "Home"))
+@using (Html.BeginForm("SetCulture", "TipoviKorisnika"))
 {
+    <legend>@Resursi.IzaberiteJezik</legend>
+   
+    <form>
+        <div class="btn-group">
+            <button name="culture" value="bs-Latn-BA" type="submit" id="b1" class="btn btn-default" @selected("bs-Latn-BA", culture)>Bosanski</button>
+            <button name="culture" value="en-us" type="submit" id="e1" class="btn btn-default" @selected("en-us", culture)>English</button>
+        </div>
+    </form>
+    
+    
+     <!--
+    <button name="culture" value="bs-Latn-BA" type="submit" id="b1" @selected("bs-Latn-BA", culture)>Bosanski</button>
+        <button name="culture" value="en-us" type="submit" id="e1" @selected("en-us", culture)>English</button>
+        
+    <form>
+        <div class="btn-group">
+            <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                @Resursi.IzaberiteJezik <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" role="menu">
+                <li><a href="">Bosanski</a></li>
+                <li><a href="">English</a></li>
+            </ul>
+        </div>
+    </form>
+   
+    
+    <form>
         <fieldset>
-            <legend>@Resursi.IzaberiteJezik</legend>
+
             <div class="control-group">
                 <div class="controls">
-                    <label for="en-us">
+                    <label for="bs">
                         <input name="culture" id="bs" value="bs-Latn-BA" type="radio" @selected("bs-Latn-BA", culture) /> Bosanski
                     </label>
                 </div>
             </div>
             <div class="control-group">
                 <div class="controls">
-                    <label for="es">
+                    <label for="en">
                         <input name="culture" id="en" value="en" type="radio" @selected("en", culture) /> English
                     </label>
                 </div>
             </div>
 
         </fieldset>
+    </form>
+         -->
 }
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(@Resursi.KreirajNovi, "Create")
 </p>
 <table>
     <tr>
@@ -53,22 +83,22 @@
             @Html.DisplayFor(modelItem => item.nazivTipaKorisnika)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idTipaKorisnika }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idTipaKorisnika }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idTipaKorisnika })
+            @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = item.idTipaKorisnika }) |
+            @Html.ActionLink(@Resursi.Detalji, "Details", new { id = item.idTipaKorisnika }) |
+            @Html.ActionLink(@Resursi.Obrisi, "Delete", new { id = item.idTipaKorisnika })
         </td>
     </tr>
 }
 
 </table>
 @section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/jquery")
     <script type="text/javascript">
-        (function sub($) {
-            $('input[type=radio]').click(function () {
-                $(this).closest("form").submit();
+        $(function () {
+            $("form").submit(function () {
+                
             });
-
-        })(jQuery);
+        });
     </script>
 }
+

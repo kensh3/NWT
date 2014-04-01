@@ -4,10 +4,10 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>@Resursi.Detalji</h2>
 
 <fieldset>
-    <legend>tipovikorisnika</legend>
+    <legend>@Resursi.TipoviKorisnika</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.nazivTipaKorisnika)
@@ -17,6 +17,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.idTipaKorisnika }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.Uredi, "Edit", new { id=Model.idTipaKorisnika }) |
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </p>

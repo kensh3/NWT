@@ -13,7 +13,7 @@ namespace eDrvenija.eDrvenija.Helpers
         // Include ONLY cultures you are implementing
         private static readonly List<string> _cultures = new List<string> {
         "bs-Latn-BA",  // first culture is the DEFAULT
-        "en", // English NEUTRAL culture
+        "en-US", // English NEUTRAL culture
         
     };
         /// <summary>

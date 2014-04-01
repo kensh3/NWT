@@ -7,7 +7,7 @@ using eDrvenija.eDrvenija.Helpers;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
         //
         // GET: /Home/

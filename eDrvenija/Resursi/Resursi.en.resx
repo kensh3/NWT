@@ -117,11 +117,35 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Detalji" xml:space="preserve">
+    <value>Details</value>
+  </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
   </data>
+  <data name="Informacije" xml:space="preserve">
+    <value>Informations</value>
+  </data>
   <data name="IzaberiteJezik" xml:space="preserve">
     <value>Choose your language</value>
+  </data>
+  <data name="KontaktirajNas" xml:space="preserve">
+    <value>Contact us</value>
+  </data>
+  <data name="Korisnici" xml:space="preserve">
+    <value>Customers</value>
+  </data>
+  <data name="Kreiraj" xml:space="preserve">
+    <value>Create</value>
+  </data>
+  <data name="KreirajNovi" xml:space="preserve">
+    <value>Create new</value>
+  </data>
+  <data name="Linkovi" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="NazadNaPocetnu" xml:space="preserve">
+    <value>Back to list</value>
   </data>
   <data name="NazivTipaKorisnika" xml:space="preserve">
     <value>User type name</value>
@@ -131,5 +155,26 @@
   </data>
   <data name="NazivTipaKorisnikaReq" xml:space="preserve">
     <value>User type name is required</value>
+  </data>
+  <data name="Obrisi" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="ObrisiPitanje" xml:space="preserve">
+    <value>Are you sure you want to delete this?</value>
+  </data>
+  <data name="Oglasi" xml:space="preserve">
+    <value>Ads</value>
+  </data>
+  <data name="Onama" xml:space="preserve">
+    <value>About us</value>
+  </data>
+  <data name="Sacuvaj" xml:space="preserve">
+    <value>Save</value>
+  </data>
+  <data name="TipoviKorisnika" xml:space="preserve">
+    <value>User types</value>
+  </data>
+  <data name="Uredi" xml:space="preserve">
+    <value>Edit</value>
   </data>
 </root>

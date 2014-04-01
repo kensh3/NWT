@@ -4,14 +4,14 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>@Resursi.Uredi</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>tipovikorisnika</legend>
+        <legend>@Resursi.TipoviKorisnika</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.nazivTipaKorisnika)
@@ -22,13 +22,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="@Resursi.Sacuvaj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </div>
 
 @section Scripts {

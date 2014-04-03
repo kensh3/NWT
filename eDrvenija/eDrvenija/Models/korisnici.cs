@@ -34,7 +34,7 @@ namespace eDrvenija.eDrvenija.Models
         
         [DisplayName("Ime")]
         [Required(ErrorMessage = "Potrebno je unijeti ime korisnika i ne smije biti duže od 45 znakova")]
-        [StringLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string imeKorisnika { get; set; }
         

@@ -17,6 +17,8 @@
                         <fieldset>
                             <legend>Podaci o korisniku</legend>
 
+                            @Html.HiddenFor(model => model.idKorisnika)
+
                             <div class="form-group">
                                 <div class="input-group col-md-6">
                                     <span style="width:120px" class="input-group-addon">Ime</span>
@@ -83,8 +85,8 @@
                                     @Html.ValidationMessageFor(model => model.tipovikorisnika)
                                 </div>
                             </div>
-                            <!--
-                            <div class="editor-label">
+                            
+                            <!--<div class="editor-label">
                                 
                                 @Html.LabelFor(model => model.imeKorisnika)
                             </div>
@@ -147,8 +149,8 @@
                             <div class="editor-field">
                                 @Html.DropDownList("idTipaKorisnika", String.Empty)
                                 @Html.ValidationMessageFor(model => model.idTipaKorisnika)
-                            </div>
-                                -->
+                            </div>-->
+                                
                             <p>
                                 <input type="submit" value="Save" />
                             </p>

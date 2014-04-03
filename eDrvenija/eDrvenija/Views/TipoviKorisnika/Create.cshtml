@@ -4,27 +4,42 @@
     ViewBag.Title = @Resursi.Kreiraj;
 }
 
-<h2>@Resursi.Kreiraj</h2>
+
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    
+    
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2>@Resursi.Kreiraj tipa korisnika</h2></div>
+                    <div class="panel-body">
+                        <fieldset>
+                            <legend>@Resursi.TipoviKorisnika</legend>
 
-    <fieldset>
-        <legend>@Resursi.TipoviKorisnika</legend>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Ime</span>
+                                    @Html.TextBoxFor(model => model.nazivTipaKorisnika, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.nazivTipaKorisnika)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.nazivTipaKorisnika)
+                                </div>
+                            </div>
+
+                            
+
+                            <p>
+                                <input type="submit" value="@Resursi.Kreiraj" />
+                            </p>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
         </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.nazivTipaKorisnika)
-            @Html.ValidationMessageFor(model => model.nazivTipaKorisnika)
-        </div>
-
-        <p>
-            <input type="submit" value="@Resursi.Kreiraj" />
-        </p>
-    </fieldset>
+    </div>
 }
 
 <div>

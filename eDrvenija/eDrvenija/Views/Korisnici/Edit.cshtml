@@ -4,83 +4,160 @@
     ViewBag.Title = "Edit";
 }
 
-<h2>Edit</h2>
-
-@using (Html.BeginForm()) {
+@using (Html.BeginForm())
+{
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-xs-12">
+                <div class="panel panel-default">
+                    <div class="panel-heading"><h2>Uredi korisnika</h2></div>
+                    <div class="panel-body">
+                        <fieldset>
+                            <legend>Podaci o korisniku</legend>
 
-    <fieldset>
-        <legend>korisnici</legend>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Ime</span>
+                                    <input class="form-control" type="text">
+                                    @Html.ValidationMessageFor(model => model.imeKorisnika)
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.imeKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.imeKorisnika)
-            @Html.ValidationMessageFor(model => model.imeKorisnika)
-        </div>
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.prezimeKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.prezimeKorisnika)
-            @Html.ValidationMessageFor(model => model.prezimeKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Prezime</span>
+                                    <input class="form-control" type="text">
+                                    @Html.ValidationMessageFor(model => model.prezimeKorisnika)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.eMailKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.eMailKorisnika)
-            @Html.ValidationMessageFor(model => model.eMailKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">E-Mail</span>
+                                    <input class="form-control" type="email">
+                                    @Html.ValidationMessageFor(model => model.eMailKorisnika)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.brojTelefonaKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.brojTelefonaKorisnika)
-            @Html.ValidationMessageFor(model => model.brojTelefonaKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Telefon</span>
+                                    <input class="form-control" type="tel">
+                                    @Html.ValidationMessageFor(model => model.brojTelefonaKorisnika)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.ocjena)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.ocjena)
-            @Html.ValidationMessageFor(model => model.ocjena)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Ocjena</span>
+                                    <input class="form-control" type="number">
+                                    <span class="input-group-addon">.00</span>
+                                    @Html.ValidationMessageFor(model => model.ocjena)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.korisnickoImeKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.korisnickoImeKorisnika)
-            @Html.ValidationMessageFor(model => model.korisnickoImeKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Korisničko ime</span>
+                                    <input class="form-control" type="text">
+                                    @Html.ValidationMessageFor(model => model.korisnickoImeKorisnika)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.lozinkaKorisnika)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.lozinkaKorisnika)
-            @Html.ValidationMessageFor(model => model.lozinkaKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Lozinka</span>
+                                    <input class="form-control" type="password">
+                                    @Html.ValidationMessageFor(model => model.lozinkaKorisnika)
+                                </div>
+                            </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.idTipaKorisnika, "tipovikorisnika")
-        </div>
-        <div class="editor-field">
-            @Html.DropDownList("idTipaKorisnika", String.Empty)
-            @Html.ValidationMessageFor(model => model.idTipaKorisnika)
-        </div>
+                            <div class="form-group">
+                                <div class="input-group col-md-6">
+                                    <span style="width:120px" class="input-group-addon">Tip korisnika</span>
+                                    <input class="dropdown-menu" type="text">
+                                    @Html.DropDownList("idTipaKorisnika", String.Empty)
+                                    @Html.ValidationMessageFor(model => model.tipovikorisnika)
+                                </div>
+                            </div>
 
-        <p>
-            <input type="submit" value="Save" />
-        </p>
-    </fieldset>
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.imeKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.imeKorisnika)
+                                @Html.ValidationMessageFor(model => model.imeKorisnika)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.prezimeKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.prezimeKorisnika)
+                                @Html.ValidationMessageFor(model => model.prezimeKorisnika)
+                            </div>
+
+                            <div class="editor-label ">
+                                @Html.LabelFor(model => model.eMailKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.eMailKorisnika)
+                                @Html.ValidationMessageFor(model => model.eMailKorisnika)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.brojTelefonaKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.brojTelefonaKorisnika)
+                                @Html.ValidationMessageFor(model => model.brojTelefonaKorisnika)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.ocjena)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.ocjena)
+                                @Html.ValidationMessageFor(model => model.ocjena)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.korisnickoImeKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.korisnickoImeKorisnika)
+                                @Html.ValidationMessageFor(model => model.korisnickoImeKorisnika)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.lozinkaKorisnika)
+                            </div>
+                            <div class="editor-field">
+                                @Html.EditorFor(model => model.lozinkaKorisnika)
+                                @Html.ValidationMessageFor(model => model.lozinkaKorisnika)
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.idTipaKorisnika, "tipovikorisnika")
+                            </div>
+                            <div class="editor-field">
+                                @Html.DropDownList("idTipaKorisnika", String.Empty)
+                                @Html.ValidationMessageFor(model => model.idTipaKorisnika)
+                            </div>
+
+                            <p>
+                                <input type="submit" value="Save" />
+                            </p>
+                        </fieldset>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 }
 
 <div>

@@ -4,73 +4,99 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Index</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table-striped table-bordered">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.imeKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.prezimeKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.eMailKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.brojTelefonaKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.ocjena)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.korisnickoImeKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.lozinkaKorisnika)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.tipovikorisnika.nazivTipaKorisnika)
-        </th>
-        <th></th>
-    </tr>
 
-    @foreach (var item in Model)
-    {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.imeKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.prezimeKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.eMailKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.brojTelefonaKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.ocjena)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.korisnickoImeKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.lozinkaKorisnika)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.tipovikorisnika.nazivTipaKorisnika)
-            </td>
-            <td>
-                @Html.ActionLink("Edit", "Edit", new { id = item.idKorisnika }) |
-                @Html.ActionLink("Details", "Details", new { id = item.idKorisnika }) |
-                @Html.ActionLink("Delete", "Delete", new { id = item.idKorisnika })
-            </td>
-        </tr>
-    }
+<link rel="stylesheet" href="~/Content/Fonts/" />
 
-</table>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h2>Korisnici</h2></div>
+                <div class="panel-body">
+                    <table class="table table-striped  table-condensed">
+
+                        <tr>
+                            <th></th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.imeKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.prezimeKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.eMailKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.brojTelefonaKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ocjena)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.korisnickoImeKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.lozinkaKorisnika)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.tipovikorisnika.nazivTipaKorisnika)
+                            </th>
+                            <th>Akcije</th>
+                        </tr>
+
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    <div>
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </div>
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.imeKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.prezimeKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.eMailKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.brojTelefonaKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ocjena)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.korisnickoImeKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.lozinkaKorisnika)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.tipovikorisnika.nazivTipaKorisnika)
+                                </td>
+                                <td>
+                                    <div>
+                                        @Html.ActionLink("Edit", "Edit", new { id = item.idKorisnika }, new { @class = "btn btn-primary btn-sm" })
+                                        @Html.ActionLink("Details", "Details", new { id = item.idKorisnika }, new { @class = "btn btn-info btn-sm" })
+                                        @Html.ActionLink("Delete", "Delete", new { id = item.idKorisnika }, new { @class = "btn btn-danger btn-sm" })
+                                    </div>
+                                </td>
+                            </tr>
+                        }
+
+                    </table>
+                    <div>
+                        <p>
+                            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
+
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

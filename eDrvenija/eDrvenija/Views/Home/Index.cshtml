@@ -1,11 +1,20 @@
 ﻿@{
     ViewBag.Title = "Početna stranica";
 }
-@section featured {
-    <div class="hero-unit">
-        <h1>Dobrodošli na eDrveniju</h1>
-        <p>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.</p>
+<div class="hero-unit container">
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h1>Dobrodošli na eDrveniju</h1></div>
+                <div class="panel-body">
+                    <p>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.</p>
+                    <p>@Html.ActionLink("Home >>", "../", null, new { @class = "btn btn-primary btn-large" })</p>
+                </div>
+            </div>
+        </div>
     </div>
-}
-BLA BLA BLA BLA BLA BLA
-<p>@Html.ActionLink("Home >>", "../", null, new { @class = "btn btn-primary btn-large" })</p>
+</div>

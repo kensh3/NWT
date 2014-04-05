@@ -1,14 +1,14 @@
 ﻿@model eDrvenija.eDrvenija.Models.korisnici
 
 @{
-    ViewBag.Title = "Delete";
+    ViewBag.Title = @Resursi.Obrisi;
 }
 
-<h2>Delete</h2>
+<h2>@Resursi.Obrisi</h2>
 
-<h3>Are you sure you want to delete this?</h3>
+<h3>@Resursi.ObrisiPitanje</h3>
 <fieldset>
-    <legend>korisnici</legend>
+    <legend>@Resursi.Korisnici</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.imeKorisnika)
@@ -69,7 +69,7 @@
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     <p>
-        <input type="submit" value="Delete" /> |
-        @Html.ActionLink("Back to List", "Index")
+        <input type="submit" value="@Resursi.Obrisi" /> |
+        @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
     </p>
 }

@@ -1,17 +1,17 @@
 ﻿@model eDrvenija.eDrvenija.Models.oglasi
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = @Resursi.Uredi;
 }
 
-<h2>Edit</h2>
+<h2>@Resursi.Uredi</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>oglasi</legend>
+        <legend>@Resursi.Oglasi</legend>
 
         @Html.HiddenFor(model => model.idOglasa)
 
@@ -96,13 +96,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Save" />
+            <input type="submit" value="@Resursi.Sacuvaj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </div>
 
 @section Scripts {

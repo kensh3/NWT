@@ -1,13 +1,13 @@
 ﻿@model eDrvenija.eDrvenija.Models.poruke
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Resursi.Detalji;
 }
 
-<h2>Details</h2>
+<h2>@Resursi.Detalji</h2>
 
 <fieldset>
-    <legend>poruke</legend>
+    <legend>@Resursi.Poruke</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.naslovPoruke)
@@ -45,6 +45,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.idPoruke }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = Model.idPoruke }) |
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </p>

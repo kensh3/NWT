@@ -375,4 +375,31 @@
   <data name="ZavrsenaTransakcija" xml:space="preserve">
     <value>Transaction finished</value>
   </data>
+  <data name="Akcije" xml:space="preserve">
+    <value>Actions</value>
+  </data>
+  <data name="Dobrodosli" xml:space="preserve">
+    <value>Welcome</value>
+  </data>
+  <data name="Dokumenti" xml:space="preserve">
+    <value>Documents</value>
+  </data>
+  <data name="Kategorije" xml:space="preserve">
+    <value>Categories</value>
+  </data>
+  <data name="Komentari" xml:space="preserve">
+    <value>Comments</value>
+  </data>
+  <data name="Poruke" xml:space="preserve">
+    <value>Messages</value>
+  </data>
+  <data name="Potvrda" xml:space="preserve">
+    <value>Confirmation</value>
+  </data>
+  <data name="Register" xml:space="preserve">
+    <value>Register</value>
+  </data>
+  <data name="TipoviOglasa" xml:space="preserve">
+    <value>Ad types</value>
+  </data>
 </root>

@@ -1,13 +1,13 @@
 ﻿@model eDrvenija.eDrvenija.Models.oglasi
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Resursi.Detalji;
 }
 
-<h2>Details</h2>
+<h2>@Resursi.Detalji</h2>
 
 <fieldset>
-    <legend>oglasi</legend>
+    <legend>@Resursi.Oglasi</legend>
 
     <div class="display-label">
          @Html.DisplayNameFor(model => model.nazivOglasa)
@@ -80,6 +80,6 @@
     </div>
 </fieldset>
 <p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.idOglasa }) |
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = Model.idOglasa }) |
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </p>

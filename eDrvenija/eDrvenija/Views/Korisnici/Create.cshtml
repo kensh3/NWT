@@ -2,7 +2,7 @@
 @using Recaptcha.Web.Mvc;
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @Resursi.Kreiraj;
 }
 
 
@@ -17,14 +17,14 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2>Dodaj korisnika</h2></div>
+                    <div class="panel-heading"><h2>@Resursi.Kreiraj</h2></div>
                     <div class="panel-body">
                         <fieldset>
-                            <legend>Podaci o korisniku:</legend>
+                            <legend>@Resursi.Korisnici</legend>
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Ime</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Ime</span>
                                     @Html.TextBoxFor(model => model.imeKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.imeKorisnika)
 
@@ -33,7 +33,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Prezime</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Prezime</span>
                                     @Html.TextBoxFor(model => model.prezimeKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.prezimeKorisnika)
                                 </div>
@@ -41,7 +41,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">E-Mail</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Email</span>
                                     @Html.TextBoxFor(model => model.eMailKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.eMailKorisnika)
                                 </div>
@@ -49,7 +49,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Telefon</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.BrojTelefona</span>
                                     @Html.TextBoxFor(model => model.brojTelefonaKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.brojTelefonaKorisnika)
                                 </div>
@@ -57,7 +57,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Ocjena</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Ocjena</span>
                                     @Html.TextBoxFor(model => model.ocjena, new { @class = "form-control" })
                                     <span class="input-group-addon">.00</span>
                                     @Html.ValidationMessageFor(model => model.ocjena)
@@ -66,7 +66,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Korisničko ime</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.KorisnickoIme</span>
                                     @Html.TextBoxFor(model => model.korisnickoImeKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.korisnickoImeKorisnika)
                                 </div>
@@ -74,7 +74,7 @@
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Lozinka</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Lozinka</span>
                                     @Html.TextBoxFor(model => model.lozinkaKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.lozinkaKorisnika)
                                 </div>
@@ -96,7 +96,7 @@
                             </div>
 
                             <p>
-                                <input type="submit" value="Create" />
+                                <input type="submit" value="@Resursi.Kreiraj" />
                             </p>
                         </fieldset>
                     </div>

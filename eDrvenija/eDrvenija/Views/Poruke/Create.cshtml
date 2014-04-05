@@ -1,17 +1,17 @@
 ﻿@model eDrvenija.eDrvenija.Models.poruke
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = @Resursi.Kreiraj;
 }
 
-<h2>Create</h2>
+<h2>@Resursi.Kreiraj</h2>
 
 @using (Html.BeginForm()) {
     @Html.AntiForgeryToken()
     @Html.ValidationSummary(true)
 
     <fieldset>
-        <legend>poruke</legend>
+        <legend>@Resursi.Poruke</legend>
 
         <div class="editor-label">
             @Html.LabelFor(model => model.naslovPoruke)
@@ -54,13 +54,13 @@
         </div>
 
         <p>
-            <input type="submit" value="Create" />
+            <input type="submit" value="@Resursi.Kreiraj" />
         </p>
     </fieldset>
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index")
 </div>
 
 @section Scripts {

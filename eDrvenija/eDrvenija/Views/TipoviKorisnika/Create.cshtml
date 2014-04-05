@@ -15,14 +15,14 @@
         <div class="row">
             <div class="col-sm-12 col-xs-12">
                 <div class="panel panel-default">
-                    <div class="panel-heading"><h2>@Resursi.Kreiraj tipa korisnika</h2></div>
+                    <div class="panel-heading"><h2>@Resursi.Kreiraj</h2></div>
                     <div class="panel-body">
                         <fieldset>
                             <legend>@Resursi.TipoviKorisnika</legend>
 
                             <div class="form-group">
                                 <div class="input-group col-md-6">
-                                    <span style="width:120px" class="input-group-addon">Ime</span>
+                                    <span style="width:120px" class="input-group-addon">@Resursi.Ime</span>
                                     @Html.TextBoxFor(model => model.nazivTipaKorisnika, new { @class = "form-control" })
                                     @Html.ValidationMessageFor(model => model.nazivTipaKorisnika)
 

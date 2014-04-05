@@ -1,7 +1,7 @@
 ﻿@model IEnumerable<eDrvenija.eDrvenija.Models.korisnici>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Resursi.Index;
 }
 
 
@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><h2>Korisnici</h2></div>
+                <div class="panel-heading"><h2>@Resursi.Korisnici</h2></div>
                 <div class="panel-body">
                     <table class="table table-striped  table-condensed">
 
@@ -42,7 +42,7 @@
                             <th>
                                 @Html.DisplayNameFor(model => model.tipovikorisnika.nazivTipaKorisnika)
                             </th>
-                            <th>Akcije</th>
+                            <th>@Resursi.Akcije</th>
                         </tr>
 
                         @foreach (var item in Model)
@@ -79,9 +79,9 @@
                                 </td>
                                 <td>
                                     <div>
-                                        @Html.ActionLink("Edit", "Edit", new { id = item.idKorisnika }, new { @class = "btn btn-primary btn-sm" })
-                                        @Html.ActionLink("Details", "Details", new { id = item.idKorisnika }, new { @class = "btn btn-info btn-sm" })
-                                        @Html.ActionLink("Delete", "Delete", new { id = item.idKorisnika }, new { @class = "btn btn-danger btn-sm" })
+                                        @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = item.idKorisnika }, new { @class = "btn btn-primary btn-sm" })
+                                        @Html.ActionLink(@Resursi.Detalji, "Details", new { id = item.idKorisnika }, new { @class = "btn btn-info btn-sm" })
+                                        @Html.ActionLink(@Resursi.Obrisi, "Delete", new { id = item.idKorisnika }, new { @class = "btn btn-danger btn-sm" })
                                     </div>
                                 </td>
                             </tr>
@@ -90,7 +90,7 @@
                     </table>
                     <div>
                         <p>
-                            @Html.ActionLink("Create New", "Create", null, new { @class = "btn btn-success btn-lg" })
+                            @Html.ActionLink(@Resursi.KreirajNovi, "Create", null, new { @class = "btn btn-success btn-lg" })
 
                         </p>
                     </div>

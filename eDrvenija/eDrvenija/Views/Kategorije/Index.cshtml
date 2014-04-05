@@ -1,13 +1,13 @@
 ﻿@model IEnumerable<eDrvenija.eDrvenija.Models.kategorije>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = @Resursi.Index;
 }
 
-<h2>Index</h2>
+<h2>@Resursi.Index</h2>
 
 <p>
-    @Html.ActionLink("Create New", "Create")
+    @Html.ActionLink(@Resursi.KreirajNovi, "Create")
 </p>
 <table>
     <tr>
@@ -23,9 +23,9 @@
             @Html.DisplayFor(modelItem => item.nazivKategorije)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.idKategorije }) |
-            @Html.ActionLink("Details", "Details", new { id=item.idKategorije }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.idKategorije })
+            @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = item.idKategorije }) |
+            @Html.ActionLink(@Resursi.Detalji, "Details", new { id = item.idKategorije }) |
+            @Html.ActionLink(@Resursi.Obrisi, "Delete", new { id = item.idKategorije })
         </td>
     </tr>
 }

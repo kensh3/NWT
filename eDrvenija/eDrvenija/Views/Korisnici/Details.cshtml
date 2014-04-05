@@ -1,7 +1,7 @@
 ﻿@model eDrvenija.eDrvenija.Models.korisnici
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = @Resursi.Detalji;
 }
 
 
@@ -14,7 +14,7 @@
                 <div class="panel-heading"><h2>@Resursi.Detalji</h2></div>
                 <div class="panel-body">
                     <fieldset>
-                        <legend>Podaci o korisniku</legend>
+                        <legend>@Resursi.Korisnici</legend>
 
                         <div class="display-label">
                             @Html.DisplayNameFor(model => model.imeKorisnika)
@@ -73,8 +73,8 @@
                         </div>
                     </fieldset>
                     <p>
-                        @Html.ActionLink("Edit", "Edit", new { id = Model.idKorisnika }, new { @class = "btn btn-primary btn-sm" })
-                        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-default btn-sm" })
+                        @Html.ActionLink(@Resursi.Uredi, "Edit", new { id = Model.idKorisnika }, new { @class = "btn btn-primary btn-sm" })
+                        @Html.ActionLink(@Resursi.NazadNaPocetnu, "Index", null, new { @class = "btn btn-default btn-sm" })
                     </p>
                 </div>
             </div>

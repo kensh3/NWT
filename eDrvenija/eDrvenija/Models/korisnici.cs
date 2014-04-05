@@ -48,9 +48,8 @@ namespace eDrvenija.eDrvenija.Models
         [Display(Name = "Email", ResourceType = typeof(Resursi))]
         [Required(ErrorMessageResourceName = "EmailReq", ErrorMessageResourceType = typeof(Resursi))]
         [MaxLength(45, ErrorMessageResourceName = "EmailLen", ErrorMessageResourceType = typeof(Resursi))]
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessageResourceName = "EmailIs", ErrorMessageResourceType = typeof(Resursi))]
+        //[EmailAddress(ErrorMessageResourceName = "EmailIs", ErrorMessageResourceType = typeof(Resursi))]
         public string eMailKorisnika { get; set; }
 
         [Display(Name = "BrojTelefona", ResourceType = typeof(Resursi))]
@@ -58,7 +57,7 @@ namespace eDrvenija.eDrvenija.Models
         [MaxLength(45, ErrorMessageResourceName = "BrojTelefonaLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [DataType(DataType.PhoneNumber)]
-        [Phone(ErrorMessageResourceName = "BrojTelefonaIs", ErrorMessageResourceType = typeof(Resursi))]
+        //[Phone(ErrorMessageResourceName = "BrojTelefonaIs", ErrorMessageResourceType = typeof(Resursi))]
         public string brojTelefonaKorisnika { get; set; }
 
         [Display(Name = "Avatar", ResourceType = typeof(Resursi))]
@@ -78,10 +77,9 @@ namespace eDrvenija.eDrvenija.Models
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string korisnickoImeKorisnika { get; set; }
 
-        [Display(Name = "Loznika", ResourceType = typeof(Resursi))]
-        [Required(ErrorMessageResourceName = "LoznikaReq", ErrorMessageResourceType = typeof(Resursi))]
-        [MaxLength(45, ErrorMessageResourceName = "LoznikaLen", ErrorMessageResourceType = typeof(Resursi))]
-        [DisplayFormat(ConvertEmptyStringToNull = false)]
+        [Display(Name = "Lozinka", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "LozinkaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "LozinkaLen", ErrorMessageResourceType = typeof(Resursi))]
         [DataType(DataType.Password)]
         [PasswordPropertyText]
         public string lozinkaKorisnika { get; set; }

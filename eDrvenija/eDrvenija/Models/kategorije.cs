@@ -11,6 +11,9 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel;
+    using System.ComponentModel.DataAnnotations;
+    using Resursi;
     
     public partial class kategorije
     {
@@ -19,8 +22,15 @@ namespace eDrvenija.eDrvenija.Models
             this.korisnicikategorije = new HashSet<korisnicikategorije>();
             this.oglasi = new HashSet<oglasi>();
         }
-    
+
+        [Key]
+        [ScaffoldColumn(false)]
         public int idKategorije { get; set; }
+
+        [Display(Name = "Kategorija", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "KategorijaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "KategorijaLen", ErrorMessageResourceType = typeof(Resursi))]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string nazivKategorije { get; set; }
     
         public virtual ICollection<korisnicikategorije> korisnicikategorije { get; set; }

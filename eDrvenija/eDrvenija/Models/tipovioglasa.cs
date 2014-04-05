@@ -11,6 +11,8 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Resursi;
     
     public partial class tipovioglasa
     {
@@ -19,7 +21,13 @@ namespace eDrvenija.eDrvenija.Models
             this.oglasi = new HashSet<oglasi>();
         }
     
+        [Key]
+        [ScaffoldColumn(false)]
         public int idTipaOglasa { get; set; }
+
+        [Display(Name = "NazivTipaOglasa", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "NazivTipaOglasaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [StringLength(45, ErrorMessageResourceName = "NazivTipaOglasaLen", ErrorMessageResourceType = typeof(Resursi))]
         public string nazivTipaOglasa { get; set; }
     
         public virtual ICollection<oglasi> oglasi { get; set; }

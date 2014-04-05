@@ -13,6 +13,7 @@ namespace eDrvenija.eDrvenija.Models
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
     using System.ComponentModel;
+    using Resursi;
     
     public partial class korisnici
     {
@@ -32,53 +33,54 @@ namespace eDrvenija.eDrvenija.Models
         [ScaffoldColumn(false)]
         public int idKorisnika { get; set; }
         
-        [DisplayName("Ime")]
-        [Required(ErrorMessage = "Potrebno je unijeti ime korisnika i ne smije biti duže od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [Display(Name="Ime", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "ImeReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "ImeLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string imeKorisnika { get; set; }
-        
-        [DisplayName("Prezime")]
-        [Required(ErrorMessage = "Potrebno je unijeti prezime korisnika i ne smije biti duže od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+
+        [Display(Name = "Prezime", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "PrezimeReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "PrezimeLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string prezimeKorisnika { get; set; }
 
-        [DisplayName("E-Mail")]
-        [Required(ErrorMessage = "Potrebno je unijeti email korisnika i ne smije biti duži od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [Display(Name = "Email", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "EmailReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "EmailLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [DataType(DataType.EmailAddress)]
-        [EmailAddress(ErrorMessage = "Primjer validne email adrese: primjer@email.ba")]
+        [EmailAddress(ErrorMessageResourceName = "EmailIs", ErrorMessageResourceType = typeof(Resursi))]
         public string eMailKorisnika { get; set; }
 
-        [DisplayName("Broj telefona")]
-        [Required(ErrorMessage = "Potrebno je unijeti broj telefona korisnika i ne smije biti duži od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [Display(Name = "BrojTelefona", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "BrojTelefonaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "BrojTelefonaLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [DataType(DataType.PhoneNumber)]
-        [Phone(ErrorMessage = "Broj nije validan")]
+        [Phone(ErrorMessageResourceName = "BrojTelefonaIs", ErrorMessageResourceType = typeof(Resursi))]
         public string brojTelefonaKorisnika { get; set; }
 
+        [Display(Name = "Avatar", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "AvatarReq", ErrorMessageResourceType = typeof(Resursi))]
         public byte[] avatarKorisnika { get; set; }
 
-        [ScaffoldColumn(false)]
-        [DisplayName("Ocjena")]
-        [Range(1.00, 5.00, ErrorMessage = "Ocjena mora biti izmeðu 1 i 5")]
+        [Display(Name = "Ocjena", ResourceType = typeof(Resursi))]
+        [Range(1.00, 5.00, ErrorMessageResourceName = "OcjenaRange", ErrorMessageResourceType = typeof(Resursi))]
         public Nullable<double> ocjena { get; set; }
 
-        [ScaffoldColumn(false)]
+        [Display(Name = "KorisnikAktivanOd", ResourceType = typeof(Resursi))]
         public Nullable<System.DateTime> korisnikAktivanOd { get; set; }
 
-        [DisplayName("Korisnièko ime")]
-        [Required(ErrorMessage = "Potrebno je unijeti korisnièko ime korisnika i ne smije biti duže od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [Display(Name = "KorisnickoIme", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "KorisnickoImeReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "KorisnickoImeLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string korisnickoImeKorisnika { get; set; }
 
-        [DisplayName("Lozinka")]
-        [Required(ErrorMessage = "Potrebno je unijeti lozinku korisnika i ne smije biti duža od 45 znakova")]
-        [MaxLength(45, ErrorMessage = "Maksimalna dužina je 45 znakova")]
+        [Display(Name = "Loznika", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "LoznikaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [MaxLength(45, ErrorMessageResourceName = "LoznikaLen", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         [DataType(DataType.Password)]
         [PasswordPropertyText]
@@ -87,8 +89,8 @@ namespace eDrvenija.eDrvenija.Models
         [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
 
-        [DisplayName("Tip korisnika")]
-        [Required(ErrorMessage = "Potrebno je odabrati tip korisnika")]
+        [Display(Name = "TipKorisnika", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "TipKorisnikaReq", ErrorMessageResourceType = typeof(Resursi))]
         [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int idTipaKorisnika { get; set; }
     

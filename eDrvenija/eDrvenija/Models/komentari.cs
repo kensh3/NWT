@@ -11,13 +11,33 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel;
+    using Resursi;
     
     public partial class komentari
     {
+        [Key]
+        [ScaffoldColumn(false)]
         public int idKomentara { get; set; }
+
+        [Display(Name = "TekstKomentara", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "TekstKomentaraReq", ErrorMessageResourceType = typeof(Resursi))]
+        [StringLength(1000, ErrorMessageResourceName = "TekstKomentaraLen", ErrorMessageResourceType = typeof(Resursi))]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public string tekstKomentara { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
+
+        [Display(Name = "Korisnik", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "KorisnikReq", ErrorMessageResourceType = typeof(Resursi))]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int idKorisnika { get; set; }
+
+        [Display(Name = "Oglas", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "OglasReq", ErrorMessageResourceType = typeof(Resursi))]
+        [DisplayFormat(ConvertEmptyStringToNull = false)]
         public int idOglasa { get; set; }
     
         public virtual korisnici korisnici { get; set; }

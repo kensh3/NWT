@@ -11,6 +11,8 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Resursi;
     
     public partial class oglasi
     {
@@ -21,16 +23,46 @@ namespace eDrvenija.eDrvenija.Models
             this.transakcije = new HashSet<transakcije>();
         }
     
+        [Key]
+        [ScaffoldColumn(false)]
         public int idOglasa { get; set; }
+
+        [Display(Name = "NazivOglasa", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "NazivOglasaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [StringLength(45, ErrorMessageResourceName = "NazivOglasaLen", ErrorMessageResourceType = typeof(Resursi))]
         public string nazivOglasa { get; set; }
+
+        [Display(Name = "DatumObjaveOglasa", ResourceType = typeof(Resursi))]
         public Nullable<System.DateTime> datumObjaveOglasa { get; set; }
+
+        [Display(Name = "OpisOglasa", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "OpisOglasaReq", ErrorMessageResourceType = typeof(Resursi))]
+        [StringLength(1000, ErrorMessageResourceName = "OpisOglasaLen", ErrorMessageResourceType = typeof(Resursi))]
         public string opisOglasa { get; set; }
+
+        [Display(Name = "Cijena", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "CijenaReq", ErrorMessageResourceType = typeof(Resursi))]
         public Nullable<double> cijena { get; set; }
+
+        [Display(Name = "BrojPregledaOglasa", ResourceType = typeof(Resursi))]
         public Nullable<int> brojPregledaOglasa { get; set; }
+
+        [Display(Name = "ZavrsenaTranskacija", ResourceType = typeof(Resursi))]
         public Nullable<bool> zavrsenaTransakcija { get; set; }
+
+        [ScaffoldColumn(false)]
         public Nullable<bool> aktivan { get; set; }
+
+        [Display(Name = "TipOglasa", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "TipOglasaReq", ErrorMessageResourceType = typeof(Resursi))]
         public int idTipaOglasa { get; set; }
+
+        [Display(Name = "Kategorija", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "KategorijaReq", ErrorMessageResourceType = typeof(Resursi))]
         public int idKategorije { get; set; }
+
+        [Display(Name = "Korisnik", ResourceType = typeof(Resursi))]
+        [Required(ErrorMessageResourceName = "KorisnikReq", ErrorMessageResourceType = typeof(Resursi))]
         public int idKorisnika { get; set; }
     
         public virtual ICollection<dokumenti> dokumenti { get; set; }

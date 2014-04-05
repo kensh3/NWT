@@ -61,11 +61,209 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Avatar.
+        /// </summary>
+        public static string Avatar {
+            get {
+                return ResourceManager.GetString("Avatar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je učitati avatar.
+        /// </summary>
+        public static string AvatarReq {
+            get {
+                return ResourceManager.GetString("AvatarReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj pregleda.
+        /// </summary>
+        public static string BrojPregledaOglasa {
+            get {
+                return ResourceManager.GetString("BrojPregledaOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj preuzimanja.
+        /// </summary>
+        public static string BrojPreuzimanja {
+            get {
+                return ResourceManager.GetString("BrojPreuzimanja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj telefona.
+        /// </summary>
+        public static string BrojTelefona {
+            get {
+                return ResourceManager.GetString("BrojTelefona", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Telefon nije validan.
+        /// </summary>
+        public static string BrojTelefonaIs {
+            get {
+                return ResourceManager.GetString("BrojTelefonaIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string BrojTelefonaLen {
+            get {
+                return ResourceManager.GetString("BrojTelefonaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti broj telefona.
+        /// </summary>
+        public static string BrojTelefonaReq {
+            get {
+                return ResourceManager.GetString("BrojTelefonaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Cijena.
+        /// </summary>
+        public static string Cijena {
+            get {
+                return ResourceManager.GetString("Cijena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti cijenu.
+        /// </summary>
+        public static string CijenaReq {
+            get {
+                return ResourceManager.GetString("CijenaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum objave.
+        /// </summary>
+        public static string DatumObjaveOglasa {
+            get {
+                return ResourceManager.GetString("DatumObjaveOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Datum transakcije.
+        /// </summary>
+        public static string DatumTransakcije {
+            get {
+                return ResourceManager.GetString("DatumTransakcije", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti datum transakcije.
+        /// </summary>
+        public static string DatumTransakcijeReq {
+            get {
+                return ResourceManager.GetString("DatumTransakcijeReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Detalji.
         /// </summary>
         public static string Detalji {
             get {
                 return ResourceManager.GetString("Detalji", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dokument.
+        /// </summary>
+        public static string Dokument {
+            get {
+                return ResourceManager.GetString("Dokument", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je učitati dokument.
+        /// </summary>
+        public static string DokumentReq {
+            get {
+                return ResourceManager.GetString("DokumentReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email.
+        /// </summary>
+        public static string Email {
+            get {
+                return ResourceManager.GetString("Email", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Email nije validan.
+        /// </summary>
+        public static string EmailIs {
+            get {
+                return ResourceManager.GetString("EmailIs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string EmailLen {
+            get {
+                return ResourceManager.GetString("EmailLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti email.
+        /// </summary>
+        public static string EmailReq {
+            get {
+                return ResourceManager.GetString("EmailReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ime.
+        /// </summary>
+        public static string Ime {
+            get {
+                return ResourceManager.GetString("Ime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string ImeLen {
+            get {
+                return ResourceManager.GetString("ImeLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti ime.
+        /// </summary>
+        public static string ImeReq {
+            get {
+                return ResourceManager.GetString("ImeReq", resourceCulture);
             }
         }
         
@@ -97,6 +295,33 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Kategorija.
+        /// </summary>
+        public static string Kategorija {
+            get {
+                return ResourceManager.GetString("Kategorija", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string KategorijaLen {
+            get {
+                return ResourceManager.GetString("KategorijaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti kategoriju.
+        /// </summary>
+        public static string KategorijaReq {
+            get {
+                return ResourceManager.GetString("KategorijaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Kontaktiraj nas.
         /// </summary>
         public static string KontaktirajNas {
@@ -111,6 +336,60 @@ namespace Resursi {
         public static string Korisnici {
             get {
                 return ResourceManager.GetString("Korisnici", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisnicko ime.
+        /// </summary>
+        public static string KorisnickoIme {
+            get {
+                return ResourceManager.GetString("KorisnickoIme", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string KorisnickoImeLen {
+            get {
+                return ResourceManager.GetString("KorisnickoImeLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti korisnicko ime.
+        /// </summary>
+        public static string KorisnickoImeReq {
+            get {
+                return ResourceManager.GetString("KorisnickoImeReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisnik.
+        /// </summary>
+        public static string Korisnik {
+            get {
+                return ResourceManager.GetString("Korisnik", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisnik aktivan od.
+        /// </summary>
+        public static string KorisnikAktivanOd {
+            get {
+                return ResourceManager.GetString("KorisnikAktivanOd", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je odabrati korisnika.
+        /// </summary>
+        public static string KorisnikReq {
+            get {
+                return ResourceManager.GetString("KorisnikReq", resourceCulture);
             }
         }
         
@@ -142,11 +421,92 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Lozinka.
+        /// </summary>
+        public static string Lozinka {
+            get {
+                return ResourceManager.GetString("Lozinka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string LozinkaLen {
+            get {
+                return ResourceManager.GetString("LozinkaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti lozinku.
+        /// </summary>
+        public static string LozinkaReq {
+            get {
+                return ResourceManager.GetString("LozinkaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naslov poruke.
+        /// </summary>
+        public static string NaslovPoruke {
+            get {
+                return ResourceManager.GetString("NaslovPoruke", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string NaslovPorukeLen {
+            get {
+                return ResourceManager.GetString("NaslovPorukeLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti naslov poruke.
+        /// </summary>
+        public static string NaslovPorukeReq {
+            get {
+                return ResourceManager.GetString("NaslovPorukeReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Nazad na početnu.
         /// </summary>
         public static string NazadNaPocetnu {
             get {
                 return ResourceManager.GetString("NazadNaPocetnu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Naziv oglasa.
+        /// </summary>
+        public static string NazivOglasa {
+            get {
+                return ResourceManager.GetString("NazivOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string NazivOglasaLen {
+            get {
+                return ResourceManager.GetString("NazivOglasaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti naziv oglasa.
+        /// </summary>
+        public static string NazivOglasaReq {
+            get {
+                return ResourceManager.GetString("NazivOglasaReq", resourceCulture);
             }
         }
         
@@ -178,6 +538,33 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Naziv tipa oglasa.
+        /// </summary>
+        public static string NazivTipaOglasa {
+            get {
+                return ResourceManager.GetString("NazivTipaOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string NazivTipaOglasaLen {
+            get {
+                return ResourceManager.GetString("NazivTipaOglasaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti naziv tipa oglasa.
+        /// </summary>
+        public static string NazivTipaOglasaReq {
+            get {
+                return ResourceManager.GetString("NazivTipaOglasaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Obriši.
         /// </summary>
         public static string Obrisi {
@@ -196,11 +583,47 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Ocjena.
+        /// </summary>
+        public static string Ocjena {
+            get {
+                return ResourceManager.GetString("Ocjena", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Raspon ocjene.
+        /// </summary>
+        public static string OcjenaRange {
+            get {
+                return ResourceManager.GetString("OcjenaRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Oglas.
+        /// </summary>
+        public static string Oglas {
+            get {
+                return ResourceManager.GetString("Oglas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Oglasi.
         /// </summary>
         public static string Oglasi {
             get {
                 return ResourceManager.GetString("Oglasi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je odabrati oglas.
+        /// </summary>
+        public static string OglasReq {
+            get {
+                return ResourceManager.GetString("OglasReq", resourceCulture);
             }
         }
         
@@ -214,11 +637,173 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opis oglasa.
+        /// </summary>
+        public static string OpisOglasa {
+            get {
+                return ResourceManager.GetString("OpisOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 1000 znakova.
+        /// </summary>
+        public static string OpisOglasaLen {
+            get {
+                return ResourceManager.GetString("OpisOglasaLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti opis oglasa.
+        /// </summary>
+        public static string OpisOglasaReq {
+            get {
+                return ResourceManager.GetString("OpisOglasaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Posiljaoc.
+        /// </summary>
+        public static string Posiljaoc {
+            get {
+                return ResourceManager.GetString("Posiljaoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Prezime.
+        /// </summary>
+        public static string Prezime {
+            get {
+                return ResourceManager.GetString("Prezime", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 45 znakova.
+        /// </summary>
+        public static string PrezimeLen {
+            get {
+                return ResourceManager.GetString("PrezimeLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti prezime.
+        /// </summary>
+        public static string PrezimeReq {
+            get {
+                return ResourceManager.GetString("PrezimeReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Primaoc.
+        /// </summary>
+        public static string Primaoc {
+            get {
+                return ResourceManager.GetString("Primaoc", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sačuvaj.
         /// </summary>
         public static string Sacuvaj {
             get {
                 return ResourceManager.GetString("Sacuvaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tekst komentara.
+        /// </summary>
+        public static string TekstKomentara {
+            get {
+                return ResourceManager.GetString("TekstKomentara", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 1000 znakova.
+        /// </summary>
+        public static string TekstKomentaraLen {
+            get {
+                return ResourceManager.GetString("TekstKomentaraLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti komentar.
+        /// </summary>
+        public static string TekstKomentaraReq {
+            get {
+                return ResourceManager.GetString("TekstKomentaraReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tekst poruke.
+        /// </summary>
+        public static string TekstPoruke {
+            get {
+                return ResourceManager.GetString("TekstPoruke", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Maksimalna dužina je 1000 znakova.
+        /// </summary>
+        public static string TekstPorukeLen {
+            get {
+                return ResourceManager.GetString("TekstPorukeLen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti tekst poruke.
+        /// </summary>
+        public static string TekstPorukeReq {
+            get {
+                return ResourceManager.GetString("TekstPorukeReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tip korisnika.
+        /// </summary>
+        public static string TipKorisnika {
+            get {
+                return ResourceManager.GetString("TipKorisnika", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je odabrati tip korisnika.
+        /// </summary>
+        public static string TipKorisnikaReq {
+            get {
+                return ResourceManager.GetString("TipKorisnikaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tipa oglasa.
+        /// </summary>
+        public static string TipOglasa {
+            get {
+                return ResourceManager.GetString("TipOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Potrebno je unijeti tipa oglasa.
+        /// </summary>
+        public static string TipOglasaReq {
+            get {
+                return ResourceManager.GetString("TipOglasaReq", resourceCulture);
             }
         }
         
@@ -237,6 +822,15 @@ namespace Resursi {
         public static string Uredi {
             get {
                 return ResourceManager.GetString("Uredi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Zavrsena transakcija.
+        /// </summary>
+        public static string ZavrsenaTransakcija {
+            get {
+                return ResourceManager.GetString("ZavrsenaTransakcija", resourceCulture);
             }
         }
     }

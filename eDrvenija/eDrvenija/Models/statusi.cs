@@ -11,12 +11,22 @@ namespace eDrvenija.eDrvenija.Models
 {
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations;
+    using Resursi;
     
     public partial class statusi
     {
+        [Key]
+        [ScaffoldColumn(false)]
         public int idStatusa { get; set; }
+
+        [Display(Name = "BrojProdaja", ResourceType = typeof(Resursi))]
         public Nullable<int> brojProdaja { get; set; }
+
+        [Display(Name = "BrojKupovina", ResourceType = typeof(Resursi))]
         public Nullable<int> brojKupovina { get; set; }
+
+        [Display(Name = "Korisnik", ResourceType = typeof(Resursi))]
         public int idKorisnika { get; set; }
     
         public virtual korisnici korisnici { get; set; }

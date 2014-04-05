@@ -117,8 +117,74 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Avatar" xml:space="preserve">
+    <value>Avatar</value>
+  </data>
+  <data name="AvatarReq" xml:space="preserve">
+    <value>Avatar is required</value>
+  </data>
+  <data name="BrojPregledaOglasa" xml:space="preserve">
+    <value>Number of views</value>
+  </data>
+  <data name="BrojPreuzimanja" xml:space="preserve">
+    <value>Number of downloads</value>
+  </data>
+  <data name="BrojTelefona" xml:space="preserve">
+    <value>Phone number</value>
+  </data>
+  <data name="BrojTelefonaIs" xml:space="preserve">
+    <value>Phone nubmer is not valid</value>
+  </data>
+  <data name="BrojTelefonaLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="BrojTelefonaReq" xml:space="preserve">
+    <value>Phone number is required</value>
+  </data>
+  <data name="Cijena" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="CijenaReq" xml:space="preserve">
+    <value>Price is required</value>
+  </data>
+  <data name="DatumObjaveOglasa" xml:space="preserve">
+    <value>Date of publication</value>
+  </data>
+  <data name="DatumTransakcije" xml:space="preserve">
+    <value>Transaction date</value>
+  </data>
+  <data name="DatumTransakcijeReq" xml:space="preserve">
+    <value>Transaction date is required</value>
+  </data>
   <data name="Detalji" xml:space="preserve">
     <value>Details</value>
+  </data>
+  <data name="Dokument" xml:space="preserve">
+    <value>Document</value>
+  </data>
+  <data name="DokumentReq" xml:space="preserve">
+    <value>Document is required</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>Email</value>
+  </data>
+  <data name="EmailIs" xml:space="preserve">
+    <value>Email is not valid</value>
+  </data>
+  <data name="EmailLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="EmailReq" xml:space="preserve">
+    <value>Email is required</value>
+  </data>
+  <data name="Ime" xml:space="preserve">
+    <value>First name</value>
+  </data>
+  <data name="ImeLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="ImeReq" xml:space="preserve">
+    <value>First name is required</value>
   </data>
   <data name="Index" xml:space="preserve">
     <value>Index</value>
@@ -129,11 +195,38 @@
   <data name="IzaberiteJezik" xml:space="preserve">
     <value>Choose your language</value>
   </data>
+  <data name="Kategorija" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="KategorijaLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="KategorijaReq" xml:space="preserve">
+    <value>Category is required</value>
+  </data>
   <data name="KontaktirajNas" xml:space="preserve">
     <value>Contact us</value>
   </data>
   <data name="Korisnici" xml:space="preserve">
     <value>Customers</value>
+  </data>
+  <data name="KorisnickoIme" xml:space="preserve">
+    <value>Username</value>
+  </data>
+  <data name="KorisnickoImeLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="KorisnickoImeReq" xml:space="preserve">
+    <value>Username is required</value>
+  </data>
+  <data name="Korisnik" xml:space="preserve">
+    <value>User</value>
+  </data>
+  <data name="KorisnikAktivanOd" xml:space="preserve">
+    <value>User activ from</value>
+  </data>
+  <data name="KorisnikReq" xml:space="preserve">
+    <value>User is required</value>
   </data>
   <data name="Kreiraj" xml:space="preserve">
     <value>Create</value>
@@ -144,8 +237,35 @@
   <data name="Linkovi" xml:space="preserve">
     <value>Links</value>
   </data>
+  <data name="Lozinka" xml:space="preserve">
+    <value>Password</value>
+  </data>
+  <data name="LozinkaLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="LozinkaReq" xml:space="preserve">
+    <value>Password is required</value>
+  </data>
+  <data name="NaslovPoruke" xml:space="preserve">
+    <value>Message title</value>
+  </data>
+  <data name="NaslovPorukeLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="NaslovPorukeReq" xml:space="preserve">
+    <value>Message title is required</value>
+  </data>
   <data name="NazadNaPocetnu" xml:space="preserve">
     <value>Back to list</value>
+  </data>
+  <data name="NazivOglasa" xml:space="preserve">
+    <value>Ad name</value>
+  </data>
+  <data name="NazivOglasaLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="NazivOglasaReq" xml:space="preserve">
+    <value>Ad name is required</value>
   </data>
   <data name="NazivTipaKorisnika" xml:space="preserve">
     <value>User type name</value>
@@ -156,25 +276,103 @@
   <data name="NazivTipaKorisnikaReq" xml:space="preserve">
     <value>User type name is required</value>
   </data>
+  <data name="NazivTipaOglasa" xml:space="preserve">
+    <value>Ad type name</value>
+  </data>
+  <data name="NazivTipaOglasaLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="NazivTipaOglasaReq" xml:space="preserve">
+    <value>Ad type name is required</value>
+  </data>
   <data name="Obrisi" xml:space="preserve">
     <value>Delete</value>
   </data>
   <data name="ObrisiPitanje" xml:space="preserve">
     <value>Are you sure you want to delete this?</value>
   </data>
+  <data name="Ocjena" xml:space="preserve">
+    <value>Rating</value>
+  </data>
+  <data name="OcjenaRange" xml:space="preserve">
+    <value>Rating range</value>
+  </data>
+  <data name="Oglas" xml:space="preserve">
+    <value>Add</value>
+  </data>
   <data name="Oglasi" xml:space="preserve">
     <value>Ads</value>
+  </data>
+  <data name="OglasReq" xml:space="preserve">
+    <value>Add is required</value>
   </data>
   <data name="Onama" xml:space="preserve">
     <value>About us</value>
   </data>
+  <data name="OpisOglasa" xml:space="preserve">
+    <value>Ad description</value>
+  </data>
+  <data name="OpisOglasaLen" xml:space="preserve">
+    <value>Max length is 1000 characters</value>
+  </data>
+  <data name="OpisOglasaReq" xml:space="preserve">
+    <value>Ad description is required</value>
+  </data>
+  <data name="Posiljaoc" xml:space="preserve">
+    <value>Sender</value>
+  </data>
+  <data name="Prezime" xml:space="preserve">
+    <value>Last name</value>
+  </data>
+  <data name="PrezimeLen" xml:space="preserve">
+    <value>Max length is 45 characters</value>
+  </data>
+  <data name="PrezimeReq" xml:space="preserve">
+    <value>Last name is required</value>
+  </data>
+  <data name="Primaoc" xml:space="preserve">
+    <value>Recipient</value>
+  </data>
   <data name="Sacuvaj" xml:space="preserve">
     <value>Save</value>
+  </data>
+  <data name="TekstKomentara" xml:space="preserve">
+    <value>Comment text</value>
+  </data>
+  <data name="TekstKomentaraLen" xml:space="preserve">
+    <value>Max length is 1000 characters</value>
+  </data>
+  <data name="TekstKomentaraReq" xml:space="preserve">
+    <value>Comment is required</value>
+  </data>
+  <data name="TekstPoruke" xml:space="preserve">
+    <value>Message text</value>
+  </data>
+  <data name="TekstPorukeLen" xml:space="preserve">
+    <value>Max length is 1000 characters</value>
+  </data>
+  <data name="TekstPorukeReq" xml:space="preserve">
+    <value>Message text is required</value>
+  </data>
+  <data name="TipKorisnika" xml:space="preserve">
+    <value>User type</value>
+  </data>
+  <data name="TipKorisnikaReq" xml:space="preserve">
+    <value>User type is required</value>
+  </data>
+  <data name="TipOglasa" xml:space="preserve">
+    <value>Ad type</value>
+  </data>
+  <data name="TipOglasaReq" xml:space="preserve">
+    <value>Ad type is required</value>
   </data>
   <data name="TipoviKorisnika" xml:space="preserve">
     <value>User types</value>
   </data>
   <data name="Uredi" xml:space="preserve">
     <value>Edit</value>
+  </data>
+  <data name="ZavrsenaTransakcija" xml:space="preserve">
+    <value>Transaction finished</value>
   </data>
 </root>

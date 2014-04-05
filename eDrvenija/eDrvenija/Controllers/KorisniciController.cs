@@ -9,6 +9,9 @@ using System.Threading.Tasks;
 using eDrvenija.eDrvenija.Models;
 using Recaptcha.Web;
 using Recaptcha.Web.Mvc;
+using System.Net;
+using System.Net.Mail;
+using System.Text.RegularExpressions;
 
 
 namespace eDrvenija.eDrvenija.Controllers
@@ -110,7 +113,8 @@ namespace eDrvenija.eDrvenija.Controllers
             {
                 db.korisnici.Add(korisnici);
                 db.SaveChanges();
-                return RedirectToAction("Login");
+                EmailManager.SendConfirmationEmail(korisnici);
+                return RedirectToAction("Confirmation", "Korisnici");
             }
 
             ViewBag.idTipaKorisnika = new SelectList(db.tipovikorisnika, "idTipaKorisnika", "nazivTipaKorisnika", korisnici.idTipaKorisnika);
@@ -174,6 +178,62 @@ namespace eDrvenija.eDrvenija.Controllers
             return RedirectToAction("Index");
         }
 
+        //
+        // GET: /Korisnici/Verify
+        public ActionResult Verify(string id)
+        {
+            if (string.IsNullOrEmpty(id) || (!Regex.IsMatch(id, @"[0-9]")))
+            {
+                ViewBag.Msg = "Korisnički račun nije validan! Molimo pokušajte ponovo klikom na link koji se nalazi u Vašem mailu za potvrdu registracije.";
+                return View("Login");
+            }
+
+            else
+            {
+                int id1 = Int32.Parse(id);
+                korisnici korisnik = db.korisnici.Find(id1);
+                if (korisnik.aktivan == false)
+                {
+                    korisnik.aktivan = true;
+                    db.Entry(korisnik).State = EntityState.Modified;
+                    db.SaveChanges();
+                    return RedirectToAction("Welcome");
+                }
+                else
+                {
+                    ViewBag.Msg = "Korisnički racun je vec aktiviran";
+                    return RedirectToAction("Login");
+                }
+            }
+        }
+
+        public ActionResult Confirmation()
+        {
+            return View();
+        }
+
+        public class EmailManager
+        {
+            private const string EmailFrom = "noreplay@gmail.com";
+            public static void SendConfirmationEmail(korisnici k)
+            {
+                //var user = Membership.GetUser(userName.ToString());
+                var confirmationGuid = k.idKorisnika.ToString();
+                var verifyUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "/Korisnici/Verify/?ID=" + confirmationGuid;
+
+                string subject = "Please Verify your Account";
+                string body = "Dear " + k.imeKorisnika + "\nTo verify your account, please click the following link: "
+                   + verifyUrl + "\nBest regards, \n\nDo not forward this email. The verify link is private.";
+
+                var client = new SmtpClient("smtp.gmail.com", 587)
+                {
+                    Credentials = new NetworkCredential("nwt.application@gmail.com", "Hana1409"),
+                    EnableSsl = true
+                };
+                client.Send("nwt.application@gmail.com", k.eMailKorisnika, subject, body);
+
+            }
+        }
 
         protected override void Dispose(bool disposing)
         {

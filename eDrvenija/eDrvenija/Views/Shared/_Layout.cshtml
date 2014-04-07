@@ -5,7 +5,11 @@
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="~/Content/bootstrap.css" type="text/css" />
-    @Styles.Render("~/Content/bootstrap.css")
+
+    <link href="~/Content/jquery.circliful.css" rel="stylesheet" type="text/css" />
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.circliful.min.js"></script>
 
 </head>
 <body>
@@ -62,7 +66,6 @@
 
     @RenderBody()
     @RenderSection("Scripts", false)
-    @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrapjs")
 </body>
 </html>

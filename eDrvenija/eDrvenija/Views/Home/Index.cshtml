@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Početna stranica";
+    ViewBag.Title = @Resursi.Index;
 }
 <div class="hero-unit container">
 
@@ -9,12 +9,56 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>Dobrodošli na eDrveniju</h1></div>
+                <div class="panel-heading"><h1>@Resursi.Dobrodosli</h1></div>
                 <div class="panel-body">
                     <p>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.</p>
-                    <p>@Html.ActionLink("Home >>", "../", null, new { @class = "btn btn-primary btn-large" })</p>
+                    <p>@Html.ActionLink(@Resursi.Index, "../", null, new { @class = "btn btn-primary btn-large" })</p>
+                    
                 </div>
+                
             </div>
+            <h3><span class="label label-default">Broj novih korisnika u zadnjih</span></h3>
+            <div class="btn-group">
+                <button id="sedamdana" type="button" class="btn btn-default">7 dana</button>
+                <button id="mjesecdana" type="button" class="btn btn-default">30 dana</button>
+                <button id="godinadana" type="button" class="btn btn-default">365 dana</button>
+            </div>
+            <div id="grafMjesto"></div>
         </div>
     </div>
 </div>
+@section Scripts{
+    <script>
+        $(document).ready(function () {
+            var broj = 0;
+            var maxbroj;
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojKorisnika", function (data, status) {
+                maxbroj = data;
+            });
+            
+            $("#sedamdana").click(function() {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/7", function (data, status) {
+                    broj = data;
+                });
+            });
+            $("#mjesecdana").click(function () {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/30", function (data, status) {
+                    broj = data;
+                });
+            });
+            $("#godinadana").click(function () {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/365", function (data, status) {
+                    broj = data;
+                });
+            });
+                
+            $(document).ajaxSuccess(function () {
+                $("#myStat").remove();
+                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='Broj' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
+                $("#grafMjesto").append(graf);
+                $('#myStat').circliful();
+            });
+            
+        });
+    </script>
+}

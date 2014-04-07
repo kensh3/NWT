@@ -35,6 +35,24 @@ namespace eDrvenija.eDrvenija.Controllers
             return korisnici;
         }
 
+        [HttpGet]
+        public int DajBrojNovihKorisnikaByBrojDana(int brojDana = 7)
+        {
+            DateTime now = DateTime.Now;
+            now = now.AddDays((-1)*brojDana);
+            int brojNovihKorisnika = (from kors in db.korisnici
+                                      where kors.korisnikAktivanOd >= now
+                                      select kors).Count();
+            return brojNovihKorisnika;
+        }
+
+        [HttpGet]
+        public int DajBrojKorisnika()
+        {
+            int brojKorisnika = db.korisnici.Count();
+            return brojKorisnika;
+        }
+
         // GET api/Korisnik/email
         public korisnici GetkorisniciByEmail(string email)
         {

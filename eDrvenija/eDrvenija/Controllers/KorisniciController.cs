@@ -85,6 +85,7 @@ namespace eDrvenija.eDrvenija.Controllers
         }
 
         //
+        // R E G I S T R A C I J A
         // POST: /Korisnici/Create
 
         [HttpPost]
@@ -108,14 +109,17 @@ namespace eDrvenija.eDrvenija.Controllers
                 return View(korisnici);
             }
 
-
-            if (ModelState.IsValid)
-            {
+        if (ModelState.IsValid) // Ovdje pada zbog validacije
+             {
+                 ModelState.AddModelError("", "Prosao valid.");
+                korisnici.aktivan = false;
                 db.korisnici.Add(korisnici);
-                db.SaveChanges();
+                db.SaveChanges(); // Ovdje pada zbog validacije
+                ModelState.Clear();
                 EmailManager.SendConfirmationEmail(korisnici);
+                korisnici = null;
                 return RedirectToAction("Confirmation", "Korisnici");
-            }
+             }
 
             ViewBag.idTipaKorisnika = new SelectList(db.tipovikorisnika, "idTipaKorisnika", "nazivTipaKorisnika", korisnici.idTipaKorisnika);
             return View(korisnici);
@@ -197,7 +201,10 @@ namespace eDrvenija.eDrvenija.Controllers
                     korisnik.aktivan = true;
                     db.Entry(korisnik).State = EntityState.Modified;
                     db.SaveChanges();
+
+                    Session["KorisnikId"] = korisnik.idKorisnika.ToString();
                     return RedirectToAction("Welcome");
+                    //return RedirectToAction("Index", "Korisnici");
                 }
                 else
                 {
@@ -214,23 +221,32 @@ namespace eDrvenija.eDrvenija.Controllers
 
         public class EmailManager
         {
-            private const string EmailFrom = "noreplay@gmail.com";
+            private const string EmailFrom = "noreply@gmail.com";
             public static void SendConfirmationEmail(korisnici k)
             {
                 //var user = Membership.GetUser(userName.ToString());
                 var confirmationGuid = k.idKorisnika.ToString();
                 var verifyUrl = System.Web.HttpContext.Current.Request.Url.GetLeftPart(UriPartial.Authority) + "/Korisnici/Verify/?ID=" + confirmationGuid;
 
-                string subject = "Please Verify your Account";
-                string body = "Dear " + k.imeKorisnika + "\nTo verify your account, please click the following link: "
-                   + verifyUrl + "\nBest regards, \n\nDo not forward this email. The verify link is private.";
+                string subject = "Molimo potvrdite svoju prijavu";
+                string body = "Dragi " + k.imeKorisnika + ",\nKako bi potvrdili svoju prijavu potrebno je kliknuti na link u nastavku: "
+                   + verifyUrl + "\nLijep pozdrav, \n\n Molimo da na ovaj mail ne odgovarate. Link za potvrdu je privatan.";
+
+                MailAddress posiljalac = new MailAddress("nwt.application@gmail.com", "eDrvenija");
+                MailAddress primalac = new MailAddress(k.eMailKorisnika);
+                MailMessage message = new MailMessage(posiljalac, primalac);
+
+                message.Subject = subject;
+                message.Body = body;
 
                 var client = new SmtpClient("smtp.gmail.com", 587)
                 {
                     Credentials = new NetworkCredential("nwt.application@gmail.com", "Hana1409"),
                     EnableSsl = true
                 };
-                client.Send("nwt.application@gmail.com", k.eMailKorisnika, subject, body);
+
+                client.Send(message);
+                //client.Send("nwt.application@gmail.com", k.eMailKorisnika, subject, body);
 
             }
         }

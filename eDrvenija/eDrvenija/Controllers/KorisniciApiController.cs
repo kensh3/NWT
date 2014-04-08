@@ -53,6 +53,18 @@ namespace eDrvenija.eDrvenija.Controllers
             return brojKorisnika;
         }
 
+
+
+
+
+
+  
+
+
+
+
+
+
         // GET api/Korisnik/email
         public korisnici GetkorisniciByEmail(string email)
         {

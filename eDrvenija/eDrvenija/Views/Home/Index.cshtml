@@ -13,9 +13,9 @@
                 <div class="panel-body">
                     <p>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.</p>
                     <p>@Html.ActionLink(@Resursi.Index, "../", null, new { @class = "btn btn-primary btn-large" })</p>
-                    
+
                 </div>
-                
+
             </div>
             <div class="row panel panel-default">
                 <div class="panel-heading">Statistike</div>
@@ -29,46 +29,77 @@
 
                     <div id="grafMjesto"></div>
                 </div>
-                    <div class="col-md-8">
-                        <table id="tablehighchart" class="highchart" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
-                            <caption>Najveca tri broja kupovina i prodaja</caption>
-                            <thead>
-                                <tr>
-                                    <th>Mjesto</th>
-                                    <th>Broj kupovina</th>
-                                    <th>Broj prodaja</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>Prvi</td>
-                                    <td id="prvik">30</td>
-                                    <td id="prvip">40</td>
-                                </tr>
-                                <tr>
-                                    <td>Drugi</td>
-                                    <td id="drugik">20</td>
-                                    <td id="drugip">25</td>
-                                </tr>
-                                <tr>
-                                    <td>Treci</td>
-                                    <td id="trecik">10</td>
-                                    <td id="trecip">15</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
+                <div class="col-md-8">
+                    <table id="tablehighchart" class="highchart" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
+                        <caption>Najveca tri broja kupovina i prodaja</caption>
+                        <thead>
+                            <tr>
+                                <th>Mjesto</th>
+                                <th>Broj kupovina</th>
+                                <th>Broj prodaja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Prvi</td>
+                                <td id="prvik">30</td>
+                                <td id="prvip">40</td>
+                            </tr>
+                            <tr>
+                                <td>Drugi</td>
+                                <td id="drugik">20</td>
+                                <td id="drugip">25</td>
+                            </tr>
+                            <tr>
+                                <td>Treci</td>
+                                <td id="trecik">10</td>
+                                <td id="trecip">15</td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </div>
+            </div>
         </div>
     </div>
+
+
+    <div class="row panel panel-default">
+        <div class="panel-heading">
+            <p class="panel-title"><span class="glyphicon glyphicon-user"></span> Pie charts</p>
+        </div>
+
+        <ul class="nav nav-tabs nav-justified" role="navigation">
+            <li class="active"><a href="#prvi" data-toggle="tab">Korisnici po ocjeni</a></li>
+            <li><a href="#drugi" data-toggle="tab">Aktivni/inaktivni korisnici</a></li>
+        </ul>
+        
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="prvi">
+                <br />
+                <br />
+                <div id="graf1" style="height: 400px;"></div>
+            </div>
+            <div class="tab-pane" id="drugi">
+                <br />
+                <br />
+                <div id="graf2" style="height: 250px; width: 750px;"></div>
+            </div>
+        </div>
+    </div>
+
+
 </div>
+
 @section Scripts{
+
     <script>
         $(document).ready(function () {
             var broj = 0;
             var maxbroj;
             var brojkupovina;
             var brojprodaja;
+
 
             $("#tablehighchart").hide();
 
@@ -81,9 +112,7 @@
             });
             $.get("http://localhost:3611/api/KorisniciApi/DajTriNajvecaBrojaProdaja", function (data, status) {
                 brojprodaja = data;
-            });
-
-            
+            });         
             
             $("#sedamdana").click(function() {
                 $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/7", function (data, status) {
@@ -120,7 +149,50 @@
 
             $('#tablehighchart').highchartTable();
             
-            
+
         });
+
+        
     </script>
+
+    <script>
+
+        var aktivni = 7;
+        var neaktivni = 2;
+
+        new Morris.Donut({
+
+            // ID of the element in which to draw the chart.
+            element: 'graf2',
+            // Chart data records -- each entry in this array corresponds to a point on
+            // the chart.
+            data: [
+              { label: 'Aktivni korisnici', value: aktivni },
+              { label: 'Neaktivni korisnici', value: neaktivni },
+            ]
+        });
+
+    </script>
+
+
+    <script>
+
+        Morris.Bar({
+            element: 'graf1',
+            ymin: 0,
+            data: [
+              { y: '1', a: 6, b: 3 },
+              { y: '2', a: 5, b: 0 },
+              { y: '3', a: 3, b: 1 },
+              { y: '4', a: 7, b: 4 },
+              { y: '5', a: 9, b: 0 },
+
+            ],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['Aktivnih korisnika', 'Neaktivnih korisnika']
+        });
+
+    </script>
+ 
 }

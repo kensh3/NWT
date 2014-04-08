@@ -56,14 +56,43 @@ namespace eDrvenija.eDrvenija.Controllers
 
 
 
+        [HttpGet]
+        public int DajBrojAktivnihKorisnika()
+        {
+            int brojAktivnihKorisnika = (from kors in db.korisnici
+                                         where kors.aktivan == true
+                                         select kors).Count();
+            return brojAktivnihKorisnika;
+        }
 
+        [HttpGet]
+        public int DajBrojNeaktivnihKorisnika()
+        {
+            int brojNeaktivnihKorisnika = (from kors in db.korisnici
+                                         where kors.aktivan == false
+                                         select kors).Count();
+            return brojNeaktivnihKorisnika;
+        }
 
+        [HttpGet]
+        public int DajBrojAktivnihKorisnikaByOcjena(int ocjena)
+        {
+            int brojAktivnihKorisnika = (from kors in db.korisnici
+                                           where kors.aktivan == true && kors.ocjena == ocjena
+                                           select kors).Count();
+            return brojAktivnihKorisnika;
+        }
+
+        [HttpGet]
+        public int DajBrojNeaktivnihKorisnikaByOcjena(int ocjena)
+        {
+            int brojNeaktivnihKorisnika = (from kors in db.korisnici
+                                           where kors.aktivan == false && kors.ocjena == ocjena
+                                           select kors).Count();
+            return brojNeaktivnihKorisnika;
+        }
+        
   
-
-
-
-
-
 
         // GET api/Korisnik/email
         public korisnici GetkorisniciByEmail(string email)

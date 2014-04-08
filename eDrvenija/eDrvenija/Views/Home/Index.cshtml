@@ -63,7 +63,8 @@
     </div>
 
 
-    <div class="row panel panel-default">
+
+    <div class="row panel panel-info">
         <div class="panel-heading">
             <p class="panel-title"><span class="glyphicon glyphicon-user"></span> Pie charts</p>
         </div>
@@ -72,24 +73,25 @@
             <li class="active"><a href="#prvi" data-toggle="tab">Korisnici po ocjeni</a></li>
             <li><a href="#drugi" data-toggle="tab">Aktivni/inaktivni korisnici</a></li>
         </ul>
-        
+
         <!-- Tab panes -->
         <div class="tab-content">
             <div class="tab-pane fade in active" id="prvi">
-                <br />
-                <br />
-                <div id="graf1" style="height: 400px;"></div>
+                <div style="height:400px;">
+                    <div id="graf1" style="height: 400px;"></div>
+                </div>
+                <div class="well"><center>Spisak aktivnih i neaktivnih korisnika po ocjenama.</center></div>
             </div>
-            <div class="tab-pane" id="drugi">
-                <br />
-                <br />
-                <div id="graf2" style="height: 250px; width: 750px;"></div>
+            <div class="tab-pane fade" id="drugi"> 
+                <div style="height:400px;">
+                    <div id="graf2" style="height: 300px; width: 600px;"></div>
+                </div>
+                <div class="well"><center>Ukupan broj aktivnih i neaktivnih korisnika.</center></div>
             </div>
         </div>
+
+
     </div>
-
-
-</div>
 
 @section Scripts{
 
@@ -99,6 +101,8 @@
             var maxbroj;
             var brojkupovina;
             var brojprodaja;
+            var aktivni = 7;
+            var neaktivni = 2;
 
 
             $("#tablehighchart").hide();
@@ -148,30 +152,39 @@
             });
 
             $('#tablehighchart').highchartTable();
-            
+
+
+
+
+
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojAktivnihKorisnika", function (data, status) {
+                aktivni = data;
+            });
+
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojNeaktivnihKorisnika", function (data, status) {
+                neaktivni = data;
+            });
+
+            $(document).ajaxSuccess(function () {
+           
+                new Morris.Donut({
+
+                    // ID of the element in which to draw the chart.
+                    element: 'graf2',
+                    // Chart data records -- each entry in this array corresponds to a point on
+                    // the chart.
+                    data: [
+                      { label: 'Aktivni korisnici', value: aktivni },
+                      { label: 'Neaktivni korisnici', value: neaktivni },
+                    ]
+                });
+
+            });
+
 
         });
 
         
-    </script>
-
-    <script>
-
-        var aktivni = 7;
-        var neaktivni = 2;
-
-        new Morris.Donut({
-
-            // ID of the element in which to draw the chart.
-            element: 'graf2',
-            // Chart data records -- each entry in this array corresponds to a point on
-            // the chart.
-            data: [
-              { label: 'Aktivni korisnici', value: aktivni },
-              { label: 'Neaktivni korisnici', value: neaktivni },
-            ]
-        });
-
     </script>
 
 

@@ -30,12 +30,30 @@ namespace eDrvenija
 
             #region Korisnik
 
+
+            config.Routes.MapHttpRoute(
+                name: "DajBrojAktivnihKorisnikaByOcjena",
+                routeTemplate: "Korisnik/DajBrojAktivnihKorisnikaByOcjena/{ocjena}",
+                defaults: new { controller = "KorisniciApi", Action = "DajBrojAktivnihKorisnikaByOcjena", ocjena = RouteParameter.Optional },
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
+            );
+
+
+            config.Routes.MapHttpRoute(
+                name: "DajBrojNeaktivnihKorisnikaByOcjena",
+                routeTemplate: "Korisnik/DajBrojNeaktivnihKorisnikaByOcjena/{ocjena}",
+                defaults: new { controller = "KorisniciApi", Action = "DajBrojNeaktivnihKorisnikaByOcjena", ocjena = RouteParameter.Optional },
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
+            );
+
+
             config.Routes.MapHttpRoute(
                 name: "DajBrojNovihKorisnikaByBrojDana",
                 routeTemplate: "Korisnik/DajBrojNovihKorisnikaByBrojDana/{brojDana}",
                 defaults: new { controller = "KorisniciApi", Action = "DajBrojNovihKorisnikaByBrojDana", brojDana = RouteParameter.Optional },
                 constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
             );
+
 
             config.Routes.MapHttpRoute(
                 name: "GetKorisniciByUsername",

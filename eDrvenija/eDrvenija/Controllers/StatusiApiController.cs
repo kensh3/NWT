@@ -35,6 +35,24 @@ namespace eDrvenija.eDrvenija.Controllers
             return statusi;
         }
 
+        [HttpGet]
+        public IEnumerable<int?> DajTriNajvecaBrojaKupovina()
+        {
+            var tribroja = (from stats in db.statusi
+                            orderby stats.brojKupovina descending
+                            select stats.brojKupovina).Take(3).AsEnumerable();
+            return tribroja;
+        }
+
+        [HttpGet]
+        public IEnumerable<int?> DajTriNajvecaBrojaProdaja()
+        {
+            var tribroja = (from stats in db.statusi
+                            orderby stats.brojProdaja descending
+                            select stats.brojProdaja).Take(3).AsEnumerable();
+            return tribroja;
+        }
+
         // PUT api/Statusi/5
         public HttpResponseMessage Putstatusi(int id, statusi statusi)
         {

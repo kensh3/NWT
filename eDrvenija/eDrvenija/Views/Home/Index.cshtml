@@ -17,13 +17,47 @@
                 </div>
                 
             </div>
-            <h3><span class="label label-default">Broj novih korisnika u zadnjih</span></h3>
-            <div class="btn-group">
-                <button id="sedamdana" type="button" class="btn btn-default">7 dana</button>
-                <button id="mjesecdana" type="button" class="btn btn-default">30 dana</button>
-                <button id="godinadana" type="button" class="btn btn-default">365 dana</button>
-            </div>
-            <div id="grafMjesto"></div>
+            <div class="row">
+                <div class="col-md-4">
+                    <h3><span class="label label-default">Broj novih korisnika u zadnjih</span></h3>
+                    <div class="btn-group">
+                        <button id="sedamdana" type="button" class="btn btn-default">7 dana</button>
+                        <button id="mjesecdana" type="button" class="btn btn-default">30 dana</button>
+                        <button id="godinadana" type="button" class="btn btn-default">365 dana</button>
+                    </div>
+
+                    <div id="grafMjesto"></div>
+                </div>
+                    <div class="col-md-8">
+                        <table id="tablehighchart" class="highchart" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
+                            <caption>Najveca tri broja kupovina i prodaja</caption>
+                            <thead>
+                                <tr>
+                                    <th>Mjesto</th>
+                                    <th>Broj kupovina</th>
+                                    <th>Broj prodaja</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Prvi</td>
+                                    <td id="prvik">30</td>
+                                    <td id="prvip">40</td>
+                                </tr>
+                                <tr>
+                                    <td>Drugi</td>
+                                    <td id="drugik">20</td>
+                                    <td id="drugip">25</td>
+                                </tr>
+                                <tr>
+                                    <td>Treci</td>
+                                    <td id="trecik">10</td>
+                                    <td id="trecip">15</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
         </div>
     </div>
 </div>
@@ -32,9 +66,23 @@
         $(document).ready(function () {
             var broj = 0;
             var maxbroj;
+            var brojkupovina;
+            var brojprodaja;
+
+            $("#tablehighchart").hide();
+
             $.get("http://localhost:3611/api/KorisniciApi/DajBrojKorisnika", function (data, status) {
                 maxbroj = data;
             });
+
+            $.get("http://localhost:3611/api/StatusiApi/DajTriNajvecaBrojaKupovina", function (data, status) {
+                brojkupovina = data;
+            });
+            $.get("http://localhost:3611/api/KorisniciApi/DajTriNajvecaBrojaProdaja", function (data, status) {
+                brojprodaja = data;
+            });
+
+            
             
             $("#sedamdana").click(function() {
                 $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/7", function (data, status) {
@@ -58,6 +106,19 @@
                 $("#grafMjesto").append(graf);
                 $('#myStat').circliful();
             });
+
+            $(document).ajaxStop(function () {
+                $("#prvik").val(brojkupovina[0]);
+                $("#prvip").val(brojprodaja[0]);
+                $("#drugik").val(brojkupovina[1]);
+                $("#drugip").val(brojprodaja[1]);
+                $("#trecik").val(brojkupovina[2]);
+                $("#trecip").val(brojprodaja[2]);
+                
+            });
+
+            $('#tablehighchart').highchartTable();
+            
             
         });
     </script>

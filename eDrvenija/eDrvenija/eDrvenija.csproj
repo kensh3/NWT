@@ -259,7 +259,6 @@
     <Content Include="Content\images\glyphicons-halflings-white.png" />
     <Content Include="Content\images\glyphicons-halflings.png" />
     <Content Include="Content\morris.css" />
-    <Content Include="Content\jquery.percentageloader-0.1.css" />
     <Content Include="Content\jquery.circliful.css" />
     <Content Include="favicon.ico" />
     <Content Include="Fonts\glyphicons-halflings-regular.svg" />
@@ -307,8 +306,6 @@
     <Content Include="Scripts\jquery.circliful.js" />
     <Content Include="Scripts\jquery.circliful.min.js" />
     <Content Include="Scripts\jquery.highchartTable.js" />
-    <Content Include="Scripts\jquery.percentageloader-0.1.js" />
-    <Content Include="Scripts\jquery.percentageloader-0.1.min.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
     <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />

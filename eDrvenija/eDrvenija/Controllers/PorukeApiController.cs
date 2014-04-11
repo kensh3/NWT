@@ -22,6 +22,14 @@ namespace eDrvenija.eDrvenija.Controllers
             return db.poruke.AsEnumerable();
         }
 
+        [HttpGet]
+        public int DajBrojPoruka()
+        {
+            int brojPoruka = db.poruke.Count();
+            return brojPoruka;
+        }
+
+
         // GET api/Poruke/5
         public poruke Getporuke(int id)
         {

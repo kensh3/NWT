@@ -204,7 +204,8 @@
                 
             $(document).ajaxSuccess(function () {
                 $("#myStat").remove();
-                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='" + @Resursi.Broj + "' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
+                var dinfo = "@Resursi.Broj";
+                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='" + dinfo + "' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
                 $("#grafMjesto").append(graf);
                 $('#myStat').circliful();
 

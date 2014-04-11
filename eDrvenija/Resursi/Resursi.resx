@@ -402,4 +402,64 @@
   <data name="TipoviOglasa" xml:space="preserve">
     <value>Tipovi oglasa</value>
   </data>
+  <data name="AktivniInaktivniKorisnici" xml:space="preserve">
+    <value>Aktivni/Inaktivni korisnici</value>
+  </data>
+  <data name="Broj" xml:space="preserve">
+    <value>Broj</value>
+  </data>
+  <data name="BrojKupovina" xml:space="preserve">
+    <value>Broj kupovina</value>
+  </data>
+  <data name="BrojNovihKorisnikaUZadnjih" xml:space="preserve">
+    <value>Broj novih korisnika u zadnjih</value>
+  </data>
+  <data name="BrojProdaja" xml:space="preserve">
+    <value>Broj prodaja</value>
+  </data>
+  <data name="Drugi" xml:space="preserve">
+    <value>Drugi</value>
+  </data>
+  <data name="Godinadana" xml:space="preserve">
+    <value>365 dana</value>
+  </data>
+  <data name="KlikniMe" xml:space="preserve">
+    <value>Klikni me</value>
+  </data>
+  <data name="KorisniciPoOcjeni" xml:space="preserve">
+    <value>Korisnici po ocjeni</value>
+  </data>
+  <data name="Mjesecdana" xml:space="preserve">
+    <value>30 dana</value>
+  </data>
+  <data name="Mjesto" xml:space="preserve">
+    <value>Mjesto</value>
+  </data>
+  <data name="NajvecaTriBrojaKupovinaProdaja" xml:space="preserve">
+    <value>Najveca tri broja kupovina i prodaja</value>
+  </data>
+  <data name="PitaDijagram" xml:space="preserve">
+    <value>Pita dijagram</value>
+  </data>
+  <data name="PocetnaStranicaPoruka" xml:space="preserve">
+    <value>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala</value>
+  </data>
+  <data name="Prvi" xml:space="preserve">
+    <value>Prvi</value>
+  </data>
+  <data name="Sedamdana" xml:space="preserve">
+    <value>7 dana</value>
+  </data>
+  <data name="SpisakAktivnihINeaktivnihKorisnikaPoOcjenama" xml:space="preserve">
+    <value>Spisak aktivnih i neaktivnih korisnika po ocjenama</value>
+  </data>
+  <data name="Statistike" xml:space="preserve">
+    <value>Statistike</value>
+  </data>
+  <data name="Treci" xml:space="preserve">
+    <value>Treci</value>
+  </data>
+  <data name="UkupanBrojAktivnihINeaktivnihKorisnika" xml:space="preserve">
+    <value>Ukupa broj aktivnih i neaktivnih korisnika</value>
+  </data>
 </root>

@@ -32,7 +32,7 @@ namespace eDrvenija.eDrvenija.Controllers
                 cookie.Expires = DateTime.Now.AddYears(1);
             }
             Response.Cookies.Add(cookie);
-            return RedirectToAction("Index", "TipoviKorisnika");
+            return RedirectToAction("Index", "Home");
         }
 
     }

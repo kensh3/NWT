@@ -1,5 +1,13 @@
 ﻿@{
     ViewBag.Title = @Resursi.Index;
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@helper selected(string c, string cul)
+{
+    if (c == cul)
+    {
+        @:checked = "checked";
+    }
 }
 <div class="hero-unit container">
 
@@ -9,49 +17,59 @@
     <div class="row">
         <div class="col-sm-12 col-xs-12">
             <div class="panel panel-default">
-                <div class="panel-heading"><h1>@Resursi.Dobrodosli</h1></div>
+                <div class="panel-heading"><h1>@Resursi.Dobrodosli</h1>
+                @using (Html.BeginForm("SetCulture", "Home"))
+                {
+                    <form>
+                        <div class="btn-group pull-right">
+                            <button name="culture" value="bs-Latn-BA" type="submit" id="b1" class="btn btn-default" @selected("bs-Latn-BA", culture)>Bosanski</button>
+                            <button name="culture" value="en-us" type="submit" id="e1" class="btn btn-default" @selected("en-us", culture)>English</button>
+                        </div>
+                    </form>
+                }
+                </div>
                 <div class="panel-body">
-                    <p>Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.</p>
+                    <p>@Resursi.PocetnaStranicaPoruka</p>
                     <p>@Html.ActionLink(@Resursi.Index, "../", null, new { @class = "btn btn-primary btn-large" })</p>
 
                 </div>
 
             </div>
             <div class="row panel panel-default">
-                <div class="panel-heading">Statistike</div>
+                <div class="panel-heading">@Resursi.Statistike</div>
                 <div class="col-md-4">
-                    <h3><span class="label label-default">Broj novih korisnika u zadnjih</span></h3>
+                    <h3><span class="label label-default">@Resursi.BrojNovihKorisnikaUZadnjih</span></h3>
                     <div class="btn-group">
-                        <button id="sedamdana" type="button" class="btn btn-default">7 dana</button>
-                        <button id="mjesecdana" type="button" class="btn btn-default">30 dana</button>
-                        <button id="godinadana" type="button" class="btn btn-default">365 dana</button>
+                        <button id="sedamdana" type="button" class="btn btn-default">@Resursi.Sedamdana</button>
+                        <button id="mjesecdana" type="button" class="btn btn-default">@Resursi.Mjesecdana</button>
+                        <button id="godinadana" type="button" class="btn btn-default">@Resursi.Godinadana</button>
                     </div>
 
                     <div id="grafMjesto"></div>
                 </div>
                 <div class="col-md-8">
-                    <table id="tablehighchart" class="highchart" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
-                        <caption>Najveca tri broja kupovina i prodaja</caption>
+                    <table id="tablehighchart" class="highchart hidden" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
+                        <caption>@Resursi.NajvecaTriBrojaKupovinaProdaja</caption>
                         <thead>
                             <tr>
-                                <th>Mjesto</th>
-                                <th>Broj kupovina</th>
-                                <th>Broj prodaja</th>
+                                <th>@Resursi.Mjesto</th>
+                                <th>@Resursi.BrojKupovina</th>
+                                <th>@Resursi.BrojProdaja</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr>
-                                <td>Prvi</td>
+                                <td>@Resursi.Prvi</td>
                                 <td id="prvik">30</td>
                                 <td id="prvip">40</td>
                             </tr>
                             <tr>
-                                <td>Drugi</td>
+                                <td>@Resursi.Drugi</td>
                                 <td id="drugik">20</td>
                                 <td id="drugip">25</td>
                             </tr>
                             <tr>
-                                <td>Treci</td>
+                                <td>@Resursi.Treci</td>
                                 <td id="trecik">10</td>
                                 <td id="trecip">15</td>
                             </tr>
@@ -62,16 +80,16 @@
         </div>
     </div>
 
-    <canvas id="myChart" width="400" height="400"></canvas><button id="myChartButton" type="button" class="btn btn-success">Klikni me</button>
+    <canvas id="myChart" width="400" height="400"></canvas><button id="myChartButton" type="button" class="btn btn-success">@Resursi.KlikniMe</button>
 
     <div class="row panel panel-info">
         <div class="panel-heading">
-            <p class="panel-title"><span class="glyphicon glyphicon-user"></span> Pie charts</p>
+            <p class="panel-title"><span class="glyphicon glyphicon-user"></span>@Resursi.PitaDijagram</p>
         </div>
 
         <ul class="nav nav-tabs nav-justified" role="navigation">
-            <li class="active"><a href="#prvi" data-toggle="tab">Korisnici po ocjeni</a></li>
-            <li><a href="#drugi" data-toggle="tab">Aktivni/inaktivni korisnici</a></li>
+            <li class="active"><a href="#prvi" data-toggle="tab">@Resursi.KorisniciPoOcjeni</a></li>
+            <li><a href="#drugi" data-toggle="tab">@Resursi.AktivniInaktivniKorisnici</a></li>
         </ul>
 
         <!-- Tab panes -->
@@ -80,18 +98,19 @@
                 <div style="height:400px;">
                     <div id="graf1" style="height: 400px;"></div>
                 </div>
-                <div class="well"><center>Spisak aktivnih i neaktivnih korisnika po ocjenama.</center></div>
+                <div class="well"><center>@Resursi.SpisakAktivnihINeaktivnihKorisnikaPoOcjenama</center></div>
             </div>
             <div class="tab-pane fade" id="drugi"> 
                 <div style="height:400px;">
                     <div id="graf2" style="height: 300px; width: 600px;"></div>
                 </div>
-                <div class="well"><center>Ukupan broj aktivnih i neaktivnih korisnika.</center></div>
+                <div class="well"><center>@Resursi.UkupanBrojAktivnihINeaktivnihKorisnika</center></div>
             </div>
         </div>
        
 
     </div>
+</div>
 
 @section Scripts{
 
@@ -130,6 +149,11 @@
         });
 
         $(document).ready(function () {
+
+            $("form").submit(function () {
+
+            });
+
             var broj = 0;
             var maxbroj;
             var brojkupovina;
@@ -180,7 +204,7 @@
                 
             $(document).ajaxSuccess(function () {
                 $("#myStat").remove();
-                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='Broj' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
+                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='" + @Resursi.Broj + "' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
                 $("#grafMjesto").append(graf);
                 $('#myStat').circliful();
 

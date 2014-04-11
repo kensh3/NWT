@@ -70,6 +70,15 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Aktivni/Inaktivni korisnici.
+        /// </summary>
+        public static string AktivniInaktivniKorisnici {
+            get {
+                return ResourceManager.GetString("AktivniInaktivniKorisnici", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Avatar.
         /// </summary>
         public static string Avatar {
@@ -88,6 +97,33 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Broj.
+        /// </summary>
+        public static string Broj {
+            get {
+                return ResourceManager.GetString("Broj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj kupovina.
+        /// </summary>
+        public static string BrojKupovina {
+            get {
+                return ResourceManager.GetString("BrojKupovina", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj novih korisnika u zadnjih.
+        /// </summary>
+        public static string BrojNovihKorisnikaUZadnjih {
+            get {
+                return ResourceManager.GetString("BrojNovihKorisnikaUZadnjih", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Broj pregleda.
         /// </summary>
         public static string BrojPregledaOglasa {
@@ -102,6 +138,15 @@ namespace Resursi {
         public static string BrojPreuzimanja {
             get {
                 return ResourceManager.GetString("BrojPreuzimanja", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Broj prodaja.
+        /// </summary>
+        public static string BrojProdaja {
+            get {
+                return ResourceManager.GetString("BrojProdaja", resourceCulture);
             }
         }
         
@@ -232,6 +277,15 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Drugi.
+        /// </summary>
+        public static string Drugi {
+            get {
+                return ResourceManager.GetString("Drugi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Email.
         /// </summary>
         public static string Email {
@@ -264,6 +318,15 @@ namespace Resursi {
         public static string EmailReq {
             get {
                 return ResourceManager.GetString("EmailReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 365 dana.
+        /// </summary>
+        public static string Godinadana {
+            get {
+                return ResourceManager.GetString("Godinadana", resourceCulture);
             }
         }
         
@@ -358,6 +421,15 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Klikni me.
+        /// </summary>
+        public static string KlikniMe {
+            get {
+                return ResourceManager.GetString("KlikniMe", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Komentari.
         /// </summary>
         public static string Komentari {
@@ -381,6 +453,15 @@ namespace Resursi {
         public static string Korisnici {
             get {
                 return ResourceManager.GetString("Korisnici", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Korisnici po ocjeni.
+        /// </summary>
+        public static string KorisniciPoOcjeni {
+            get {
+                return ResourceManager.GetString("KorisniciPoOcjeni", resourceCulture);
             }
         }
         
@@ -489,6 +570,33 @@ namespace Resursi {
         public static string LozinkaReq {
             get {
                 return ResourceManager.GetString("LozinkaReq", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 30 dana.
+        /// </summary>
+        public static string Mjesecdana {
+            get {
+                return ResourceManager.GetString("Mjesecdana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Mjesto.
+        /// </summary>
+        public static string Mjesto {
+            get {
+                return ResourceManager.GetString("Mjesto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Najveca tri broja kupovina i prodaja.
+        /// </summary>
+        public static string NajvecaTriBrojaKupovinaProdaja {
+            get {
+                return ResourceManager.GetString("NajvecaTriBrojaKupovinaProdaja", resourceCulture);
             }
         }
         
@@ -709,6 +817,24 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Pita dijagram.
+        /// </summary>
+        public static string PitaDijagram {
+            get {
+                return ResourceManager.GetString("PitaDijagram", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Vaše mjesto za online pregled i kupovinu starih knjiga i fakultetskih materijala.
+        /// </summary>
+        public static string PocetnaStranicaPoruka {
+            get {
+                return ResourceManager.GetString("PocetnaStranicaPoruka", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Poruke.
         /// </summary>
         public static string Poruke {
@@ -772,6 +898,15 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Prvi.
+        /// </summary>
+        public static string Prvi {
+            get {
+                return ResourceManager.GetString("Prvi", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Registracija.
         /// </summary>
         public static string Register {
@@ -786,6 +921,33 @@ namespace Resursi {
         public static string Sacuvaj {
             get {
                 return ResourceManager.GetString("Sacuvaj", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 7 dana.
+        /// </summary>
+        public static string Sedamdana {
+            get {
+                return ResourceManager.GetString("Sedamdana", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Spisak aktivnih i neaktivnih korisnika po ocjenama.
+        /// </summary>
+        public static string SpisakAktivnihINeaktivnihKorisnikaPoOcjenama {
+            get {
+                return ResourceManager.GetString("SpisakAktivnihINeaktivnihKorisnikaPoOcjenama", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Statistike.
+        /// </summary>
+        public static string Statistike {
+            get {
+                return ResourceManager.GetString("Statistike", resourceCulture);
             }
         }
         
@@ -894,6 +1056,24 @@ namespace Resursi {
         public static string TipoviOglasa {
             get {
                 return ResourceManager.GetString("TipoviOglasa", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Treci.
+        /// </summary>
+        public static string Treci {
+            get {
+                return ResourceManager.GetString("Treci", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ukupa broj aktivnih i neaktivnih korisnika.
+        /// </summary>
+        public static string UkupanBrojAktivnihINeaktivnihKorisnika {
+            get {
+                return ResourceManager.GetString("UkupanBrojAktivnihINeaktivnihKorisnika", resourceCulture);
             }
         }
         

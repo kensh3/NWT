@@ -402,4 +402,64 @@
   <data name="TipoviOglasa" xml:space="preserve">
     <value>Ad types</value>
   </data>
+  <data name="AktivniInaktivniKorisnici" xml:space="preserve">
+    <value>Active/Inactive users</value>
+  </data>
+  <data name="Broj" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="BrojKupovina" xml:space="preserve">
+    <value>Number of purchases</value>
+  </data>
+  <data name="BrojNovihKorisnikaUZadnjih" xml:space="preserve">
+    <value>Number of new users in last</value>
+  </data>
+  <data name="BrojProdaja" xml:space="preserve">
+    <value>Number of sales</value>
+  </data>
+  <data name="Drugi" xml:space="preserve">
+    <value>Second</value>
+  </data>
+  <data name="Godinadana" xml:space="preserve">
+    <value>365 days</value>
+  </data>
+  <data name="KlikniMe" xml:space="preserve">
+    <value>Click me</value>
+  </data>
+  <data name="KorisniciPoOcjeni" xml:space="preserve">
+    <value>User by mark</value>
+  </data>
+  <data name="Mjesecdana" xml:space="preserve">
+    <value>30 days</value>
+  </data>
+  <data name="Mjesto" xml:space="preserve">
+    <value>Place</value>
+  </data>
+  <data name="NajvecaTriBrojaKupovinaProdaja" xml:space="preserve">
+    <value>The largest three numbers of purchases and sales</value>
+  </data>
+  <data name="PitaDijagram" xml:space="preserve">
+    <value>Pie chart</value>
+  </data>
+  <data name="PocetnaStranicaPoruka" xml:space="preserve">
+    <value>Your place for online preview and buying old books and college material</value>
+  </data>
+  <data name="Prvi" xml:space="preserve">
+    <value>First</value>
+  </data>
+  <data name="Sedamdana" xml:space="preserve">
+    <value>7 days</value>
+  </data>
+  <data name="SpisakAktivnihINeaktivnihKorisnikaPoOcjenama" xml:space="preserve">
+    <value>List of active and inactive users by marks</value>
+  </data>
+  <data name="Statistike" xml:space="preserve">
+    <value>Statistics</value>
+  </data>
+  <data name="Treci" xml:space="preserve">
+    <value>Third</value>
+  </data>
+  <data name="UkupanBrojAktivnihINeaktivnihKorisnika" xml:space="preserve">
+    <value>Total number of active and inactive users</value>
+  </data>
 </root>

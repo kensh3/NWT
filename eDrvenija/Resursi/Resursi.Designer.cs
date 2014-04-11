@@ -331,6 +331,15 @@ namespace Resursi {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Statistike: Poruke i Komentari.
+        /// </summary>
+        public static string GrafPorukeKomentari {
+            get {
+                return ResourceManager.GetString("GrafPorukeKomentari", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Ime.
         /// </summary>
         public static string Ime {

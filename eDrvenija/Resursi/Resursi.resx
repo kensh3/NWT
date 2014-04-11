@@ -462,4 +462,7 @@
   <data name="UkupanBrojAktivnihINeaktivnihKorisnika" xml:space="preserve">
     <value>Ukupa broj aktivnih i neaktivnih korisnika</value>
   </data>
+  <data name="GrafPorukeKomentari" xml:space="preserve">
+    <value>Statistike: Poruke i Komentari</value>
+  </data>
 </root>

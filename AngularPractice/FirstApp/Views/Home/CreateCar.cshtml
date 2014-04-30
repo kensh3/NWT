@@ -1,0 +1,27 @@
+﻿<div ng-controller="CarController">
+    <h3> New car: </h3>
+    <div class="col-md-3">
+        <form ng-submit="createCar()">
+            <div class="input-group">
+                    <span class="input-group-addon"> Name: </span>
+                    <input type="text" ng-model="name" required class="form-control" />
+            </div>
+            <br />
+            <div class="input-group">
+                    <span class="input-group-addon"> Type: </span>
+                    <input type="text" ng-model="type" required class="form-control" />
+            </div>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon"> Year: </span>
+                <select ng-model="year" class="form-control">
+                    <option ng-repeat="i in getNumber()" value="{{i}}" ng-model="year">
+                        {{i}}
+                    </option>
+                </select>
+            </div>
+            <br />
+            <input type="submit" class="btn btn-primary" value="Create"/>
+        </form>
+    </div>
+</div>

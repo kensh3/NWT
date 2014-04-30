@@ -1,0 +1,20 @@
+﻿@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="jumbotron">
+    <h1>FirstApp</h1>
+</div>
+
+<div ng-controller="MainController">
+
+    <ul class="nav nav-tabs">
+        <li><a href="/#/" > Index </a></li>
+        <li><a href="/#/Cars" > Cars </a></li>
+        <li><a href="/#/Users" > Users </a></li>
+    </ul>
+
+    <div ng-view></div>
+    
+</div>

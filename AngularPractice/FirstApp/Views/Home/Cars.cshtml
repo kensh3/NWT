@@ -1,0 +1,43 @@
+﻿<h3>Cars: </h3>
+<div ng-controller="CarController">
+    <a href="/#/Cars/Create" class="btn btn-primary btn"> Create new </a>
+    <br />
+    <br />
+    <table class="table table-hover table-striped">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <th> Name </th>
+                <th> Type </th>
+                <th> Year </th>
+            </tr>
+            <tr ng-repeat="car in cars">
+                <td> {{car.Id}} </td>
+                <td> {{car.Name}} </td>
+                <td> {{car.Type}} </td>
+                <td> {{car.Year}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <h3> Delete car </h3>
+    <form ng-submit="deleteCar()">
+        <div class="col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon"> Car ID: </span>
+                <select ng-model="carIdDelete" class="form-control">
+                    <option ng-repeat = "car in cars" value="{{car.Id}}" ng-model="carIdDelete">
+                        {{car.Id}}
+                    </option>
+                </select>
+                <span class="input-group-btn">
+                    <input type="submit" value="Delete" class="btn btn-danger btn" />
+                </span>
+            </div> 
+        </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <h5> &reg; FirstApp - 2014 </h5>
+</div>    

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="b08d5c54-a0f4-496e-8aa5-e848465271c4" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>false</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost/WorkflowService/CarService.xamlx" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="CarService.wsdl" MetadataType="Wsdl" ID="c4d06c1c-564f-48e5-ab4e-d6644c5a514b" SourceId="1" SourceUrl="http://localhost/WorkflowService/CarService.xamlx?wsdl" />
+    <MetadataFile FileName="CarService.disco" MetadataType="Disco" ID="45b7a7aa-d1c8-438d-ba23-2a178ed8f57e" SourceId="1" SourceUrl="http://localhost/WorkflowService/CarService.xamlx?disco" />
+    <MetadataFile FileName="CarService.xsd" MetadataType="Schema" ID="f999d029-71ef-4106-97b2-5bc731d60294" SourceId="1" SourceUrl="http://localhost/WorkflowService/CarService.xamlx?xsd=xsd0" />
+    <MetadataFile FileName="CarService1.xsd" MetadataType="Schema" ID="a40eabcd-e9f4-4f4c-893e-bdb2c6428a89" SourceId="1" SourceUrl="http://localhost/WorkflowService/CarService.xamlx?xsd=xsd2" />
+    <MetadataFile FileName="CarService2.xsd" MetadataType="Schema" ID="4eb501d6-c459-45bf-85d7-7a2c7b10c94b" SourceId="1" SourceUrl="http://localhost/WorkflowService/CarService.xamlx?xsd=xsd1" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

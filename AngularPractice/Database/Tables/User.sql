@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[User]
+(
+	[Id] INT NOT NULL PRIMARY KEY IDENTITY, 
+    [FirstName] NVARCHAR(20) NULL, 
+    [LastName] NVARCHAR(20) NULL, 
+    [CarId] INT NOT NULL, 
+    CONSTRAINT [FK_User_Car] FOREIGN KEY ([CarId]) REFERENCES [Car]([Id])
+)

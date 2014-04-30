@@ -1,0 +1,43 @@
+﻿<h3>Users: </h3>    
+<div ng-controller="UserController">
+    <a href="/#/Users/Create" class="btn btn-primary btn"> Create new </a>
+    <br />
+    <br />
+    <table class="table table-hover table-striped">
+        <tbody>
+            <tr>
+                <th> ID </th>
+                <th> First name </th>
+                <th> Last name </th>
+                <th> Car ID </th>
+            </tr>
+            <tr ng-repeat="user in users">
+                <td> {{user.Id}} </td>
+                <td> {{user.FirstName}} </td>
+                <td> {{user.LastName}} </td>
+                <td> {{user.CarId}} </td>
+            </tr>
+        </tbody>
+    </table>
+    <br />
+    <h3> Delete user </h3>
+    <form ng-submit="deleteUser()">
+        <div class="col-md-3">
+            <div class="input-group">
+                <span class="input-group-addon"> User ID: </span>
+                <select ng-model="userIdDelete" class="form-control">
+                    <option ng-repeat = "user in users" value="{{user.Id}}" ng-model="userIdDelete">
+                        {{user.Id}}
+                    </option>
+                </select>
+                <span class="input-group-btn">
+                    <input type="submit" value="Delete" class="btn btn-danger btn" />
+                </span>
+            </div> 
+        </div>
+    </form>
+    <br />
+    <br />
+    <br />
+    <h5> &reg; FirstApp - 2014 </h5>
+</div>

@@ -1,0 +1,275 @@
+﻿<WorkflowService mc:Ignorable="sap sap2010 sads" p1:TextExpression.Namespaces="{x:Reference __ReferenceID8}" p1:TextExpression.References="{x:Reference __ReferenceID9}" ConfigurationName="CarService" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap2010:WorkflowViewState.IdRef="WorkflowService_1" Name="CarService"
+ xmlns="http://schemas.microsoft.com/netfx/2009/xaml/servicemodel"
+ xmlns:ac="clr-namespace:ActivityLibrary.CarCodeActivity;assembly=ActivityLibrary"
+ xmlns:d="clr-namespace:DataContract;assembly=DataContract"
+ xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+ xmlns:mca="clr-namespace:Microsoft.CSharp.Activities;assembly=System.Activities"
+ xmlns:p="http://tempuri.org/"
+ xmlns:p1="http://schemas.microsoft.com/netfx/2009/xaml/activities"
+ xmlns:sads="http://schemas.microsoft.com/netfx/2010/xaml/activities/debugger"
+ xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation"
+ xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation"
+ xmlns:scg="clr-namespace:System.Collections.Generic;assembly=mscorlib"
+ xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=mscorlib"
+ xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <p1:Sequence DisplayName="Sequential Service" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <p1:TextExpression.Namespaces>
+      <sco:Collection x:TypeArguments="x:String" x:Name="__ReferenceID8">
+        <x:String>System</x:String>
+        <x:String>System.Collections.Generic</x:String>
+        <x:String>System.Data</x:String>
+        <x:String>System.Linq</x:String>
+        <x:String>System.Text</x:String>
+        <x:String>DataContract</x:String>
+      </sco:Collection>
+    </p1:TextExpression.Namespaces>
+    <p1:TextExpression.References>
+      <sco:Collection x:TypeArguments="p1:AssemblyReference" x:Name="__ReferenceID9">
+        <p1:AssemblyReference>EntityFramework</p1:AssemblyReference>
+        <p1:AssemblyReference>Microsoft.CSharp</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.DynamicData</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Drawing</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web.ApplicationServices</p1:AssemblyReference>
+        <p1:AssemblyReference>System</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Core</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Data.Entity</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Runtime.Serialization</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Activities</p1:AssemblyReference>
+        <p1:AssemblyReference>System.ServiceModel.Channels</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Web</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xaml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml</p1:AssemblyReference>
+        <p1:AssemblyReference>System.Xml.Linq</p1:AssemblyReference>
+        <p1:AssemblyReference>ActivityLibrary</p1:AssemblyReference>
+        <p1:AssemblyReference>DataContract</p1:AssemblyReference>
+        <p1:AssemblyReference>mscorlib</p1:AssemblyReference>
+        <p1:AssemblyReference>WorkflowService</p1:AssemblyReference>
+      </sco:Collection>
+    </p1:TextExpression.References>
+    <p1:Sequence.Variables>
+      <p1:Variable x:TypeArguments="CorrelationHandle" Name="handle" />
+      <p1:Variable x:TypeArguments="x:Int32" Name="data" />
+    </p1:Sequence.Variables>
+    <p1:Parallel sap2010:WorkflowViewState.IdRef="Parallel_1">
+      <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_2">
+        <p1:Sequence.Variables>
+          <x:Reference>__ReferenceID1</x:Reference>
+          <p1:Variable x:TypeArguments="d:CarRequest" Name="CarRequestObject" />
+          <p1:Variable x:TypeArguments="x:Int32" Name="createdCarIdObject" />
+        </p1:Sequence.Variables>
+        <Receive x:Name="__ReferenceID0" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_2" OperationName="CreateCar" ServiceContractName="p:IService">
+          <Receive.CorrelationInitializers>
+            <RequestReplyCorrelationInitializer>
+              <RequestReplyCorrelationInitializer.CorrelationHandle>
+                <p1:InArgument x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                    <p1:VariableValue.Variable>
+                      <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID1" Name="__handle1" />
+                    </p1:VariableValue.Variable>
+                  </p1:VariableValue>
+                </p1:InArgument>
+              </RequestReplyCorrelationInitializer.CorrelationHandle>
+            </RequestReplyCorrelationInitializer>
+          </Receive.CorrelationInitializers>
+          <ReceiveParametersContent>
+            <p1:OutArgument x:TypeArguments="d:CarRequest" x:Key="inputCarRequest">
+              <mca:CSharpReference x:TypeArguments="d:CarRequest">CarRequestObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ReceiveParametersContent>
+        </Receive>
+        <ac:CreateCarCodeActivity sap2010:WorkflowViewState.IdRef="CreateCarCodeActivity_1">
+          <ac:CreateCarCodeActivity.CarReq>
+            <p1:InArgument x:TypeArguments="d:CarRequest">
+              <mca:CSharpValue x:TypeArguments="d:CarRequest">CarRequestObject</mca:CSharpValue>
+            </p1:InArgument>
+          </ac:CreateCarCodeActivity.CarReq>
+          <ac:CreateCarCodeActivity.CreatedCarId>
+            <p1:OutArgument x:TypeArguments="x:Int32">
+              <mca:CSharpReference x:TypeArguments="x:Int32">createdCarIdObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ac:CreateCarCodeActivity.CreatedCarId>
+        </ac:CreateCarCodeActivity>
+        <SendReply Request="{x:Reference __ReferenceID0}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_2">
+          <SendMessageContent DeclaredMessageType="x:Int32">
+            <p1:InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">createdCarIdObject</mca:CSharpValue>
+            </p1:InArgument>
+          </SendMessageContent>
+        </SendReply>
+      </p1:Sequence>
+      <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_3">
+        <p1:Sequence.Variables>
+          <x:Reference>__ReferenceID3</x:Reference>
+          <p1:Variable x:TypeArguments="x:Int32" Name="CarIdObject" />
+        </p1:Sequence.Variables>
+        <Receive x:Name="__ReferenceID2" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_3" OperationName="DeleteCar" ServiceContractName="p:IService">
+          <Receive.CorrelationInitializers>
+            <RequestReplyCorrelationInitializer>
+              <RequestReplyCorrelationInitializer.CorrelationHandle>
+                <p1:InArgument x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                    <p1:VariableValue.Variable>
+                      <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID3" Name="__handle1" />
+                    </p1:VariableValue.Variable>
+                  </p1:VariableValue>
+                </p1:InArgument>
+              </RequestReplyCorrelationInitializer.CorrelationHandle>
+            </RequestReplyCorrelationInitializer>
+          </Receive.CorrelationInitializers>
+          <ReceiveParametersContent>
+            <p1:OutArgument x:TypeArguments="x:Int32" x:Key="inputCarId">
+              <mca:CSharpReference x:TypeArguments="x:Int32">CarIdObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ReceiveParametersContent>
+        </Receive>
+        <ac:DeleteCarCodeActivity sap2010:WorkflowViewState.IdRef="DeleteCarCodeActivity_1">
+          <ac:DeleteCarCodeActivity.CarId>
+            <p1:InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">CarIdObject</mca:CSharpValue>
+            </p1:InArgument>
+          </ac:DeleteCarCodeActivity.CarId>
+        </ac:DeleteCarCodeActivity>
+        <SendReply Request="{x:Reference __ReferenceID2}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_3" />
+      </p1:Sequence>
+      <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_4">
+        <p1:Sequence.Variables>
+          <x:Reference>__ReferenceID5</x:Reference>
+          <p1:Variable x:TypeArguments="x:Int32" Name="CarIdObject" />
+          <p1:Variable x:TypeArguments="d:CarRequest" Name="CarRequestObject" />
+        </p1:Sequence.Variables>
+        <Receive x:Name="__ReferenceID4" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_4" OperationName="GetCarById" ServiceContractName="p:IService">
+          <Receive.CorrelationInitializers>
+            <RequestReplyCorrelationInitializer>
+              <RequestReplyCorrelationInitializer.CorrelationHandle>
+                <p1:InArgument x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                    <p1:VariableValue.Variable>
+                      <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID5" Name="__handle1" />
+                    </p1:VariableValue.Variable>
+                  </p1:VariableValue>
+                </p1:InArgument>
+              </RequestReplyCorrelationInitializer.CorrelationHandle>
+            </RequestReplyCorrelationInitializer>
+          </Receive.CorrelationInitializers>
+          <ReceiveParametersContent>
+            <p1:OutArgument x:TypeArguments="x:Int32" x:Key="inputCarId">
+              <mca:CSharpReference x:TypeArguments="x:Int32">CarIdObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ReceiveParametersContent>
+        </Receive>
+        <ac:GetCarByIdCodeActivity sap2010:WorkflowViewState.IdRef="GetCarByIdCodeActivity_1">
+          <ac:GetCarByIdCodeActivity.CarId>
+            <p1:InArgument x:TypeArguments="x:Int32">
+              <mca:CSharpValue x:TypeArguments="x:Int32">CarIdObject</mca:CSharpValue>
+            </p1:InArgument>
+          </ac:GetCarByIdCodeActivity.CarId>
+          <ac:GetCarByIdCodeActivity.CarReq>
+            <p1:OutArgument x:TypeArguments="d:CarRequest">
+              <mca:CSharpReference x:TypeArguments="d:CarRequest">CarRequestObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ac:GetCarByIdCodeActivity.CarReq>
+        </ac:GetCarByIdCodeActivity>
+        <SendReply Request="{x:Reference __ReferenceID4}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_4">
+          <SendMessageContent DeclaredMessageType="d:CarRequest">
+            <p1:InArgument x:TypeArguments="d:CarRequest">
+              <mca:CSharpValue x:TypeArguments="d:CarRequest">CarRequestObject</mca:CSharpValue>
+            </p1:InArgument>
+          </SendMessageContent>
+        </SendReply>
+      </p1:Sequence>
+      <p1:Sequence sap2010:WorkflowViewState.IdRef="Sequence_5">
+        <p1:Sequence.Variables>
+          <x:Reference>__ReferenceID7</x:Reference>
+          <p1:Variable x:TypeArguments="scg:List(d:CarRequest)" Name="CarsRequestObject" />
+        </p1:Sequence.Variables>
+        <Receive x:Name="__ReferenceID6" CanCreateInstance="True" sap2010:WorkflowViewState.IdRef="Receive_5" OperationName="GetAllCars" ServiceContractName="p:IService">
+          <Receive.CorrelationInitializers>
+            <RequestReplyCorrelationInitializer>
+              <RequestReplyCorrelationInitializer.CorrelationHandle>
+                <p1:InArgument x:TypeArguments="CorrelationHandle">
+                  <p1:VariableValue x:TypeArguments="CorrelationHandle">
+                    <p1:VariableValue.Variable>
+                      <p1:Variable x:TypeArguments="CorrelationHandle" x:Name="__ReferenceID7" Name="__handle1" />
+                    </p1:VariableValue.Variable>
+                  </p1:VariableValue>
+                </p1:InArgument>
+              </RequestReplyCorrelationInitializer.CorrelationHandle>
+            </RequestReplyCorrelationInitializer>
+          </Receive.CorrelationInitializers>
+        </Receive>
+        <ac:GetAllCarsCodeActivity sap2010:WorkflowViewState.IdRef="GetAllCarsCodeActivity_1">
+          <ac:GetAllCarsCodeActivity.CarsReq>
+            <p1:OutArgument x:TypeArguments="scg:List(d:CarRequest)">
+              <mca:CSharpReference x:TypeArguments="scg:List(d:CarRequest)">CarsRequestObject</mca:CSharpReference>
+            </p1:OutArgument>
+          </ac:GetAllCarsCodeActivity.CarsReq>
+        </ac:GetAllCarsCodeActivity>
+        <SendReply Request="{x:Reference __ReferenceID6}" DisplayName="SendReplyToReceive" sap2010:WorkflowViewState.IdRef="SendReply_5">
+          <SendMessageContent DeclaredMessageType="scg:List(d:CarRequest)">
+            <p1:InArgument x:TypeArguments="scg:List(d:CarRequest)">
+              <mca:CSharpValue x:TypeArguments="scg:List(d:CarRequest)">CarsRequestObject</mca:CSharpValue>
+            </p1:InArgument>
+          </SendMessageContent>
+        </SendReply>
+      </p1:Sequence>
+    </p1:Parallel>
+    <sads:DebugSymbol.Symbol>d2dDOlxVc2Vyc1xhbWFyLmphc2FyZXZpY1xkb2N1bWVudHNcdmlzdWFsIHN0dWRpbyAyMDEyXFByb2plY3RzXEZpcnN0QXBwXFdvcmtmbG93U2VydmljZVxDYXJTZXJ2aWNlLnhhbWx4Ig8D3QERAQE5BdsBEwECOgdnFQFEaAeJARUBM4oBB7cBFQEUuAEH2gEVAQNACVMTAVtUCV8kAU5gCWYVAUVtCYABEwE9gQEJhwEkATeIAQmIAYwBATSQAQmjARMBK6QBCa8BJQEesAEJtgEVARW9AQnLARMBEswBCdIBJQEM0wEJ2QEVAQRQD1BpAV1FE0kmAVxcD1xmAVVXD1dhAU9jD2NeAUZyE3YmAUN9D31fAT6EAQ+EAVcBOJUBE5kBJgEyoAEPoAFfASynAQ+nAVcBJawBD6wBaQEfswEPswFhARbCARPGASYBE88BD88BdAEN1gEP1gFsAQU=</sads:DebugSymbol.Symbol>
+  </p1:Sequence>
+  <sap2010:WorkflowViewState.ViewStateManager>
+    <sap2010:ViewStateManager>
+      <sap2010:ViewStateData Id="Receive_2" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="CreateCarCodeActivity_1" sap:VirtualizedContainerService.HintSize="255,22" />
+      <sap2010:ViewStateData Id="SendReply_2" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="Sequence_2" sap:VirtualizedContainerService.HintSize="277,406">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Receive_3" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="DeleteCarCodeActivity_1" sap:VirtualizedContainerService.HintSize="255,22" />
+      <sap2010:ViewStateData Id="SendReply_3" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="Sequence_3" sap:VirtualizedContainerService.HintSize="277,406">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Receive_4" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="GetCarByIdCodeActivity_1" sap:VirtualizedContainerService.HintSize="255,22" />
+      <sap2010:ViewStateData Id="SendReply_4" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="Sequence_4" sap:VirtualizedContainerService.HintSize="277,406">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Receive_5" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="GetAllCarsCodeActivity_1" sap:VirtualizedContainerService.HintSize="255,22" />
+      <sap2010:ViewStateData Id="SendReply_5" sap:VirtualizedContainerService.HintSize="255,90" />
+      <sap2010:ViewStateData Id="Sequence_5" sap:VirtualizedContainerService.HintSize="277,406">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="Parallel_1" sap:VirtualizedContainerService.HintSize="1342,452" />
+      <sap2010:ViewStateData Id="Sequence_1" sap:VirtualizedContainerService.HintSize="1364,576">
+        <sap:WorkflowViewStateService.ViewState>
+          <scg:Dictionary x:TypeArguments="x:String, x:Object">
+            <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+          </scg:Dictionary>
+        </sap:WorkflowViewStateService.ViewState>
+      </sap2010:ViewStateData>
+      <sap2010:ViewStateData Id="WorkflowService_1" sap:VirtualizedContainerService.HintSize="1394,646" />
+    </sap2010:ViewStateManager>
+  </sap2010:WorkflowViewState.ViewStateManager>
+</WorkflowService>

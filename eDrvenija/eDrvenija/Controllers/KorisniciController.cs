@@ -109,17 +109,17 @@ namespace eDrvenija.eDrvenija.Controllers
                 return View(korisnici);
             }
 
-        if (ModelState.IsValid) // Ovdje pada zbog validacije
-             {
+        //if (ModelState.IsValid) // Ovdje pada zbog validacije
+          //   {
                  ModelState.AddModelError("", "Prosao valid.");
                 korisnici.aktivan = false;
                 db.korisnici.Add(korisnici);
-                db.SaveChanges(); // Ovdje pada zbog validacije
+            //    db.SaveChanges(); // Ovdje pada zbog validacije
                 ModelState.Clear();
                 EmailManager.SendConfirmationEmail(korisnici);
                 korisnici = null;
                 return RedirectToAction("Confirmation", "Korisnici");
-             }
+             //}
 
             ViewBag.idTipaKorisnika = new SelectList(db.tipovikorisnika, "idTipaKorisnika", "nazivTipaKorisnika", korisnici.idTipaKorisnika);
             return View(korisnici);

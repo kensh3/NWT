@@ -1,0 +1,24 @@
+﻿<!DOCTYPE html>
+<html ng-app="firstApp">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.6/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.6/angular-route.js"></script>
+    
+    <script src="~/Scripts/App/app.js"></script>
+    <script src="~/Scripts/App/controllers.js"></script>
+    <script src="~/Scripts/App/factories.js"></script>
+    <script src="~/Scripts/App/filters.js"></script>
+    
+    @Styles.Render("~/bundles/bootstrapcss")
+</head>
+<body class="container">
+    @RenderBody()
+
+    @Scripts.Render("~/bundles/jquery")
+    @Styles.Render("~/bundles/bootstrapjs")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

@@ -1,0 +1,29 @@
+﻿<div ng-controller="UserController" >
+    
+    <h3> New user: </h3>
+    <div class="col-md-3">
+        <form id="createUserForm" ng-submit="createUser()">
+            <div class="input-group">
+                <span class="input-group-addon"> First name: </span>
+                <input type="text" ng-model="firstName" required class="form-control" />
+            </div>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon"> Last name: </span>
+                <input type="text" ng-model="lastName" required class="form-control" />
+            </div>
+            <br />
+            <div class="input-group">
+                <span class="input-group-addon"> Car ID: </span>
+                <select ng-model="carId" class="form-control">
+                    <option ng-repeat = "car in cars" value="{{car.Id}}" ng-model="carId">
+                        {{car.Id}}
+                    </option>
+                </select>
+            </div>
+            
+            <br />
+            <input type="submit" class="btn btn-primary" value="Create"/>
+        </form>
+    </div>
+</div>

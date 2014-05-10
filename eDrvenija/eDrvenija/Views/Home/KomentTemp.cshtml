@@ -1,0 +1,27 @@
+﻿<div data-ng-controller="KomentarController">
+    <form ng-submit="kreirajKomentar()">
+        Unesite komentar: <input type="text" ng-model="tekstKomentara" />
+        <br />
+        <input type="submit" value="Komentiraj" />
+    </form>
+
+    <table>
+        <caption>Komentari</caption>
+        <thead>
+            <tr>
+                <td>Korisnik</td>
+                <td>Komentar</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="komentar in komentari">
+                <td>
+                    {{komentar.idKorisnika}} <!-- trenutno id trebat ce korisnicko ime -->
+                </td>
+                <td>
+                    {{komentar.tekstKomentara}}
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

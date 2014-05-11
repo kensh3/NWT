@@ -1,0 +1,308 @@
+﻿@{
+    ViewBag.Title = "Admin";
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@helper selected(string c, string cul)
+{
+    if (c == cul)
+    {
+        @:checked = "checked";
+    }
+}
+<div class="hero-unit container">
+
+
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-sm-12 col-xs-12">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h1>@Resursi.Dobrodosli</h1>
+                @using (Html.BeginForm("SetCulture", "Home"))
+                {
+                    <form>
+                        <div class="btn-group pull-right">
+                            <button name="culture" value="bs-Latn-BA" type="submit" id="b1" class="btn btn-default" @selected("bs-Latn-BA", culture)>Bosanski</button>
+                            <button name="culture" value="en-us" type="submit" id="e1" class="btn btn-default" @selected("en-us", culture)>English</button>
+                        </div>
+                    </form>
+                }
+                </div>
+                <div class="panel-body">
+                    <p>@Resursi.PocetnaStranicaPoruka</p>
+                    <p>@Html.ActionLink(@Resursi.Index, "../", null, new { @class = "btn btn-primary btn-large" })</p>
+
+                </div>
+
+            </div>
+            <div class="row panel panel-default">
+                <div class="panel-heading">@Resursi.Statistike</div>
+                <div class="col-md-4">
+                    <h3><span class="label label-default">@Resursi.BrojNovihKorisnikaUZadnjih</span></h3>
+                    <div class="btn-group">
+                        <button id="sedamdana" type="button" class="btn btn-default">@Resursi.Sedamdana</button>
+                        <button id="mjesecdana" type="button" class="btn btn-default">@Resursi.Mjesecdana</button>
+                        <button id="godinadana" type="button" class="btn btn-default">@Resursi.Godinadana</button>
+                    </div>
+
+                    <div id="grafMjesto"></div>
+                </div>
+                <div class="col-md-8">
+                    <table id="tablehighchart" class="highchart hidden" data-graph-container=".. .. .highchart-container" data-graph-container-before="1" data-graph-type="column">
+                        <caption>@Resursi.NajvecaTriBrojaKupovinaProdaja</caption>
+                        <thead>
+                            <tr>
+                                <th>@Resursi.Mjesto</th>
+                                <th>@Resursi.BrojKupovina</th>
+                                <th>@Resursi.BrojProdaja</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Resursi.Prvi</td>
+                                <td id="prvik">0</td>
+                                <td id="prvip">0</td>
+                            </tr>
+                            <tr>
+                                <td>@Resursi.Drugi</td>
+                                <td id="drugik">0</td>
+                                <td id="drugip">0</td>
+                            </tr>
+                            <tr>
+                                <td>@Resursi.Treci</td>
+                                <td id="trecik">0</td>
+                                <td id="trecip">0</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    
+    <div class="row panel panel-info">
+        <div class="panel-heading">
+            <p class="panel-title"><span class="glyphicon glyphicon-user"></span>@Resursi.PitaDijagram</p>
+        </div>
+
+        <ul class="nav nav-tabs nav-justified" role="navigation">
+            <li class="active"><a href="#prvi" data-toggle="tab">@Resursi.KorisniciPoOcjeni</a></li>
+            <li><a href="#drugi" data-toggle="tab">@Resursi.AktivniInaktivniKorisnici</a></li>
+        </ul>
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div class="tab-pane fade in active" id="prvi">
+                <div style="height:400px;">
+                    <div id="graf1" style="height: 400px;"></div>
+                </div>
+                <div class="well"><center>@Resursi.SpisakAktivnihINeaktivnihKorisnikaPoOcjenama</center></div>
+            </div>
+            <div class="tab-pane fade" id="drugi"> 
+                <div style="height:400px;">
+                    <div id="graf2" style="height: 300px; width: 600px;"></div>
+                </div>
+                <div class="well"><center>@Resursi.UkupanBrojAktivnihINeaktivnihKorisnika</center></div>
+            </div>
+        </div>
+
+       
+       
+
+    </div>
+    <div class="col-md-4">
+        
+            <div class="well well-sm" >@Resursi.GrafPorukeKomentari</div>
+            <button id="myChartButton" type="button" class="btn btn-success">@Resursi.KlikniMe</button>
+            <canvas id="myChart" width="400" height="400"></canvas>
+        
+    </div>
+    </div>
+
+@section Scripts{
+
+    <script>
+        //Get context with jQuery - using jQuery's .get() method.
+        var ctx = $("#myChart").get(0).getContext("2d");
+        //This will get the first returned node in the jQuery collection.
+        var data = [
+	        {
+	            value: 30,
+	            color:"#F38630"
+	        },
+	        {
+	            value : 50,
+	            color : "#E0E4CC"
+	        },
+	        {
+	            value : 100,
+	            color : "#69D2E7"
+	        }			
+        ]; 
+        var myNewChart = new Chart(ctx).Pie(data);
+        $("#myChartButton").click(function() {
+            var data = [
+    {
+        value : 12,
+        color : "#A0E4CC"
+    },
+    {
+        value : 100,
+        color : "#39D2E7"
+    }			
+            ];
+
+            myNewChart = new Chart(ctx).Pie(data);
+        });
+
+        $(document).ready(function () {
+
+            $("form").submit(function () {
+
+            });
+
+            var broj = 0;
+            var maxbroj;
+            var brojkupovina;
+            var brojprodaja;
+            var aktivni = 7;
+            var neaktivni = 2;
+            var value1 = 1;
+            var value2 = 1;
+
+            $("#tablehighchart").hide();
+
+            $.get("http://localhost:3611/api/KomentariApi/DajBrojKomentara", function (data, status) {
+                value1 = data;
+                if (value1 == 0) value1 = 1;
+            });
+
+            $.get("http://localhost:3611/api/KomentariApi/DajBrojPoruka", function (data, status) {
+                value2 = data;
+                if (value2 == 0) value2 = 1;
+            });
+
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojKorisnika", function (data, status) {
+                maxbroj = data;
+            });
+
+            $.get("http://localhost:3611/api/StatusiApi/DajTriNajvecaBrojaKupovina", function (data, status) {
+                brojkupovina = data;
+            });
+            $.get("http://localhost:3611/api/StatusiApi/DajTriNajvecaBrojaProdaja", function (data, status) {
+                brojprodaja = data;
+            });         
+            
+            $("#sedamdana").click(function() {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/7", function (data, status) {
+                    broj = data;
+                });
+            });
+            $("#mjesecdana").click(function () {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/30", function (data, status) {
+                    broj = data;
+                });
+            });
+            $("#godinadana").click(function () {
+                $.get("http://localhost:3611/Korisnik/DajBrojNovihKorisnikaByBrojDana/365", function (data, status) {
+                    broj = data;
+                });
+            });
+                
+            $(document).ajaxSuccess(function () {
+                $("#myStat").remove();
+                var dinfo = "@Resursi.Broj";
+                var graf = ("<p id='myStat' data-dimension='250' data-text='" + broj + "' data-info='" + dinfo + "' data-width='30' data-fontsize='38' data-percent='" + (broj/maxbroj)*100 + "' data-fgcolor='#61a9dc' data-bgcolor='#eee' data-fill='#ddd' data-total='100' data-part='90' data-icon='' data-icon-size='28' data-icon-color='#fff'></p>");
+                $("#grafMjesto").append(graf);
+                $('#myStat').circliful();
+
+                var data = [
+                {
+                    value: value1,
+                    color: "#E0E4CC"
+                },
+                {
+                    value: value2,
+                    color: "#69D2E7"
+                }
+                            ];
+
+                myNewChart = new Chart(ctx).Pie(data);
+
+            });
+
+            var iscrto = false;
+
+            $(document).ajaxStop(function () {
+                $("#prvik").text(brojkupovina[0]);
+                $("#prvip").text(brojprodaja[0]);
+                $("#drugik").text(brojkupovina[1]);
+                $("#drugip").text(brojprodaja[1]);
+                $("#trecik").text(brojkupovina[2]);
+                $("#trecip").text(brojprodaja[2]);
+                if (!iscrto) {
+                    $('#tablehighchart').highchartTable();
+                    iscrto = true;
+                }
+                
+            });
+
+            
+
+
+
+
+
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojAktivnihKorisnika", function (data, status) {
+                aktivni = data;
+            });
+
+            $.get("http://localhost:3611/api/KorisniciApi/DajBrojNeaktivnihKorisnika", function (data, status) {
+                neaktivni = data;
+            });
+
+            $(document).ajaxSuccess(function () {
+           
+                new Morris.Donut({
+
+                    // ID of the element in which to draw the chart.
+                    element: 'graf2',
+                    // Chart data records -- each entry in this array corresponds to a point on
+                    // the chart.
+                    data: [
+                      { label: 'Aktivni korisnici', value: aktivni },
+                      { label: 'Neaktivni korisnici', value: neaktivni },
+                    ]
+                });
+
+            });
+
+
+        });
+
+        
+    </script>
+
+
+    <script>
+
+        Morris.Bar({
+            element: 'graf1',
+            ymin: 0,
+            data: [
+              { y: '1', a: 6, b: 3 },
+              { y: '2', a: 5, b: 0 },
+              { y: '3', a: 3, b: 1 },
+              { y: '4', a: 7, b: 4 },
+              { y: '5', a: 9, b: 0 },
+
+            ],
+            xkey: 'y',
+            ykeys: ['a', 'b'],
+            labels: ['Aktivnih korisnika', 'Neaktivnih korisnika']
+        });
+
+    </script>
+ 
+}

@@ -16,6 +16,16 @@ angular.module('edrvenija.factories', [])
     }
 }])
 
+.factory('OglasiFactory', ['$http', function ($http) {
+    var url = 'http://localhost/api/OglasiApi/Getoglasis'
+
+    var OglasiFactory = {};
+
+    OglasiFactory.dajSveOglase = function () {
+        return $http.get(url);
+    }
+}])
+
 .factory('PorukeFactory', ['$http', function ($http) {
     var url = 'http://localhost/api/PorukeApi/';
 

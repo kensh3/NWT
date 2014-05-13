@@ -30,6 +30,13 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     };
 }])
 
+.controller('OglasiController', ['$scope', 'OglasiFactory', function ($scope, OglasiFactory) {
+        OglasiFactory.dajSveOglase()
+    .success(function (data) {
+        $scope.oglasi = data;
+    });
+}])
+
 .controller('PorukeController', ['$scope', 'PorukeFactory', function ($scope, PorukeFactory) {
     PorukeFactory.dajSvePoruke()
 

@@ -1,4 +1,8 @@
-﻿<div data-ng-controller="KomentarController">
+﻿@{
+    Layout = null;
+}
+
+<div data-ng-controller="KomentarController">
     <form ng-submit="kreirajKomentar()">
         Unesite komentar: <input type="text" ng-model="tekstKomentara" />
         <br />

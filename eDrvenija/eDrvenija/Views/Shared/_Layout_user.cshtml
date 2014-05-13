@@ -1,0 +1,94 @@
+﻿@{
+    ViewBag.Title = "_Layout_user";
+}
+
+<!DOCTYPE html>
+<html ng-app="edrvenija">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" href="~/Content/bootstrap_superhero.css" type="text/css" />
+
+    <link href="~/Content/jquery.circliful.css" rel="stylesheet" type="text/css" />
+
+    <link rel="stylesheet" href="http://cdn.oesmith.co.uk/morris-0.4.3.min.css">
+
+    <script src="http://code.jquery.com/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.circliful.min.js"></script>
+    <script src="~/Scripts/Chart.js"></script>
+
+    <script src="http://code.highcharttable.org/master/jquery.highchartTable-min.js"></script>
+    <script src="http://highcharttable.org/js/highcharts.js"></script>
+
+
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.0/raphael-min.js"></script>
+    <script src="http://cdn.oesmith.co.uk/morris-0.4.3.min.js"></script>
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/angular-route.min.js"></script>
+
+    <script src="~/Scripts/App/app.js"></script>
+    <script src="~/Scripts/App/controllers.js"></script>
+    <script src="~/Scripts/App/factories.js"></script>
+    <script src="~/Scripts/App/filters.js"></script>
+
+
+
+</head>
+<body>
+    <header class="navbar-inverse" role="banner">
+        <div class="container">
+            <nav role="navigation">
+
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    @Html.ActionLink("eDrvenija", "../", null, new { @class = "navbar-brand" })<!--<a class="navbar-brand" href="#">eDrvenija</a>-->
+                </div>
+
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="#">Home</a></li>
+                        <li><a href="#">Link</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Korisnici <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="/Korisnici/Create">Dodaj</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Separated link</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#">Logout</a></li>
+
+                    </ul>
+                </div><!-- /.navbar-collapse -->
+                <!-- /.container-fluid -->
+
+            </nav>
+        </div>
+
+    </header>
+
+
+
+
+
+    @RenderBody()
+    @RenderSection("Scripts", false)
+    @Scripts.Render("~/bundles/bootstrapjs")
+</body>
+</html>

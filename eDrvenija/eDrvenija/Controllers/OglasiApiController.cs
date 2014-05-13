@@ -116,6 +116,7 @@ namespace eDrvenija.eDrvenija.Controllers
 
 
         // GET api/Oglasi/zavrseni
+        [HttpGet]
        public IEnumerable<oglasi> DajSveZavrseneOglase()
         {
 
@@ -132,6 +133,7 @@ namespace eDrvenija.eDrvenija.Controllers
 
 
        // GET api/Oglasi/kategorija
+        [HttpGet]
         public IEnumerable<oglasi> DajOglasePoKategoriji(int IDkat)
         {
 
@@ -150,6 +152,7 @@ namespace eDrvenija.eDrvenija.Controllers
         }
 
         // GET api/Oglasi/brojPregleda
+        [HttpGet]
         public IEnumerable<oglasi> DajOglasePoBrojuPregleda()
         {
 
@@ -165,6 +168,7 @@ namespace eDrvenija.eDrvenija.Controllers
         }
 
         // GET api/Oglasi/brojPreuzimanja
+        [HttpGet]
         public IEnumerable<dokumenti> DajOglasePoBrojuPreuzimanja()
         {
 

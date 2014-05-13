@@ -5,7 +5,14 @@ angular.module('edrvenija', ['ngRoute', 'edrvenija.controllers', 'edrvenija.filt
 .config(['$routeProvider', function ($routeProvider) {
     $routeProvider
 
-    .when('/', { templateUrl: '', controller: '' }) //TODO: podesiti sve rute!!!
+        .when('/Pocetna', { templateUrl: 'Home/Pocetna', controller: 'OglasiController' })
+
+        .when('/KomentTemp', { templateUrl: 'Home/KomentTemp', controller: 'KomentarController' })
+
+        
+
+
+    //.when('/', { templateUrl: '', controller: '' }) //TODO: podesiti sve rute!!!
 
     .otherwise({ redirectTo: '/' });
 }]);

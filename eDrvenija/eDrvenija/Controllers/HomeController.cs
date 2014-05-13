@@ -22,6 +22,16 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult KomentTemp()
+        {
+            return View();
+        }
+
+        public ActionResult Pocetna()
+        {
+            return View();
+        }
+
         public ActionResult SetCulture(string culture)
         {
             // Validate input

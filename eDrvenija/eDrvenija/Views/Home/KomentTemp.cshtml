@@ -1,14 +1,9 @@
-﻿@{
-    Layout = null;
-}
-
-<div data-ng-controller="KomentarController">
+﻿<div data-ng-controller="KomentarController">
     <form ng-submit="kreirajKomentar()">
-        Unesite komentar: <input type="text" ng-model="tekstKomentara" />
-        <br />
+        Unesite komentar: <input type="text" required ng-model="tekstKomentara" />
         <input type="submit" value="Komentiraj" />
     </form>
-
+    <br />
     <table>
         <caption>Komentari</caption>
         <thead>

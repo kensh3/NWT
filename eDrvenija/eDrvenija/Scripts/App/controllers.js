@@ -9,40 +9,53 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 })
 
 .controller('KomentarController', ['$scope', 'KomentariFactory', function ($scope, KomentariFactory) {
-    KomentariFactory.dajSveKomentare()
+    $scope.komentari = [];
+
+        KomentariFactory.dajSveKomentare()
 
     .success(function (data) {
         $scope.komentari = data;
-    });
+    })
+        .error(function (data, status) {
+            alert(status)
+        });
 
     $scope.kreirajKomentar = function () {
         var komentar = {
             "tekstKomentara": $scope.tekstKomentara,
             "aktivan": true, //ovo je potrebno na servisu mozda uraditi?
-            "idKorisnika": '', //TODO: izvuci iz sesije
-            "idOglasa": '' //TODO: izvuci iz rute, kada se napravi pregled oglasa
+            "idKorisnika": 1, //TODO: izvuci iz sesije
+            "idOglasa": 1 //TODO: izvuci iz rute, kada se napravi pregled oglasa
         };
         KomentariFactory.kreirajKomentar(komentar)
 
         .success(function () {
-            //TODO: o tom po tom
+            $scope.komentari.push(komentar);
         });
+
+        $scope.tekstKomentara = '';
     };
 }])
 
 .controller('OglasiController', ['$scope', 'OglasiFactory', function ($scope, OglasiFactory) {
+    $scope.oglasi = [];
+
         OglasiFactory.dajSveOglase()
     .success(function (data) {
         $scope.oglasi = data;
     });
+        
 }])
 
 .controller('PorukeController', ['$scope', 'PorukeFactory', function ($scope, PorukeFactory) {
-    PorukeFactory.dajSvePoruke()
+    $scope.poruke = [];
+
+        PorukeFactory.dajSvePoruke()
 
     .success(function (data) {
         $scope.poruke = data;
     });
+    
 
     $scope.kreirajPoruku = function () {
         var poruka = {

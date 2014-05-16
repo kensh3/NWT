@@ -22,6 +22,14 @@ namespace eDrvenija.eDrvenija.Controllers
             var komentari = db.komentari.Include(k => k.korisnici).Include(k => k.oglasi);
             return komentari.AsEnumerable();
         }
+
+        [HttpGet]
+        public List<komentari> dajkomentare()
+        {
+            var komentari = from koments in db.komentari select koments;
+            return komentari.ToList();
+        }
+
         [HttpGet]
         public int DajBrojKomentara()
         {

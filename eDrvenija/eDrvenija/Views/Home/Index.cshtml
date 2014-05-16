@@ -2,8 +2,54 @@
     ViewBag.Title = "Index";
     Layout = "~/Views/Shared/_Layout_user.cshtml";
 }
+
+<header class="navbar-inverse" role="banner">
+    <div class="container">
+        <nav role="navigation">
+
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("eDrvenija", "../", null, new { @class = "navbar-brand" })<!--<a class="navbar-brand" href="#">eDrvenija</a>-->
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Link</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Korisnici <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/Korisnici/Create">Dodaj</a></li>
+                            <li><a href="#">Another action</a></li>
+                            <li><a href="#">Something else here</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">Separated link</a></li>
+                            <li class="divider"></li>
+                            <li><a href="#">One more separated link</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#">Logout</a></li>
+
+                </ul>
+            </div><!-- /.navbar-collapse -->
+            <!-- /.container-fluid -->
+
+        </nav>
+    </div>
+
+</header>
+
     <div ng-controller="IndexController">
-        <div class="container">
             <div class="row-fluid">
                 <div class="col-lg-3">
                     <div class="well sidebar-nav">
@@ -17,11 +63,10 @@
                     </div>
                 </div>
                 <div class="col-lg-9">
-                    <div ng-view></div>
+                    <div ng-view=""></div>
                 </div>
                     
                 
              </div>
-        </div>
 
     </div>

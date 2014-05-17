@@ -22,10 +22,10 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
     $scope.kreirajKomentar = function () {
         var komentar = {
-            "tekstKomentara": $scope.tekstKomentara,
-            "aktivan": true, //ovo je potrebno na servisu mozda uraditi?
-            "idKorisnika": 1, //TODO: izvuci iz sesije
-            "idOglasa": 1 //TODO: izvuci iz rute, kada se napravi pregled oglasa
+            "TekstKomentara": $scope.tekstKomentara,
+            "Aktivan": true, //ovo je potrebno na servisu mozda uraditi?
+            "IdKorisnika": 1, //TODO: izvuci iz sesije
+            "IdOglasa": 1 //TODO: izvuci iz rute, kada se napravi pregled oglasa
         };
         KomentariFactory.kreirajKomentar(komentar)
 

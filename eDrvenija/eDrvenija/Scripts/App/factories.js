@@ -9,11 +9,11 @@ angular.module('edrvenija.factories', [])
     var KomentariFactory = {};
 
     KomentariFactory.dajSveKomentare = function () { //Moze se koristiti i rest direktiva, koja je bolja, ali je http jednostavnija
-        return $http.get(url + 'Getkomentaris');
+        return $http.get(url + 'dajkomentare');
     }
 
     KomentariFactory.kreirajKomentar = function (komentar) {
-        return $http.post(url + 'Postkomentari', komentar);
+        return $http.post(url + 'Postavikomentar', komentar);
     }
 
     return KomentariFactory;

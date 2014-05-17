@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using eDrvenija.eDrvenija.Models;
+using eDrvenija.eDrvenija.Helpers;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
@@ -16,18 +17,13 @@ namespace eDrvenija.eDrvenija.Controllers
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
+        #region apis for admin
+
         // GET api/KomentariApi
         public IEnumerable<komentari> Getkomentaris()
         {
             var komentari = db.komentari.Include(k => k.korisnici).Include(k => k.oglasi);
             return komentari.AsEnumerable();
-        }
-
-        [HttpGet]
-        public List<komentari> dajkomentare()
-        {
-            var komentari = from koments in db.komentari select koments;
-            return komentari.ToList();
         }
 
         [HttpGet]
@@ -116,6 +112,46 @@ namespace eDrvenija.eDrvenija.Controllers
 
             return Request.CreateResponse(HttpStatusCode.OK, komentari);
         }
+
+        #endregion
+
+        #region apis for user
+
+        [HttpGet]
+        public List<Komentar> dajkomentare()
+        {
+            var komentariStari = from koments in db.komentari select koments;
+            List<Komentar> komentariNovi = new List<Komentar>();
+            foreach (komentari komentarStari in komentariStari) {
+                Komentar komentarNovi = new Komentar
+                {
+                    Id = komentarStari.idKomentara,
+                    TekstKomentara = komentarStari.tekstKomentara,
+                    Aktivan = (bool)komentarStari.aktivan,
+                    IdKorisnika = komentarStari.idKorisnika,
+                    IdOglasa = komentarStari.idOglasa
+                };
+                komentariNovi.Add(komentarNovi);
+            }
+            return komentariNovi;
+        }
+
+        [HttpPost]
+        public void Postavikomentar(Komentar komentar)
+        {
+            komentari koment = new komentari
+            {
+                tekstKomentara = komentar.TekstKomentara,
+                aktivan = komentar.Aktivan,
+                idKorisnika = komentar.IdKorisnika,
+                idOglasa = komentar.IdKorisnika
+            };
+
+            db.komentari.Add(koment);
+            db.SaveChanges();
+        }
+
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

@@ -37,14 +37,55 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     };
 }])
 
-.controller('OglasiController', ['$scope', 'OglasiFactory', function ($scope, OglasiFactory) {
-    $scope.oglasi = [];
+.controller('OglasiController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location) {
+    $scope.topOglasi = [];
+    $scope.najnovijiOglasi = [];
+    $scope.test = {};
 
-        OglasiFactory.dajSveOglase()
+    OglasiFactory.dajTopOglase()
     .success(function (data) {
-        $scope.oglasi = data;
+        $scope.topOglasi = data;
+    })
+    .error(function (data, status) {
+        alert(status)
     });
+
+    OglasiFactory.dajNajnovijeOglase()
+    .success(function (data) {
+        $scope.najnovijiOglasi = data;
+    })
+    .error(function (data, status) {
+        alert(status)
+    });
+
+        $scope.nekaAkcija = function (oglas) {
+            alert(oglas.IdOglasa);
+        }
+
         
+        $scope.go = function (path, id) {
+            OglasiFactory.setIdOglasa(id);
+            $scope.test.IdOglasa = id;
+            $location.path(path);
+            
+        };
+
+    
+        
+}])
+
+.controller('PregledOglasaController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location)  {
+    var test = OglasiFactory.getIdOglasa();
+    $scope.oglas = {};
+
+    OglasiFactory.dajOglasPoID(test)
+     .success(function (data) {
+         $scope.oglas = data;
+     })
+     .error(function (data, status) {
+         alert(status)
+     });
+
 }])
 
 .controller('PorukeController', ['$scope', 'PorukeFactory', function ($scope, PorukeFactory) {

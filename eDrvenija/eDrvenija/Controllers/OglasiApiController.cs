@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using eDrvenija.eDrvenija.Models;
+using eDrvenija.eDrvenija.Helpers;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
@@ -16,6 +17,7 @@ namespace eDrvenija.eDrvenija.Controllers
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
+        #region admin
         // GET api/Oglasi
         public IEnumerable<oglasi> Getoglasis()
         {
@@ -23,17 +25,7 @@ namespace eDrvenija.eDrvenija.Controllers
             return oglasi.AsEnumerable();
         }
 
-        // GET api/Oglasi/5
-        public oglasi Getoglasi(int id)
-        {
-            oglasi oglasi = db.oglasi.Find(id);
-            if (oglasi == null)
-            {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
-            }
-
-            return oglasi;
-        }
+       
 
 
         // PUT api/Oglasi/5
@@ -164,8 +156,9 @@ namespace eDrvenija.eDrvenija.Controllers
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return lista.AsEnumerable();
+            return lista.ToList();
         }
+
 
         // GET api/Oglasi/brojPreuzimanja
         [HttpGet]
@@ -184,9 +177,119 @@ namespace eDrvenija.eDrvenija.Controllers
             return lista.AsEnumerable();
         }
 
+        #endregion
 
+        #region user
 
+        [HttpGet]
+        public List<Oglas> DajTopCetiriPregledanaOglasa()
+        {
+            var stariOglasi = (from oglasi in db.oglasi
+                               where oglasi.aktivan == true
+                              orderby oglasi.brojPregledaOglasa descending
+                              select oglasi).Take(4);
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach(oglasi oglasStari in stariOglasi) {
+                Oglas noviOglas = new Oglas 
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa =oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan= oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+            noviOglasi.Add(noviOglas);
+            }
 
+            return noviOglasi;
+        }
+
+        [HttpGet]
+        public List<Oglas> DajCetiriNajnovijaOglasa()
+        {
+            var stariOglasi = (from oglasi in db.oglasi
+                               where oglasi.aktivan == true
+                               orderby oglasi.datumObjaveOglasa descending
+                               select oglasi).Take(4);
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach (oglasi oglasStari in stariOglasi)
+            {
+                Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+                noviOglasi.Add(noviOglas);
+            }
+
+            return noviOglasi;
+        }
+
+        //OVO JE ONA GLAVNA GET OGLASI METODA; IZ WEBAPI
+        // GET api/Oglasi/5
+        public Oglas Getoglasi(int id)
+        {
+            oglasi oglasStari = db.oglasi.Find(id);
+            if (oglasStari == null)
+            {
+                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+            }
+
+            Oglas noviOglas = new Oglas
+            {
+                idOglasa = oglasStari.idOglasa,
+                nazivOglasa = oglasStari.nazivOglasa,
+                datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                opisOglasa = oglasStari.opisOglasa,
+                cijena = oglasStari.cijena,
+                brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                aktivan = oglasStari.aktivan,
+                idTipaOglasa = oglasStari.idTipaOglasa,
+                idKategorije = oglasStari.idKategorije,
+                idKorisnika = oglasStari.idKorisnika
+            };
+            return noviOglas;
+
+            //return oglasi;
+        }
+
+        [HttpGet]
+        public Oglas DajOglasPoID(int idOglasa) {
+            var oglasStari = db.oglasi.Find(idOglasa);
+            Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+            return noviOglas;
+        }
+
+        #endregion
 
 
 

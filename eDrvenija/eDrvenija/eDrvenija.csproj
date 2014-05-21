@@ -211,6 +211,7 @@
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\Komentar.cs" />
+    <Compile Include="Helpers\Oglas.cs" />
     <Compile Include="Models\dokumenti.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
@@ -321,6 +322,7 @@
     <Content Include="Scripts\App\controllers.js" />
     <Content Include="Scripts\App\factories.js" />
     <Content Include="Scripts\App\filters.js" />
+    <Content Include="Scripts\App\services.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\Chart.js" />
@@ -422,6 +424,7 @@
     <Content Include="Views\Home\PaginationTemp.cshtml" />
     <Content Include="Views\Shared\_Layout_user.cshtml" />
     <Content Include="Views\Home\Pocetna.cshtml" />
+    <Content Include="Views\Home\PregledOglasa.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

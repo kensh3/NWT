@@ -9,6 +9,8 @@ angular.module('edrvenija', ['ngRoute', 'edrvenija.controllers', 'edrvenija.filt
 
         .when('/KomentTemp', { templateUrl: 'Home/KomentTemp', controller: 'KomentarController' })
 
+        .when('/PregledOglasa', { templateUrl: 'Home/PregledOglasa', controller: 'PregledOglasaController' })
+
         
 
 

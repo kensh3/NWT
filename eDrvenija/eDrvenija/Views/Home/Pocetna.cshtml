@@ -1,9 +1,51 @@
-﻿<div data-ng-controller="OglasiController">
-    <div class="col-lg-3"> <!--ng-repeat="oglas in oglasi-->
+﻿
+<style type="text/css">
+    .triTackice {
+        overflow: hidden;
+        padding: 2px;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        width: 180px;
+    }
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+        border-color: gray;
+    }
+</style>
+
+<div data-ng-controller="OglasiController">
+    <h2>Most viewed ads</h2>
+    <hr />
+    <div class="col-lg-3" ng-repeat="oglas in topOglasi">
         <div class="panel panel-default">
-            <div class="panel-heading"><h2>{{oglas.idOglasa}}. {{oglas.nazivOglasa}}</h2></div>
+            <div class="panel-heading"><h2 class="triTackice">{{oglas.nazivOglasa}}</h2></div>
             <div class="panel-body">
-                opis nekog oglasa cijena ha hu
+                <p class="triTackice">{{oglas.opisOglasa}}</p>
+                <p class="triTackice">Broj pregleda oglasa: {{oglas.brojPregledaOglasa}}</p>
+                <p class="triTackice">Cijena: {{oglas.cijena}}</p>
+                <hr />
+                <div ng-click="go('/PregledOglasa', oglas.idOglasa)">Details >></div>
+            </div>
+        </div>
+    </div>
+
+    <h2>Newest ads</h2>
+    <hr />
+    <div class="col-lg-3" ng-repeat="oglas in najnovijiOglasi">
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2 class="triTackice">{{oglas.nazivOglasa}}</h2></div>
+            <div class="panel-body">
+                <p class="triTackice">{{oglas.opisOglasa}}</p>
+                <p class="triTackice">Broj pregleda oglasa: {{oglas.brojPregledaOglasa}}</p>
+                <p class="triTackice">Cijena: {{oglas.cijena}}</p>
+                <hr />
+                <div ng-click="go('/PregledOglasa', oglas.idOglasa)">Details >></div>
             </div>
         </div>
     </div>

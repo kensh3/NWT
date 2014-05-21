@@ -1,0 +1,28 @@
+﻿<style type="text/css">
+
+    hr {
+        display: block;
+        height: 1px;
+        border: 0;
+        border-top: 1px solid #ccc;
+        margin: 1em 0;
+        padding: 0;
+        border-color: gray;
+    }
+</style>
+
+<div ng-controller="PregledOglasaController">
+    <div>
+        <div class="panel panel-default">
+            <div class="panel-heading"><h2>Naziv oglasa: {{oglas.nazivOglasa}}</h2></div>
+            <div class="panel-body">
+                <p>Opis oglasa: {{oglas.opisOglasa}}</p>
+                <p>Broj pregleda oglasa: {{oglas.brojPregledaOglasa}}</p>
+                <p>Cijena: {{oglas.cijena}}</p>
+                <p />Datum objave: {{oglas.datumObjaveOglasa}}
+                <p />Broj pregleda oglasa: {{oglas.brojPregledaOglasa}}
+                <hr />
+            </div>
+        </div>
+    </div>
+</div>

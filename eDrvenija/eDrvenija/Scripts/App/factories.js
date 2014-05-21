@@ -4,7 +4,7 @@ angular.module('edrvenija.factories', [])
 
 .factory('KomentariFactory', ['$http', function ($http) {
     
-    var url = 'http://edrvenija.somee.com/api/KomentariApi/'; //TODO: Prvo namjestiti servise, pa napisati odgovarajuci URL
+    var url = 'http://localhost:3611/api/KomentariApi/'; //TODO: Prvo namjestiti servise, pa napisati odgovarajuci URL
 
     var KomentariFactory = {};
 
@@ -20,19 +20,39 @@ angular.module('edrvenija.factories', [])
 }])
 
 .factory('OglasiFactory', ['$http', function ($http) {
-    var url = 'http://edrvenija.somee.com/api/OglasiApi/Getoglasis'
+    var url = 'http://localhost:3611/api/OglasiApi/'
 
     var OglasiFactory = {};
 
-    OglasiFactory.dajSveOglase = function () {
-        return $http.get(url);
+    /*
+    Ovo se mozda moze drugacije uraditi zasad je tako
+    */
+    var idOglasa = "";
+    OglasiFactory.getIdOglasa = function () {
+        return idOglasa;
+    }
+    OglasiFactory.setIdOglasa = function (id) {
+        idOglasa = id;
+    }
+    //kraj tog dijela
+
+    OglasiFactory.dajOglasPoID = function (id) {
+        return $http.get(url + 'Getoglasi/' + id);
+    }
+
+    OglasiFactory.dajTopOglase = function () {
+        return $http.get(url + 'DajTopCetiriPregledanaOglasa');
+    }
+
+    OglasiFactory.dajNajnovijeOglase = function () {
+        return $http.get(url + 'DajCetiriNajnovijaOglasa');
     }
 
     return OglasiFactory;
 }])
 
 .factory('PorukeFactory', ['$http', function ($http) {
-    var url = 'http://edrvenija.somee.com/api/PorukeApi/';
+    var url = 'http://localhost:3611/api/PorukeApi/';
 
     var PorukeFactory = {};
 

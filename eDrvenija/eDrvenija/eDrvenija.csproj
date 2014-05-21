@@ -190,6 +190,7 @@
     <Compile Include="Controllers\DokumentiApiController.cs" />
     <Compile Include="Controllers\DokumentiController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\KategorijeApiController.cs" />
     <Compile Include="Controllers\KategorijeController.cs" />
     <Compile Include="Controllers\KomentariApiController.cs" />
     <Compile Include="Controllers\KomentariController.cs" />
@@ -210,6 +211,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helpers\CultureHelper.cs" />
+    <Compile Include="Helpers\Kategorija.cs" />
     <Compile Include="Helpers\Komentar.cs" />
     <Compile Include="Helpers\Oglas.cs" />
     <Compile Include="Models\dokumenti.cs">

@@ -49,24 +49,32 @@
 
 </header>
 
+
+
     <div ng-controller="IndexController">
             <div class="row-fluid">
                 <div class="col-lg-3">
                     <div class="well sidebar-nav">
                         <ul class="nav nav-list">
-                            <li><a href="/#/Pocetna">Ads</a></li>
-                            <li><a href="/#/PregledOglasa">Messages</a></li>
-                            <li><a href="/#/KomentTemp"> Comment </a></li>
+                            <li class="nav-header">
+                                <a href="/#/Pocetna" data-toggle="collapse" data-target="#userMenu">Ads <b class="caret"></b></a>
+                                <ul style="list-style: none;" class="collapse in" id="userMenu">
+                                    <li class="nav-header"><a href="/#/Pocetna" data-toggle="collapse" data-target="#kategorijeMenu">Kategorije<b class="caret"></b></a>
+                                        <ul style="list-style: none;" class="collapse in" id="kategorijeMenu">
+                                            <li><a href="#">{{kategorije.nazivKategorije}} Kategorija 1, mada bi trebalo preko angulara popuniti ove kategorije ali neece nesto </a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-header"><a href="/#/">Messages</a></li>
+                            <li class ="nav-header"><a href="/#/KomentTemp"> Comment </a></li>
                             <li><br /></li>
                         </ul>
-
                     </div>
                 </div>
                 <div class="col-lg-9">
                     <div ng-view=""></div>
                 </div>
-                    
-                
              </div>
-
     </div>
+

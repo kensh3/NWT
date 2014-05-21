@@ -2,11 +2,23 @@
 
 angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
-.controller('IndexController', function ($scope, $route, $routeParams, $location) { //Kontroler za pocetnu stranicu
+.controller('IndexController', ['$scope','KategorijeFactory', function ($scope, KategorijeFactory, $route, $routeParams, $location) { //Kontroler za pocetnu stranicu
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
-})
+
+    $scope.kategorije = []; //Iz nekog razloga mi ne pohrani ove dole podatke od dajSveKategorije u ovome; znaci, ovo kategorije ostane prazno nakon poziva dajSveKategorije;
+
+    KategorijeFactory.dajSveKategorije()
+
+    .success(function (data) {
+        $scope.kategorije = data;
+    })
+        .error(function (data, status) {
+            alert(status)
+        });
+
+}])
 
 .controller('KomentarController', ['$scope', 'KomentariFactory', function ($scope, KomentariFactory) {
     $scope.komentari = [];

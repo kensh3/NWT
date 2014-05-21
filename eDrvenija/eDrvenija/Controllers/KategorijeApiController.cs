@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Web;
 using System.Web.Http;
 using eDrvenija.eDrvenija.Models;
+using eDrvenija.eDrvenija.Helpers;
 
 namespace eDrvenija.eDrvenija.Controllers
 {
@@ -100,6 +101,24 @@ namespace eDrvenija.eDrvenija.Controllers
             }
 
             return Request.CreateResponse(HttpStatusCode.OK, kategorije);
+        }
+
+
+        [HttpGet]
+        public List<Kategorija> dajKategorije()
+        {
+            var kategorijeStare = from kategorije in db.kategorije select kategorije;
+            List<Kategorija> kategorijaNovi = new List<Kategorija>();
+            foreach (kategorije kategorijaStara in kategorijeStare)
+            {
+                Kategorija kategorijaNova = new Kategorija
+                {
+                    idKategorije = kategorijaStara.idKategorije,
+                    nazivKategorije = kategorijaStara.nazivKategorije
+                };
+                kategorijaNovi.Add(kategorijaNova);
+            }
+            return kategorijaNovi;
         }
 
         protected override void Dispose(bool disposing)

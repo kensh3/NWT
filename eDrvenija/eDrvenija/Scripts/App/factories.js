@@ -19,6 +19,19 @@ angular.module('edrvenija.factories', [])
     return KomentariFactory;
 }])
 
+.factory('KategorijeFactory', ['$http', function ($http) {
+
+    var url = 'http://localhost:3611/api/KategorijeApi/';
+
+    var KategorijeFactory = {};
+
+    KategorijeFactory.dajSveKategorije = function () { //Moze se koristiti i rest direktiva, koja je bolja, ali je http jednostavnija
+        return $http.get(url + 'dajKategorije');
+    }
+
+    return KategorijeFactory;
+}])
+
 .factory('OglasiFactory', ['$http', function ($http) {
     var url = 'http://localhost:3611/api/OglasiApi/'
 

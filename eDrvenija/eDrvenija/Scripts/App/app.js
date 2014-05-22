@@ -11,6 +11,10 @@ angular.module('edrvenija', ['ngRoute', 'edrvenija.controllers', 'edrvenija.filt
 
         .when('/PregledOglasa', { templateUrl: 'Home/PregledOglasa', controller: 'PregledOglasaController' })
 
+        .when('/PaginationTemp', { templateUrl: 'Home/PaginationTemp', controller: 'MyCtrl' })
+
+        .when('/UrediProfil/:id', { templateUrl: 'Home/UrediProfil', controller: 'UserController' })
+
         
 
 

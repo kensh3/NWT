@@ -16,6 +16,7 @@ namespace eDrvenija.eDrvenija.Controllers
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
+        # region apis for admin
         // GET api/Korisnik
         public IEnumerable<korisnici> Getkorisnicis()
         {
@@ -243,6 +244,56 @@ namespace eDrvenija.eDrvenija.Controllers
                          select korisnici).Take(broj);
             return lista.AsEnumerable();
         }
+
+        #endregion
+
+        #region apis for user
+
+        [HttpPut]
+        public void putkorisnik(Helpers.Korisnik korisnik)
+        {
+            var korisnici = new korisnici() {
+                idKorisnika = korisnik.Id,
+                imeKorisnika = korisnik.Ime,
+                prezimeKorisnika = korisnik.Prezime,
+                eMailKorisnika = korisnik.EMail,
+                brojTelefonaKorisnika = korisnik.BrojTelefona,
+                aktivan = true,
+                korisnickoImeKorisnika = korisnik.KorisnickoIme,
+                lozinkaKorisnika = korisnik.LozinkaKorisnika,
+                avatarKorisnika = null,
+                korisnikAktivanOd = null,
+                ocjena = korisnik.Ocjena,
+                idTipaKorisnika = korisnik.IdTipKorisnika
+            };
+            db.Entry(korisnici).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
+        [HttpGet]
+        public Helpers.Korisnik dajkorisnika(int id)
+        {
+            var kor = (from kors in db.korisnici
+                       where kors.idKorisnika == id
+                       select kors).FirstOrDefault();
+
+            Helpers.Korisnik korisnik = new Helpers.Korisnik()
+            {
+                Id = kor.idKorisnika,
+                Ime = kor.imeKorisnika,
+                Prezime = kor.prezimeKorisnika,
+                EMail = kor.eMailKorisnika,
+                BrojTelefona = kor.brojTelefonaKorisnika,
+                Ocjena = (double) (kor.ocjena == null ? 0 : kor.ocjena),
+                KorisnickoIme = kor.korisnickoImeKorisnika,
+                LozinkaKorisnika = kor.lozinkaKorisnika,
+                IdTipKorisnika = kor.idTipaKorisnika
+            };
+
+            return korisnik;
+        }
+
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

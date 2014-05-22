@@ -20,7 +20,7 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
 }])
 
-.controller('KomentarController', ['$scope', 'KomentariFactory', function ($scope, KomentariFactory) {
+.controller('KomentarController', ['$scope', '$rootScope', 'KomentariFactory', function ($scope, $rootScope, KomentariFactory) {
     $scope.komentari = [];
 
         KomentariFactory.dajSveKomentare()
@@ -43,6 +43,7 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
         .success(function () {
             $scope.komentari.push(komentar);
+            $rootScope.noveNotifikacije = true;
         });
 
         $scope.tekstKomentara = '';
@@ -148,7 +149,40 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     $scope.numberOfPages = function () {
         return Math.ceil($scope.data.length / $scope.pageSize);
     }
-    for (var i = 0; i < 45; i++) {
+    for (var i = 0; i < 50; i++) {
         $scope.data.push("Item " + i); //TODO: ovdje idu pravi itemi
     }
+}])
+
+.controller('NotifikacijeController', ['$rootScope', function ($rootScope) {
+    if ($rootScope.noveNotifikacije) {
+        setTimeout(function () { $("#notifikacije").hide(); }, 5000);
+    }
+}])
+
+.controller('UserController', ['$scope', '$routeParams', 'UserFactory', function ($scope, $routeParams, UserFactory) {
+    UserFactory.dajUseraById($routeParams.id)
+    .success(function (data) {
+        $scope.user = data
+    });
+    
+    $scope.editUser = function () {
+        var korisnik = {
+            Id: $scope.user.Id,
+            Ime: $scope.Ime,
+            Prezime: $scope.Prezime,
+            EMail: $scope.EMail,
+            BrojTelefona: $scope.BrojTelefona,
+            Ocjena: $scope.Ocjena,
+            KorisnickoIme: $scope.KorisnickoIme,
+            LozinkaKorisnika: $scope.user.LozinkaKorisnika,
+            IdTipKorisnika: $scope.IdTipKorisnika
+        };
+
+        UserFactory.putuser(korisnik)
+
+        .success(function () {
+            alert("Success")
+        });
+    };
 }]);

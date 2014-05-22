@@ -213,6 +213,7 @@
     <Compile Include="Helpers\CultureHelper.cs" />
     <Compile Include="Helpers\Kategorija.cs" />
     <Compile Include="Helpers\Komentar.cs" />
+    <Compile Include="Helpers\Korisnik.cs" />
     <Compile Include="Helpers\Oglas.cs" />
     <Compile Include="Models\dokumenti.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
@@ -427,6 +428,7 @@
     <Content Include="Views\Shared\_Layout_user.cshtml" />
     <Content Include="Views\Home\Pocetna.cshtml" />
     <Content Include="Views\Home\PregledOglasa.cshtml" />
+    <Content Include="Views\Home\UrediProfil.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

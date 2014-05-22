@@ -27,12 +27,22 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult PaginationTemp()
+        {
+            return View();
+        }
+
         public ActionResult Pocetna()
         {
             return View();
         }
 
         public ActionResult PregledOglasa()
+        {
+            return View();
+        }
+
+        public ActionResult UrediProfil()
         {
             return View();
         }

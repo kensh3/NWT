@@ -19,6 +19,17 @@
     }
 </style>
 
+<div ng-controller="NotifikacijeController">
+    <div id="notifikacije" ng-if="noveNotifikacije">
+        <div class="panel panel-default">
+            <div class="panel-heading">New notifications</div>
+            <div class="panel-body">
+                You have new notifications. Check the message box!
+            </div>
+        </div>
+    </div>
+</div>
+
 <div data-ng-controller="OglasiController">
     <h2>Most viewed ads</h2>
     <hr />

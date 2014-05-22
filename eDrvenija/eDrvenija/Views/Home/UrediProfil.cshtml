@@ -1,0 +1,13 @@
+﻿<div ng-controller="UserController">
+    <form ng-submit="editUser()">
+        <!-- AVATAR -->
+        Ime: <input type="text" value="{{user.Ime}}" ng-model="{{Ime}}"> <br />
+        Prezime: <input type="text" value="{{user.Prezime}}" ng-model="{{Prezime}}" /> <br />
+        eMail: <input type="text" value="{{user.EMail}}" ng-model="{{EMail}}" /> <br />
+        Broj telefona: <input type="text" value="{{user.BrojTelefona}}" ng-model="{{BrojTelefona}}" /> <br />
+        Ocjena: <input type="text" value="{{user.Ocjena}}" ng-model="{{Ocjena}}" /> <br />
+        Korisnicko ime: <input type="text" value="{{user.KorisnickoIme}}" ng-model="{{KorisnickoIme}}" /> <br />
+        Tip korisnika: <input type="text" value="{{user.IdTipKorisnika}}" ng-model="{{IdTipKorisnika}}" /> <br />
+        <input type="submit" value="Spasi" />
+    </form>
+</div>

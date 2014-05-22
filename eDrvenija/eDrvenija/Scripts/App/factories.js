@@ -3,8 +3,8 @@
 angular.module('edrvenija.factories', [])
 
 .factory('KomentariFactory', ['$http', function ($http) {
-    
-    var url = 'http://www.edrvenija.somee.com/api/KomentariApi/'; //TODO: Prvo namjestiti servise, pa napisati odgovarajuci URL
+
+    var url = 'api/KomentariApi/'; //TODO: Prvo namjestiti servise, pa napisati odgovarajuci URL
 
     var KomentariFactory = {};
 
@@ -21,7 +21,7 @@ angular.module('edrvenija.factories', [])
 
 .factory('KategorijeFactory', ['$http', function ($http) {
 
-    var url = 'http://www.edrvenija.somee.com/api/KategorijeApi/';
+    var url = 'api/KategorijeApi/';
 
     var KategorijeFactory = {};
 
@@ -33,7 +33,7 @@ angular.module('edrvenija.factories', [])
 }])
 
 .factory('OglasiFactory', ['$http', function ($http) {
-    var url = 'http://www.edrvenija.somee.com/api/OglasiApi/'
+    var url = 'api/OglasiApi/'
 
     var OglasiFactory = {};
 
@@ -65,7 +65,7 @@ angular.module('edrvenija.factories', [])
 }])
 
 .factory('PorukeFactory', ['$http', function ($http) {
-    var url = 'http://www.edrvenija.somee.com/api/PorukeApi/';
+    var url = 'api/PorukeApi/';
 
     var PorukeFactory = {};
 
@@ -81,7 +81,7 @@ angular.module('edrvenija.factories', [])
 }])
 
 .factory('UserFactory', ['$http', function ($http) {
-    var url = 'http://www.edrvenija.somee.com/api/KorisniciApi/';
+    var url = 'api/KorisniciApi/';
 
     var UserFactory = {};
 

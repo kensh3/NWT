@@ -169,20 +169,28 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     $scope.editUser = function () {
         var korisnik = {
             Id: $scope.user.Id,
-            Ime: $scope.Ime,
-            Prezime: $scope.Prezime,
-            EMail: $scope.EMail,
-            BrojTelefona: $scope.BrojTelefona,
-            Ocjena: $scope.Ocjena,
-            KorisnickoIme: $scope.KorisnickoIme,
+            Ime: $scope.user.Ime,
+            Prezime: $scope.user.Prezime,
+            EMail: $scope.user.EMail,
+            BrojTelefona: $scope.user.BrojTelefona,
+            Ocjena: $scope.user.Ocjena,
+            KorisnickoIme: $scope.user.KorisnickoIme,
             LozinkaKorisnika: $scope.user.LozinkaKorisnika,
-            IdTipKorisnika: $scope.IdTipKorisnika
+            IdTipKorisnika: $scope.user.IdTipKorisnika
         };
 
         UserFactory.putuser(korisnik)
 
         .success(function () {
-            alert("Success")
+            $scope.user.Ime = '';
+            $scope.user.Prezime = '';
+            $scope.user.EMail = '';
+            $scope.user.BrojTelefona = '';
+            $scope.user.Ocjena = '';
+            $scope.user.KorisnickoIme = '';
+            $scope.user.IdTipKorisnika = '';
         });
+
+
     };
 }]);

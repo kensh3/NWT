@@ -266,6 +266,7 @@ namespace eDrvenija.eDrvenija.Controllers
                 ocjena = korisnik.Ocjena,
                 idTipaKorisnika = korisnik.IdTipKorisnika
             };
+            
             db.Entry(korisnici).State = EntityState.Modified;
             db.SaveChanges();
         }

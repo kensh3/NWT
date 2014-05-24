@@ -14,7 +14,7 @@ namespace eDrvenija.eDrvenija.Helpers
         public string BrojTelefona { get; set; }
         //public byte[] AvatarKorisnika { get; set; }
         public double Ocjena { get; set; }
-        //public int korisnikAktivanOd { get; set; }
+        //public int KorisnikAktivanOd { get; set; }
         public string KorisnickoIme { get; set; }
         public string LozinkaKorisnika { get; set; }
         //public bool Aktivan { get; set; }

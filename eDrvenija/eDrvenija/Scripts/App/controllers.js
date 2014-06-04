@@ -101,38 +101,72 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
 }])
 
-.controller('PorukeController', ['$scope', 'PorukeFactory', function ($scope, PorukeFactory) {
+.controller('PorukeController', ['$scope', '$routeParams', 'PorukeFactory', function ($scope, $routeParams, PorukeFactory) {
     $scope.poruke = [];
 
-        PorukeFactory.dajSvePoruke()
+    PorukeFactory.dajSvePorukeKorisnika(4)
 
     .success(function (data) {
         $scope.poruke = data;
     });
     
+    $scope.dajSvePrimljenePoruke = function () {
+        PorukeFactory.dajSvePrimljenePoruke(4)
+
+        .success(function (data) {
+            $scope.poruke = data;
+        });
+    };
+
+    $scope.dajSvePoslanePoruke = function () {
+        PorukeFactory.dajSvePoslanePoruke(4)
+
+        .success(function (data) {
+            $scope.poruke = data;
+        });
+    };
+
+    $scope.dajSveSistemskePoruke = function () {
+        PorukeFactory.dajSveSistemskePoruke(4)
+
+        .success(function (data) {
+            $scope.poruke = data;
+        });
+    };
+
+    $scope.dajSvaObavjestenja = function () {
+        PorukeFactory.dajSvaObavjestenja()
+
+        .success(function (data) {
+            $scope.poruke = data;
+        });
+    };
 
     $scope.kreirajPoruku = function () {
         var poruka = {
-            "naslovPoruke": $scope.naslovPoruke,
-            "tekstPoruke": $scope.tekstPoruke,
-            "aktivan": true, //ovo je potrebno na servisu mozda uraditi?
-            "idKorisnikaPosiljaoca": '', //TODO: izvuci iz sesije
-            "idKorisnikaPrimaoca": '' //TODO: izvuci iz rute 
+            "NaslovPoruke": $scope.naslovPoruke,
+            "TekstPoruke": $scope.tekstPoruke,
+            "Aktivan": true, //ovo je potrebno na servisu mozda uraditi?
+            "PosiljaocId": 2, //TODO: izvuci iz sesije
+            "PrimaocId": $routeParams.id
         };
         PorukeFactory.kreirajPoruku(poruka)
 
         .success(function () {
+            $scope.naslovPoruke = '';
+            $scope.tekstPoruke = '';
+            alert("Poruka uspjesno poslana.");
             //TODO: mozda neki modal, uspjesno poslana poruka
         });
     };
 
     $scope.posaljiPorukuSistem = function (naslov, tekst, primaoc) {
         var poruka = {
-            "naslovPoruke": naslov,
-            "tekstPoruke": tekst,
-            "aktivan": true, //ovo je potrebno na servisu mozda uraditi?
-            "idKorisnikaPosiljaoca": null, //null jer je sistem posiljaoc
-            "idKorisnikaPrimaoca": primaoc
+            "NaslovPoruke": naslov,
+            "TekstPoruke": tekst,
+            "Aktivan": true, //ovo je potrebno na servisu mozda uraditi?
+            "PosiljaocId": null, //null jer je sistem posiljaoc
+            "PrimaocId": primaoc
         };
         PorukeFactory.kreirajPoruku(poruka)
 

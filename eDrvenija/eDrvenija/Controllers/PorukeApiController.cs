@@ -16,6 +16,8 @@ namespace eDrvenija.eDrvenija.Controllers
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
+        #region apis for admin
+
         // GET api/Poruke
         public IEnumerable<poruke> Getporukes()
         {
@@ -148,6 +150,152 @@ namespace eDrvenija.eDrvenija.Controllers
                         select poruke;
             return lista.AsEnumerable();
         }
+
+        #endregion apis for admin
+
+        #region apis for user
+
+        [HttpPost]
+        public void postaviporuku(Helpers.Poruka poruka) 
+        {
+            if (poruka != null)
+            {
+                var porukaStara = new poruke()
+                {
+                    tekstPoruke = poruka.TekstPoruke,
+                    naslovPoruke = poruka.NaslovPoruke,
+                    aktivan = poruka.Aktivan,
+                    idKorisnikaPosiljaoca = poruka.PosiljaocId,
+                    idKorisnikaPrimaoca = poruka.PrimaocId
+                };
+
+                db.poruke.Add(porukaStara);
+                db.SaveChanges();
+            }
+            
+        }
+
+        [HttpGet]
+        public List<Helpers.Poruka> dajsveporukekorisnika(int korisnikId)
+        {
+            var porukeStare = db.poruke.Where(x => x.idKorisnikaPosiljaoca == korisnikId || x.idKorisnikaPrimaoca == korisnikId).ToList();
+            List<Helpers.Poruka> porukeNove = new List<Helpers.Poruka>();
+
+            foreach (poruke porukaStara in porukeStare)
+            {
+                var porukaNova = new Helpers.Poruka()
+                {
+                    Id = porukaStara.idPoruke,
+                    NaslovPoruke = porukaStara.naslovPoruke,
+                    TekstPoruke = porukaStara.tekstPoruke,
+                    Aktivan = (bool) porukaStara.aktivan,
+                    PrimaocId = porukaStara.idKorisnikaPrimaoca,
+                    PosiljaocId = porukaStara.idKorisnikaPosiljaoca
+                };
+
+                porukeNove.Add(porukaNova);
+            }
+
+            return porukeNove;
+        }
+
+        [HttpGet]
+        public List<Helpers.Poruka> dajsveposlaneporuke(int korisnikId)
+        {
+            var porukeStare = db.poruke.Where( x => x.idKorisnikaPosiljaoca == korisnikId ).ToList();
+            List<Helpers.Poruka> porukeNove = new List<Helpers.Poruka>();
+
+            foreach (poruke porukaStara in porukeStare)
+            {
+                var porukaNova = new Helpers.Poruka()
+                {
+                    Id = porukaStara.idPoruke,
+                    NaslovPoruke = porukaStara.naslovPoruke,
+                    TekstPoruke = porukaStara.tekstPoruke,
+                    Aktivan = (bool)porukaStara.aktivan,
+                    PrimaocId = porukaStara.idKorisnikaPrimaoca,
+                    PosiljaocId = porukaStara.idKorisnikaPosiljaoca
+                };
+
+                porukeNove.Add(porukaNova);
+            }
+
+            return porukeNove;
+        }
+
+        [HttpGet]
+        public List<Helpers.Poruka> dajsveprimljeneporuke(int korisnikId)
+        {
+            var porukeStare = db.poruke.Where(x => x.idKorisnikaPrimaoca == korisnikId).ToList();
+            List<Helpers.Poruka> porukeNove = new List<Helpers.Poruka>();
+
+            foreach (poruke porukaStara in porukeStare)
+            {
+                var porukaNova = new Helpers.Poruka()
+                {
+                    Id = porukaStara.idPoruke,
+                    NaslovPoruke = porukaStara.naslovPoruke,
+                    TekstPoruke = porukaStara.tekstPoruke,
+                    Aktivan = (bool)porukaStara.aktivan,
+                    PrimaocId = porukaStara.idKorisnikaPrimaoca,
+                    PosiljaocId = porukaStara.idKorisnikaPosiljaoca
+                };
+
+                porukeNove.Add(porukaNova);
+            }
+
+            return porukeNove;
+        }
+
+        [HttpGet]
+        public List<Helpers.Poruka> dajsvesistemskeporuke(int korisnikId)
+        {
+            var porukeStare = db.poruke.Where( x => x.idKorisnikaPrimaoca == korisnikId && x.idKorisnikaPosiljaoca == null).ToList();
+            List<Helpers.Poruka> porukeNove = new List<Helpers.Poruka>();
+
+            foreach (poruke porukaStara in porukeStare)
+            {
+                var porukaNova = new Helpers.Poruka()
+                {
+                    Id = porukaStara.idPoruke,
+                    NaslovPoruke = porukaStara.naslovPoruke,
+                    TekstPoruke = porukaStara.tekstPoruke,
+                    Aktivan = (bool)porukaStara.aktivan,
+                    PrimaocId = porukaStara.idKorisnikaPrimaoca,
+                    PosiljaocId = porukaStara.idKorisnikaPosiljaoca
+                };
+
+                porukeNove.Add(porukaNova);
+            }
+
+            return porukeNove;
+        }
+
+        [HttpGet]
+        public List<Helpers.Poruka> dajsvaobavjestenja()
+        {
+            var porukeStare = db.poruke.Where(x => x.idKorisnikaPrimaoca == null && x.idKorisnikaPosiljaoca == null).Distinct().ToList();
+            List<Helpers.Poruka> porukeNove = new List<Helpers.Poruka>();
+
+            foreach (poruke porukaStara in porukeStare)
+            {
+                var porukaNova = new Helpers.Poruka()
+                {
+                    Id = porukaStara.idPoruke,
+                    NaslovPoruke = porukaStara.naslovPoruke,
+                    TekstPoruke = porukaStara.tekstPoruke,
+                    Aktivan = (bool)porukaStara.aktivan,
+                    PrimaocId = porukaStara.idKorisnikaPrimaoca,
+                    PosiljaocId = porukaStara.idKorisnikaPosiljaoca
+                };
+
+                porukeNove.Add(porukaNova);
+            }
+
+            return porukeNove;
+        }
+
+        #endregion apis for user
 
         protected override void Dispose(bool disposing)
         {

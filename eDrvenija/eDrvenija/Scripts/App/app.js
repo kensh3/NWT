@@ -15,7 +15,9 @@ angular.module('edrvenija', ['ngRoute', 'edrvenija.controllers', 'edrvenija.filt
 
         .when('/UrediProfil/:id', { templateUrl: 'Home/UrediProfil', controller: 'UserController' })
 
-        
+        .when('/SlanjePorukeTemp/:id', { templateUrl: 'Home/SlanjePorukeTemp', controller: 'PorukeController' })
+
+        .when('/PregledPoruka', { templateUrl: 'Home/PregledPoruka', controller: 'PorukeController' })
 
 
     //.when('/', { templateUrl: '', controller: '' }) //TODO: podesiti sve rute!!!

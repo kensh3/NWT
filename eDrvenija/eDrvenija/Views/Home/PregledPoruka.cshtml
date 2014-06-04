@@ -1,0 +1,29 @@
+﻿<div ng-controller="PorukeController">
+    <div style="width:150px; float: left;">
+        <input type="button" style="width: 100px; margin-bottom: 10px;" value="Inbox" ng-click="dajSvePrimljenePoruke()" />
+        <input type="button" style="width: 100px; margin-bottom: 10px;" value="Sistemske" ng-click="dajSveSistemskePoruke()" />
+        <input type="button" style="width: 100px; margin-bottom: 10px;" value="Obavjestenja" ng-click="dajSvaObavjestenja()" />
+        <input type="button" style="width: 100px; margin-bottom: 10px;" value="Poslane" ng-click="dajSvePoslanePoruke()" />
+    </div>
+    
+    <div style="width:800px;">
+        <table>
+            <thead>
+                <tr>
+                    <td style="width:100px;">Naslov</td>
+                    <td style="width:500px;">Tekst</td>
+                    <td style="width:100px;">Posiljaoc</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="poruka in poruke">
+                    <td >{{poruka.NaslovPoruke}}</td>
+                    <td >{{poruka.TekstPoruke}}</td>
+                    <td ng-if="poruka.PosiljaocId">{{poruka.PosiljaocId}}</td>
+                    <td ng-if="!poruka.PosiljaocId">Sistemska poruka</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>

@@ -47,6 +47,16 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult SlanjePorukeTemp()
+        {
+            return View();
+        }
+
+        public ActionResult PregledPoruka()
+        {
+            return View();
+        }
+
         public ActionResult SetCulture(string culture)
         {
             // Validate input

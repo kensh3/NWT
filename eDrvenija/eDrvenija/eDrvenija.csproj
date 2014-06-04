@@ -215,6 +215,7 @@
     <Compile Include="Helpers\Komentar.cs" />
     <Compile Include="Helpers\Korisnik.cs" />
     <Compile Include="Helpers\Oglas.cs" />
+    <Compile Include="Helpers\Poruka.cs" />
     <Compile Include="Models\dokumenti.cs">
       <DependentUpon>eDrvenijaModel.tt</DependentUpon>
     </Compile>
@@ -429,6 +430,7 @@
     <Content Include="Views\Home\Pocetna.cshtml" />
     <Content Include="Views\Home\PregledOglasa.cshtml" />
     <Content Include="Views\Home\UrediProfil.cshtml" />
+    <Content Include="Views\Home\PregledPoruka.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

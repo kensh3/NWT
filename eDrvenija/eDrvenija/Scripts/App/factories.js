@@ -69,12 +69,28 @@ angular.module('edrvenija.factories', [])
 
     var PorukeFactory = {};
 
-    PorukeFactory.dajSvePoruke = function () {
-        return $http.get(url);
+    PorukeFactory.dajSvePorukeKorisnika = function (id) {
+        return $http.get(url + 'dajsveporukekorisnika?korisnikId=' + id);
+    }
+
+    PorukeFactory.dajSvePrimljenePoruke = function (id) {
+        return $http.get(url + 'dajsveprimljeneporuke?korisnikId=' + id);
+    }
+
+    PorukeFactory.dajSvePoslanePoruke = function (id) {
+        return $http.get(url + 'dajsveposlaneporuke?korisnikId=' + id);
+    }
+
+    PorukeFactory.dajSveSistemskePoruke = function (id) {
+        return $http.get(url + 'dajsvesistemskeporuke?korisnikId=' + id);
+    }
+
+    PorukeFactory.dajSvaObavjestenja = function (id) {
+        return $http.get(url + 'dajsvaobavjestenja');
     }
 
     PorukeFactory.kreirajPoruku = function (poruka) {
-        return $http.post(url, poruka);
+        return $http.post(url + 'postaviporuku', poruka);
     }
 
     return PorukeFactory;

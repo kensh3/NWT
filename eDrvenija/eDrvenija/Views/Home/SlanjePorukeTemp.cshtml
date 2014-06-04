@@ -1,31 +1,8 @@
 ﻿<div ng-controller="PorukeController">
     <form ng-submit="kreirajPoruku()">
-        Naslov poruke: <input type="text" ng-model="naslovPoruke" />
-        Tekst poruke: <input type="text" ng-model="tekstPoruke" />
+        Naslov poruke: <input type="text" ng-model="naslovPoruke" /> <br />
+        Tekst poruke: <textarea ng-model="tekstPoruke"></textarea>
         <br />
         <input type="submit" value="Posalji" />
     </form>
-</div>
-
-
-<!-- PREGLED PORUKA!!! -->
-
-<div ng-controller="PorukeController">
-    <table>
-        <thead>
-            <tr>
-                <td>Naslov</td>
-                <td>Tekst</td>
-                <td>Posiljaoc</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr ng-repeat="poruka in poruke">
-                <td>{{poruka.naslovPoruke}}</td>
-                <td>{{poruka.tekstPoruke}}</td>
-                <td ng-if="poruka.idKorisnikaPosiljaoca">{{poruka.idKorisnikaPosiljaoca}}</td>
-                <td ng-if="!poruka.idKorisnikaPosiljaoca">Sistemska poruka</td>
-            </tr>
-        </tbody>
-    </table>
 </div>

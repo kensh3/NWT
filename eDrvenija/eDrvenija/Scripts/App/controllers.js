@@ -224,7 +224,56 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
             $scope.user.KorisnickoIme = '';
             $scope.user.IdTipKorisnika = '';
         });
+    };
+}])
 
+.controller('SearchController', ['$scope', '$routeParams', 'UserFactory', 'OglasiFactory', 'KategorijeFactory', '$location', function ($scope, $routeParams, UserFactory, OglasiFactory, KategorijeFactory, $location) {
+    $scope.pretrazikorisnike = function () {
+        UserFactory.pretrazikorisnike($scope.keyword)
+       .success(function (data) {
+           alert("OPA GANGAM STYLE")
+           $scope.korisnicisearch = data;
+           /*$("#korisniciul").show();*/
+       });
+    };
 
+    $scope.pretrazikategorije = function () {
+        KategorijeFactory.pretrazikategorije($scope.keyword)
+       .success(function (data) {
+           alert("OPA GANGAM STYLE 2")
+           $scope.kategorijesearch = data;
+           /*$("#kateogrijeul").show();*/
+       });
+    };
+
+    $scope.pretrazioglase = function () {
+        OglasiFactory.pretrazioglase($scope.keyword)
+       .success(function (data) {
+           alert("OPA GANGAM STYLE 3")
+           $scope.oglasisearch = data;
+           
+           /*$("#oglasiul").show();*/
+       });
+    };
+
+    $scope.pretrazi = function () {
+        
+        if ($scope.pretraziPo == 1) {
+            $scope.pretrazioglase();
+            /*$("#kateogrijeul").hide();
+            $("#korisniciul").hide();*/
+        }
+        else if ($scope.pretraziPo == 2) {
+            $scope.pretrazikorisnike();
+            /*$("#kateogrijeul").hide();
+            $("#oglasiul").hide();*/
+        }
+        else if ($scope.pretraziPo == 3) {
+            $scope.pretrazikategorije();
+           /* $("#oglasiul").hide();
+            $("#korisniciul").hide();*/
+        }
+
+        $location.path('RezultatPretrage');
     };
 }]);

@@ -17,6 +17,8 @@ namespace eDrvenija.eDrvenija.Controllers
     {
         private edrvenijabazaEntities2 db = new edrvenijabazaEntities2();
 
+        #region apis for admin
+
         // GET api/KategorijeApi
         public IEnumerable<kategorije> Getkategorijes()
         {
@@ -120,6 +122,35 @@ namespace eDrvenija.eDrvenija.Controllers
             }
             return kategorijaNovi;
         }
+
+        #endregion
+
+        #region apis for user
+
+        [HttpGet]
+        public List<Helpers.Kategorija> pretrazikategorije(string keyword)
+        {
+            var kategorijeStare = (from kats in db.kategorije
+                                   where kats.nazivKategorije.Contains(keyword)
+                                   select kats).ToList();
+
+            List<Helpers.Kategorija> kategorijeNove = new List<Helpers.Kategorija>();
+
+            foreach (kategorije kategorijaStara in kategorijeStare)
+            {
+                Helpers.Kategorija kategorija = new Helpers.Kategorija()
+                {
+                    idKategorije = kategorijaStara.idKategorije,
+                    nazivKategorije = kategorijaStara.nazivKategorije
+                };
+
+                kategorijeNove.Add(kategorija);
+            }
+
+            return kategorijeNove;
+        }
+
+        #endregion
 
         protected override void Dispose(bool disposing)
         {

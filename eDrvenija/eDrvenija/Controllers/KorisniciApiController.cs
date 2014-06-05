@@ -294,6 +294,36 @@ namespace eDrvenija.eDrvenija.Controllers
             return korisnik;
         }
 
+        [HttpGet]
+        public List<Helpers.Korisnik> pretrazikorisnike(string keyword)
+        {
+            var korisniciStari = (from kors in db.korisnici
+                       where kors.imeKorisnika.Contains(keyword) || kors.prezimeKorisnika.Contains(keyword) || 
+                       kors.eMailKorisnika.Contains(keyword) || kors.brojTelefonaKorisnika.Contains(keyword) || kors.korisnickoImeKorisnika.Contains(keyword)
+                       select kors).ToList();
+
+            List<Helpers.Korisnik> korisniciNovi = new List<Helpers.Korisnik>();
+
+            foreach (korisnici korisnikStari in korisniciStari) {
+                Helpers.Korisnik korisnik = new Helpers.Korisnik()
+                {
+                    Id = korisnikStari.idKorisnika,
+                    Ime = korisnikStari.imeKorisnika,
+                    Prezime = korisnikStari.prezimeKorisnika,
+                    EMail = korisnikStari.eMailKorisnika,
+                    BrojTelefona = korisnikStari.brojTelefonaKorisnika,
+                    Ocjena = (double)(korisnikStari.ocjena == null ? 0 : korisnikStari.ocjena),
+                    KorisnickoIme = korisnikStari.korisnickoImeKorisnika,
+                    LozinkaKorisnika = korisnikStari.lozinkaKorisnika,
+                    IdTipKorisnika = korisnikStari.idTipaKorisnika
+                };
+
+                korisniciNovi.Add(korisnik);
+            }
+
+            return korisniciNovi;
+        }
+
         #endregion
 
         protected override void Dispose(bool disposing)

@@ -431,6 +431,7 @@
     <Content Include="Views\Home\PregledOglasa.cshtml" />
     <Content Include="Views\Home\UrediProfil.cshtml" />
     <Content Include="Views\Home\PregledPoruka.cshtml" />
+    <Content Include="Views\Home\RezultatPretrage.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

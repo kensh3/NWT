@@ -1,0 +1,19 @@
+﻿<div>
+    <ul id="" >
+        <li ng-repeat="korisnik in korisnicisearch">
+            <a href="korisnik.Id">{{korisnik.Ime}} {{korisnik.KorisnickoIme}} {{korisnik.Prezime}}</a>
+        </li>
+    </ul>
+
+    <ul id="" >
+        <li ng-repeat="oglas in oglasisearch">
+            <a href="oglas.idOglasa">{{oglas.nazivOglasa}} {{oglas.opisOglasa}}</a>
+        </li>
+    </ul>
+
+    <ul id="" >
+        <li ng-repeat="kategorija in kategorijesearch">
+            <a href="kategorija.idKategorije">{{kategorija.nazivKategorije}}</a>
+        </li>
+    </ul>
+</div>

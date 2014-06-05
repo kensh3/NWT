@@ -29,6 +29,10 @@ angular.module('edrvenija.factories', [])
         return $http.get(url + 'dajKategorije');
     }
 
+    KategorijeFactory.pretrazikategorije = function (keyword) {
+        return $http.get(url + 'pretrazikategorije?keyword=' + keyword)
+    }
+
     return KategorijeFactory;
 }])
 
@@ -59,6 +63,10 @@ angular.module('edrvenija.factories', [])
 
     OglasiFactory.dajNajnovijeOglase = function () {
         return $http.get(url + 'DajCetiriNajnovijaOglasa');
+    }
+
+    OglasiFactory.pretrazioglase = function (keyword) {
+        return $http.get(url + 'pretrazioglase?keyword=' + keyword)
     }
 
     return OglasiFactory;
@@ -107,6 +115,10 @@ angular.module('edrvenija.factories', [])
 
     UserFactory.putuser = function (user) {
         return $http.put(url + "putkorisnik", user);
+    }
+
+    UserFactory.pretrazikorisnike = function (keyword) {
+        return $http.get(url + "pretrazikorisnike?keyword=" + keyword);
     }
 
     return UserFactory;

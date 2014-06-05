@@ -289,6 +289,38 @@ namespace eDrvenija.eDrvenija.Controllers
             return noviOglas;
         }
 
+        [HttpGet]
+        public List<Helpers.Oglas> pretrazioglase(string keyword)
+        {
+            var oglasiStari = (from ogs in db.oglasi
+                                  where ogs.nazivOglasa.Contains(keyword) || ogs.opisOglasa.Contains(keyword)
+                                  select ogs).ToList();
+
+            List<Helpers.Oglas> oglasiNovi = new List<Helpers.Oglas>();
+
+            foreach (oglasi oglasStari in oglasiStari)
+            {
+                Helpers.Oglas oglas = new Helpers.Oglas()
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+
+                oglasiNovi.Add(oglas);
+            }
+
+            return oglasiNovi;
+        }
+
         #endregion
 
 

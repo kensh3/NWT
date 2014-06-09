@@ -53,6 +53,8 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 .controller('OglasiController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location) {
     $scope.topOglasi = [];
     $scope.najnovijiOglasi = [];
+    $scope.sviNajnovijiOglasi = [];
+    $scope.preporuceniOglasi = [];
     //$scope.test = {};
     var test = OglasiFactory.getIdOglasa();
     $scope.test = test;
@@ -71,6 +73,22 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     OglasiFactory.dajNajnovijeOglase()
     .success(function (data) {
         $scope.najnovijiOglasi = data;
+    })
+    .error(function (data, status) {
+        alert(status)
+    });
+
+    OglasiFactory.dajSveNajnovijeOglase()
+    .success(function (data) {
+        $scope.sviNajnovijiOglasi = data;
+    })
+    .error(function (data, status) {
+        alert(status)
+    });
+
+    OglasiFactory.dajPreporuceneOglase()
+    .success(function (data) {
+        $scope.preporuceniOglasi = data;
     })
     .error(function (data, status) {
         alert(status)

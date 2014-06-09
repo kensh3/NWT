@@ -72,6 +72,16 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult NajnovijiOglasi()
+        {
+            return View();
+        }
+
+        public ActionResult PreporuceniOglasi()
+        {
+            return View();
+        }
+
         public ActionResult SetCulture(string culture)
         {
             // Validate input

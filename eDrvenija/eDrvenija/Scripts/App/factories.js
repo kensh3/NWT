@@ -65,6 +65,14 @@ angular.module('edrvenija.factories', [])
         return $http.get(url + 'DajCetiriNajnovijaOglasa');
     }
 
+    OglasiFactory.dajSveNajnovijeOglase = function () {
+        return $http.get(url + 'DajNajnovijeOglase');
+    }
+
+    OglasiFactory.dajPreporuceneOglase = function () {
+        return $http.get(url + 'DajPreporuceneOglase');
+    }
+
     OglasiFactory.pretrazioglase = function (keyword) {
         return $http.get(url + 'pretrazioglase?keyword=' + keyword);
     }

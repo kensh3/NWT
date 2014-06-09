@@ -349,6 +349,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\morris.js" />
     <Content Include="Scripts\morris.min.js" />
+    <Content Include="Views\Home\NajnovijiOglasi.cshtml">
+      <SubType>Code</SubType>
+    </Content>
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -434,6 +437,7 @@
     <Content Include="Views\Home\RezultatPretrage.cshtml" />
     <Content Include="Views\Home\UrediOglas.cshtml" />
     <Content Include="Views\Home\DodajOglas.cshtml" />
+    <Content Include="Views\Home\PreporuceniOglasi.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -210,6 +210,7 @@ namespace eDrvenija.eDrvenija.Controllers
             return noviOglasi;
         }
 
+
         [HttpGet]
         public List<Oglas> DajCetiriNajnovijaOglasa()
         {
@@ -217,6 +218,66 @@ namespace eDrvenija.eDrvenija.Controllers
                                where oglasi.aktivan == true
                                orderby oglasi.datumObjaveOglasa descending
                                select oglasi).Take(4);
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach (oglasi oglasStari in stariOglasi)
+            {
+                Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+                noviOglasi.Add(noviOglas);
+            }
+
+            return noviOglasi;
+        }
+
+        [HttpGet]
+        public List<Oglas> DajNajnovijeOglase()
+        {
+            var stariOglasi = (from oglasi in db.oglasi
+                               where oglasi.aktivan == true
+                               orderby oglasi.datumObjaveOglasa descending
+                               select oglasi);
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach (oglasi oglasStari in stariOglasi)
+            {
+                Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+                noviOglasi.Add(noviOglas);
+            }
+
+            return noviOglasi;
+        }
+
+        [HttpGet]
+        public List<Oglas> DajPreporuceneOglase()
+        {
+            var stariOglasi = (from oglasi in db.oglasi
+                               where oglasi.aktivan == true
+                               orderby oglasi.brojPregledaOglasa descending
+                               select oglasi);
             List<Oglas> noviOglasi = new List<Oglas>();
             foreach (oglasi oglasStari in stariOglasi)
             {

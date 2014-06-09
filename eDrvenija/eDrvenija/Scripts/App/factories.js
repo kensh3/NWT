@@ -75,6 +75,9 @@ angular.module('edrvenija.factories', [])
     OglasiFactory.urediOglas = function (oglas) {
         return $http.post(url + 'urediOglas', oglas);
     }
+    OglasiFactory.brisiOglas = function (oglas) {
+        return $http.post(url + 'brisiOglas', oglas);
+    }
 
 
     return OglasiFactory;

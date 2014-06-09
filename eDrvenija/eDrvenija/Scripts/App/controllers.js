@@ -94,10 +94,11 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 }])
 
 .controller('UrediOglasController', ['$scope', '$routeParams', 'OglasiFactory', function ($scope, $routeParams, OglasiFactory) {
-    OglasiFactory.dajOglasPoID($routeParams.id)
-     .success(function (data) {
-         $scope.oglas = data
-     });
+        OglasiFactory.dajOglasPoID($routeParams.id)
+         .success(function (data) {
+             $scope.oglas = data
+         });
+   
 
     $scope.kreirajOglas = function () {
         var oglasnovi = {
@@ -148,6 +149,38 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
         });
     };
+
+    $scope.brisiOglas = function () {
+        var oglas = {
+            idOglasa: $scope.oglas.idOglasa,
+            nazivOglasa: $scope.oglas.nazivOglasa,
+            datumObjaveOglasa: $scope.oglas.datumObjaveOglasa,
+            opisOglasa: $scope.oglas.opisOglasa,
+            cijena: $scope.oglas.cijena,
+            brojPregledaOglasa: $scope.oglas.brojPregledaOglasa,
+            zavrsenaTransakcija: $scope.oglas.zavrsenaTransakcija,
+            aktivan: $scope.oglas.aktivan,
+            idTipaOglasa: $scope.oglas.idTipaOglasa,
+            idKategorije: $scope.oglas.idKategorije,
+            idKorisnika: $scope.oglas.idKorisnika
+        };
+        OglasiFactory.brisiOglas(oglas)
+        .success(function (data) {
+            $scope.oglas.nazivOglasa = '';
+            $scope.oglas.datumObjaveOglasa = '';
+            $scope.oglas.opisOglasa = '';
+            $scope.oglas.opisOglasa = '';
+            $scope.oglas.cijena = '';
+            $scope.oglas.brojPregledaOglasa = '';
+            $scope.oglas.zavrsenaTransakcija = '';
+
+
+        })
+        .error(function (data, status) {
+
+        });
+    };
+    
 
 }])
 

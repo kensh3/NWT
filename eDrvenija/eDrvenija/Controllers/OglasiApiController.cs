@@ -247,6 +247,9 @@ namespace eDrvenija.eDrvenija.Controllers
             try
             {
                 oglasi oglasStari = db.oglasi.Find(id);
+                oglasStari.brojPregledaOglasa++;
+                db.Entry(oglasStari).State = EntityState.Modified;
+                db.SaveChanges();
                 if (oglasStari == null)
                 {
                     throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
@@ -277,6 +280,9 @@ namespace eDrvenija.eDrvenija.Controllers
         [HttpGet]
         public Oglas DajOglasPoID(int idOglasa) {
             var oglasStari = db.oglasi.Find(idOglasa);
+            oglasStari.brojPregledaOglasa++;
+            db.Entry(oglasStari).State = EntityState.Modified;
+            db.SaveChanges();
             Oglas noviOglas = new Oglas
                 {
                     idOglasa = oglasStari.idOglasa,
@@ -375,6 +381,26 @@ namespace eDrvenija.eDrvenija.Controllers
             db.SaveChanges();
         }
 
+        [HttpPost]
+        public void brisiOglas(Helpers.Oglas oglas)
+        {
+            var oglasStari = db.oglasi.Find(oglas.idOglasa);
+            //brisi komentare vezane za taj oglas
+            var starikomentari = (from komentari in db.komentari
+                               where komentari.idOglasa==oglasStari.idOglasa
+                               select komentari);
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach (komentari komentarStari in starikomentari)
+            {
+                db.komentari.Remove(komentarStari);
+            }
+
+
+
+
+            db.Entry(oglasStari).State = System.Data.EntityState.Deleted;
+            db.SaveChanges();
+        }
 
         #endregion
 

@@ -432,13 +432,17 @@
     <Content Include="Views\Home\UrediProfil.cshtml" />
     <Content Include="Views\Home\PregledPoruka.cshtml" />
     <Content Include="Views\Home\RezultatPretrage.cshtml" />
+    <Content Include="Views\Home\UrediOglas.cshtml" />
+    <Content Include="Views\Home\DodajOglas.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Content\App_LocalResources\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="packages.config" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />

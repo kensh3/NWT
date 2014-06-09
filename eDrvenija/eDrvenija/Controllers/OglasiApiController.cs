@@ -244,28 +244,33 @@ namespace eDrvenija.eDrvenija.Controllers
         // GET api/Oglasi/5
         public Oglas Getoglasi(int id)
         {
-            oglasi oglasStari = db.oglasi.Find(id);
-            if (oglasStari == null)
+            try
             {
-                throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                oglasi oglasStari = db.oglasi.Find(id);
+                if (oglasStari == null)
+                {
+                    throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
+                }
+
+                Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+                return noviOglas;
             }
-
-            Oglas noviOglas = new Oglas
-            {
-                idOglasa = oglasStari.idOglasa,
-                nazivOglasa = oglasStari.nazivOglasa,
-                datumObjaveOglasa = oglasStari.datumObjaveOglasa,
-                opisOglasa = oglasStari.opisOglasa,
-                cijena = oglasStari.cijena,
-                brojPregledaOglasa = oglasStari.brojPregledaOglasa,
-                zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
-                aktivan = oglasStari.aktivan,
-                idTipaOglasa = oglasStari.idTipaOglasa,
-                idKategorije = oglasStari.idKategorije,
-                idKorisnika = oglasStari.idKorisnika
-            };
-            return noviOglas;
-
+            catch(Exception ex){
+                return null;
+            }
             //return oglasi;
         }
 
@@ -320,6 +325,56 @@ namespace eDrvenija.eDrvenija.Controllers
 
             return oglasiNovi;
         }
+
+        [HttpPost]
+        public void dodajOglas(Helpers.Oglas oglas)
+        {
+            oglasi oglasi = new oglasi()
+            {
+                
+               nazivOglasa =oglas.nazivOglasa,
+               datumObjaveOglasa = DateTime.Now,         
+               opisOglasa=oglas.opisOglasa,
+               cijena=oglas.cijena,
+               idTipaOglasa=oglas.idTipaOglasa,
+               idKategorije=oglas.idKategorije,
+               idKorisnika=2,
+               brojPregledaOglasa=0,
+               zavrsenaTransakcija=false,
+               aktivan=true
+
+            };
+
+          
+
+            db.oglasi.Add(oglasi);
+            db.SaveChanges();
+        }
+
+        [HttpPost]
+        public void urediOglas(Helpers.Oglas oglas)
+        {
+            oglasi oglasi = new oglasi()
+            {
+                idOglasa = oglas.idOglasa,
+                nazivOglasa = oglas.nazivOglasa,
+                datumObjaveOglasa = oglas.datumObjaveOglasa,
+                opisOglasa = oglas.opisOglasa,
+                cijena = oglas.cijena,
+                brojPregledaOglasa = oglas.brojPregledaOglasa,
+                zavrsenaTransakcija = oglas.zavrsenaTransakcija,
+                aktivan = oglas.aktivan,
+                idTipaOglasa = oglas.idTipaOglasa,
+                idKategorije = oglas.idKategorije,
+                idKorisnika = oglas.idKorisnika
+
+
+            };
+
+            db.Entry(oglasi).State = EntityState.Modified;
+            db.SaveChanges();
+        }
+
 
         #endregion
 

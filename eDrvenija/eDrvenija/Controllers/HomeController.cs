@@ -62,6 +62,16 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult UrediOglas()
+        {
+            return View();
+        }
+
+        public ActionResult DodajOglas()
+        {
+            return View();
+        }
+
         public ActionResult SetCulture(string culture)
         {
             // Validate input

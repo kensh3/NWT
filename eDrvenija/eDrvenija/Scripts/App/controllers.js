@@ -53,8 +53,13 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 .controller('OglasiController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location) {
     $scope.topOglasi = [];
     $scope.najnovijiOglasi = [];
-    $scope.test = {};
-
+    //$scope.test = {};
+    var test = OglasiFactory.getIdOglasa();
+    $scope.test = test;
+    OglasiFactory.dajOglasPoID($routeParams.id)
+     .success(function (data) {
+       $scope.oglas = data
+    });
     OglasiFactory.dajTopOglase()
     .success(function (data) {
         $scope.topOglasi = data;
@@ -71,20 +76,79 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
         alert(status)
     });
 
-        $scope.nekaAkcija = function (oglas) {
-            alert(oglas.IdOglasa);
-        }
+    $scope.nekaAkcija = function (oglas) {
+        alert(oglas.IdOglasa);
+    }
 
         
-        $scope.go = function (path, id) {
-            OglasiFactory.setIdOglasa(id);
-            $scope.test.IdOglasa = id;
-            $location.path(path);
+    $scope.go = function (path, id) {
+        OglasiFactory.setIdOglasa(id);
+        $scope.test.IdOglasa = id;
+        $location.path(path);
             
-        };
+    };
+    
 
     
         
+}])
+
+.controller('UrediOglasController', ['$scope', '$routeParams', 'OglasiFactory', function ($scope, $routeParams, OglasiFactory) {
+    OglasiFactory.dajOglasPoID($routeParams.id)
+     .success(function (data) {
+         $scope.oglas = data
+     });
+
+    $scope.kreirajOglas = function () {
+        var oglasnovi = {
+
+            nazivOglasa: $scope.oglasnovi.nazivOglasa,
+            opisOglasa: $scope.oglasnovi.opisOglasa,
+            cijena: $scope.oglasnovi.cijena,
+            idTipaOglasa: $routeParams.id,
+            idKategorije: $scope.oglasnovi.idKategorije,
+        };
+        OglasiFactory.kreirajOglas(oglasnovi)
+        .success(function (data) {
+            $scope.oglasnovi.nazivOglasa = '';
+            $scope.oglasnovi.opisOglasa = '';
+            $scope.oglasnovi.cijena = '';
+        })
+        .error(function (data, status) {
+
+        });
+    };
+    $scope.urediOglas = function () {
+        var oglas = {
+            idOglasa: $scope.oglas.idOglasa,
+            nazivOglasa: $scope.oglas.nazivOglasa,
+            datumObjaveOglasa: $scope.oglas.datumObjaveOglasa,
+            opisOglasa: $scope.oglas.opisOglasa,
+            cijena: $scope.oglas.cijena,
+            brojPregledaOglasa: $scope.oglas.brojPregledaOglasa,
+            zavrsenaTransakcija: $scope.oglas.zavrsenaTransakcija,
+            aktivan: $scope.oglas.aktivan,
+            idTipaOglasa: $scope.oglas.idTipaOglasa,
+            idKategorije: $scope.oglas.idKategorije,
+            idKorisnika: $scope.oglas.idKorisnika
+        };
+        OglasiFactory.urediOglas(oglas)
+        .success(function (data) {
+            $scope.oglas.nazivOglasa = '';
+            $scope.oglas.datumObjaveOglasa = '';
+            $scope.oglas.opisOglasa = '';
+            $scope.oglas.opisOglasa = '';
+            $scope.oglas.cijena = '';
+            $scope.oglas.brojPregledaOglasa = '';
+            $scope.oglas.zavrsenaTransakcija = '';
+
+
+        })
+        .error(function (data, status) {
+
+        });
+    };
+
 }])
 
 .controller('PregledOglasaController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location)  {

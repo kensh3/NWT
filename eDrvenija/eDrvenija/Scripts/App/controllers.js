@@ -23,14 +23,14 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
 .controller('KomentarController', ['$scope', '$rootScope', 'KomentariFactory', function ($scope, $rootScope, KomentariFactory) {
     $scope.komentari = [];
 
-        KomentariFactory.dajSveKomentare()
+    KomentariFactory.dajSveKomentare()
 
-    .success(function (data) {
-        $scope.komentari = data;
-    })
-        .error(function (data, status) {
-            alert(status)
-        });
+.success(function (data) {
+    $scope.komentari = data;
+})
+    .error(function (data, status) {
+        alert(status)
+    });
 
     $scope.kreirajKomentar = function () {
         var komentar = {
@@ -60,8 +60,8 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     $scope.test = test;
     OglasiFactory.dajOglasPoID($routeParams.id)
      .success(function (data) {
-       $scope.oglas = data
-    });
+         $scope.oglas = data
+     });
     OglasiFactory.dajTopOglase()
     .success(function (data) {
         $scope.topOglasi = data;
@@ -111,12 +111,15 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
         
 }])
 
-.controller('UrediOglasController', ['$scope', '$routeParams', 'OglasiFactory', function ($scope, $routeParams, OglasiFactory) {
+.controller('UrediOglasController', ['$scope', '$routeParams', '$location','OglasiFactory','KategorijeFactory', function ($scope, $routeParams,$location, OglasiFactory,KategorijeFactory) {
         OglasiFactory.dajOglasPoID($routeParams.id)
          .success(function (data) {
              $scope.oglas = data
          });
-   
+        KategorijeFactory.dajSveKategorije()
+    .success(function (data) {
+        $scope.kategorije=data
+    });
 
     $scope.kreirajOglas = function () {
         var oglasnovi = {
@@ -132,6 +135,9 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
             $scope.oglasnovi.nazivOglasa = '';
             $scope.oglasnovi.opisOglasa = '';
             $scope.oglasnovi.cijena = '';
+            alert("Oglas kreiran!");
+            $location.path('Pocetna');
+
         })
         .error(function (data, status) {
 
@@ -160,7 +166,8 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
             $scope.oglas.cijena = '';
             $scope.oglas.brojPregledaOglasa = '';
             $scope.oglas.zavrsenaTransakcija = '';
-
+            alert("Uspješno ste uredili oglas!");
+            $location.path('Pocetna');
 
         })
         .error(function (data, status) {

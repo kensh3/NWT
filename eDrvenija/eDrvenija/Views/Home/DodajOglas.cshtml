@@ -1,10 +1,42 @@
 ﻿<div ng-controller="UrediOglasController">
     <br/>
     <form ng-submit="kreirajOglas()">
-        Naziv: <input type="text" ng-model="oglasnovi.nazivOglasa"> <br />
-        Opis: <input type="text" ng-model="oglasnovi.opisOglasa"> <br />
-        Cijena: <input type="text" ng-model="oglasnovi.cijena" />KM <br />
-        Kategorija oglasa: <input type="text" ng-model="oglasnovi.idKategorije" /> <br />
-        <input type="submit" value="Spasi" />
+        <table>
+        <tr>
+            <td>Naziv:</td> <td><input type="text" ng-model="oglasnovi.nazivOglasa"></td>
+</tr>
+            <tr>
+                <td>
+                    {{kategorije.nazivKategorije}}Kategorija oglasa:
+                </td>
+                <td>
+                    <select style="color:#000000;" ng-model="oglasnovi.idKategorije"
+                            ng-options="a.idKategorije as a.nazivKategorije for a in kategorije"></select>
+                </td>
+</tr>
+            <tr>
+                <td>
+                    Cijena:
+                </td>
+                <td>
+                    <input type="text" ng-model="oglasnovi.cijena" />KM
+                </td>
+</tr>
+            <tr>
+                
+                <td>
+                    Opis:
+                </td>
+                <td>
+                    <textarea style="min-width:inherit" ng-model="oglasnovi.opisOglasa" placeholder="Tekst vašeg oglasa"></textarea>
+                </td>
+
+            </tr>
+            <tr><td></td>
+                <td style="text-align:right;">
+                    <input class="btn btn-sm btn-success"  type="submit" value="Spasi" />
+                </td>
+            </tr>
+</table>
     </form>
 </div>

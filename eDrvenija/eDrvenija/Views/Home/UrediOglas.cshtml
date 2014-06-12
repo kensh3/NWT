@@ -1,15 +1,57 @@
 ﻿<div ng-controller="UrediOglasController">
     <form ng-submit="urediOglas()">
-        Id:{{oglas.idOglasa}}<br /><input type="hidden" ng-model="oglas.idOglasa" />
-        Naziv: <input type="text" ng-model="oglas.nazivOglasa"> <br />
-        Datum objave: {{oglas.datumObjaveOglasa}} <br /><input type="hidden" ng-model="oglas.datumObjaveOglasa" />
-        Opis: <input type="text" ng-model="oglas.opisOglasa"> <br />
-        Cijena: <input type="text" ng-model="oglas.cijena" />KM <br />
-        Broj Pregleda: {{oglas.brojPregledaOglasa}} <br /><input type="hidden" ng-model="oglas.brojPregledaOglasa" />
-        Tip oglasa: <input type="text" ng-model="oglas.idTipaOglasa" /> <br />
-        Kategorija oglasa: <input type="text" ng-model="oglas.idKategorije" /> <br />
-        Korisnik: {{oglas.idKorisnika}}<br/><input type="hidden" ng-model="oglas.idKorisnika" />
-        <input type="submit" value="Spasi" />
-</form>
-    <button class="btn btn-danger" ng-click="brisiOglas()">Brisi</button>
+        <table>
+            <tr>
+                <td>Naziv:</td>
+                <td><input type="text" ng-model="oglas.nazivOglasa"></td>
+</tr>
+            <tr>
+                <td>Datum objave: </td><td>{{oglas.datumObjaveOglasa| date:'MM/dd/yyyy u HH:mm'}}</td>
+</tr>
+            <tr>
+                <td>
+                    {{kategorije.nazivKategorije}}Kategorija oglasa:
+                </td>
+                <td>
+                    <select style="color: #000000;" ng-model="oglas.idKategorije"
+                            ng-options="a.idKategorije as a.nazivKategorije for a in kategorije"></select>
+                </td>
+</tr>
+            <tr>
+                <td>
+                    Cijena:
+                </td>
+                <td><input type="text" ng-model="oglas.cijena" />KM</td>
+</tr>
+            <tr>
+                <td>Broj Pregleda: </td><td>{{oglas.brojPregledaOglasa}}</td>
+</tr>
+            <tr>
+                <td>
+                    Tip oglasa:
+                </td>
+                <td><input type="text" ng-model="oglas.idTipaOglasa" /></td>
+</tr>
+            <tr>
+                
+                <td>
+                    Opis:
+                </td>
+
+                <td>
+                    <textarea style="min-width:inherit" ng-model="oglas.opisOglasa" placeholder="Tekst vašeg oglasa"></textarea>
+                </td>
+</tr>
+           
+            <tr>
+                <td>
+                </td>
+                <td style="text-align:right">
+
+                    <input class="btn btn-sm btn-success" type="submit" value="Spasi" /> <button class="btn btn-sm btn-danger" ng-click="brisiOglas()">Brisi</button>
+</td>
+            </tr>
+</table>
+        </form>
+    
 </div>

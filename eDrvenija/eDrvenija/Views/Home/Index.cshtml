@@ -65,7 +65,7 @@
                                 <ul style="list-style: none;" class="collapse in" id="userMenu">
                                     <li class="nav-header"><a href="/#/Pocetna" data-toggle="collapse" data-target="#kategorijeMenu">Kategorije<b class="caret"></b></a>
                                         <ul style="list-style: none;" class="collapse in" id="kategorijeMenu">
-                                            <li><a href="#">{{kategorije.nazivKategorije}} Kategorija 1, mada bi trebalo preko angulara popuniti ove kategorije ali neece nesto </a></li>
+                                            <li ng-repeat="kategorija in kategorije"><a href="#">{{kategorija.nazivKategorije}}</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-header"><a href="/#/NajnovijiOglasi">Najnoviji oglasi</a></li>
@@ -82,7 +82,7 @@
                     </div>
                 </div>
                 <div ng-controller="SearchController" class="col-lg-7" style="height: 60px; background: #4e5d6c;">
-                    <input type="text" style="width: 600px; height: 40px; margin-top: 10px;
+                    <input type="text" style="width: 400px; height: 40px; margin-top: 10px;
         background: url(http://i465.photobucket.com/albums/rr14/Dongmyungplant/Search.png) no-repeat;
         background-size:36px 36px; padding-left:50px; color:white;" ng-model="keyword" />
                     <span>

@@ -2,7 +2,7 @@
 
 angular.module('edrvenija.controllers', ['edrvenija.factories'])
 
-.controller('IndexController', ['$scope','KategorijeFactory', function ($scope, KategorijeFactory, $route, $routeParams, $location) { //Kontroler za pocetnu stranicu
+.controller('IndexController', ['$scope', 'KategorijeFactory', 'OglasiFactory', function ($scope, KategorijeFactory, OglasiFactory, $route, $routeParams, $location) { //Kontroler za pocetnu stranicu
     $scope.$route = $route;
     $scope.$location = $location;
     $scope.$routeParams = $routeParams;
@@ -17,6 +17,17 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
         .error(function (data, status) {
             alert(status)
         });
+
+
+    $scope.test = {};
+    var test = OglasiFactory.getIdKategorije();
+    $scope.test = test;
+    $scope.idi = function (path, id) {
+        OglasiFactory.setIdKategorije(id);
+        $scope.test.IdKategorije = id;
+        $location.path(path);
+
+    };
 
 }])
 
@@ -55,13 +66,15 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
     $scope.najnovijiOglasi = [];
     $scope.sviNajnovijiOglasi = [];
     $scope.preporuceniOglasi = [];
-    //$scope.test = {};
+
+    $scope.test = {};
     var test = OglasiFactory.getIdOglasa();
     $scope.test = test;
-    OglasiFactory.dajOglasPoID($routeParams.id)
+    /*OglasiFactory.dajOglasPoID($routeParams.id)
      .success(function (data) {
          $scope.oglas = data
-     });
+     });*/
+
     OglasiFactory.dajTopOglase()
     .success(function (data) {
         $scope.topOglasi = data;
@@ -105,6 +118,8 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
         $location.path(path);
             
     };
+
+   
     
 
     
@@ -222,6 +237,20 @@ angular.module('edrvenija.controllers', ['edrvenija.factories'])
      });
 
 }])
+
+    .controller('PregledOglasaPokategorijiController', ['$scope', 'OglasiFactory', '$routeParams', '$location', function ($scope, OglasiFactory, $routeParams, $location) {
+        var test = OglasiFactory.getIdKategorije();
+        $scope.oglasiPoKategoriji = [];
+
+        OglasiFactory.dajOglasPoKategoriji(test)
+         .success(function (data) {
+             $scope.oglasiPoKategoriji = data;
+         })
+         .error(function (data, status) {
+             alert(status)
+         });
+
+    }])
 
 .controller('PorukeController', ['$scope', '$routeParams', 'PorukeFactory', function ($scope, $routeParams, PorukeFactory) {
     $scope.poruke = [];

@@ -15,6 +15,8 @@ angular.module('edrvenija', ['ngRoute', 'edrvenija.controllers', 'edrvenija.filt
 
         .when('/PreporuceniOglasi', { templateUrl: 'Home/PreporuceniOglasi', controller: 'OglasiController' })
 
+        .when('/PregledOglasaPoKategoriji', { templateUrl: 'Home/PregledOglasaPoKategoriji', controller: 'PregledOglasaPoKategoriji' })
+
         .when('/PaginationTemp', { templateUrl: 'Home/PaginationTemp', controller: 'MyCtrl' })
 
         .when('/UrediProfil/:id', { templateUrl: 'Home/UrediProfil', controller: 'UserController' })

@@ -65,7 +65,7 @@
                                 <ul style="list-style: none;" class="collapse in" id="userMenu">
                                     <li class="nav-header"><a href="/#/Pocetna" data-toggle="collapse" data-target="#kategorijeMenu">Kategorije<b class="caret"></b></a>
                                         <ul style="list-style: none;" class="collapse in" id="kategorijeMenu">
-                                            <li ng-repeat="kategorija in kategorije"><a href="#">{{kategorija.nazivKategorije}}</a></li>
+                                            <li ng-repeat="kategorija in kategorije" ng-click="idi('/PregledOglasaPoKategoriji', kategorija.idKategorije)"><a href="#">{{kategorija.nazivKategorije}}</a></li>
                                         </ul>
                                     </li>
                                     <li class="nav-header"><a href="/#/NajnovijiOglasi">Najnoviji oglasi</a></li>

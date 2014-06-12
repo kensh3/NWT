@@ -126,21 +126,41 @@ namespace eDrvenija.eDrvenija.Controllers
 
        // GET api/Oglasi/kategorija
         [HttpGet]
-        public IEnumerable<oglasi> DajOglasePoKategoriji(int IDkat)
+        public List<Oglas> DajOglasePoKategoriji(int id)
         {
 
-            var lista = from oglasi in db.oglasi
+            var stariOglasi = from oglasi in db.oglasi
                         from kategorije in db.kategorije
                         where oglasi.idKategorije == kategorije.idKategorije
-                        where oglasi.idKategorije == IDkat
+                        where oglasi.idKategorije == id
                         select oglasi;
 
-            if (lista == null)
+            if (stariOglasi == null)
             {
                 throw new HttpResponseException(Request.CreateResponse(HttpStatusCode.NotFound));
             }
 
-            return lista.AsEnumerable();
+            List<Oglas> noviOglasi = new List<Oglas>();
+            foreach (oglasi oglasStari in stariOglasi)
+            {
+                Oglas noviOglas = new Oglas
+                {
+                    idOglasa = oglasStari.idOglasa,
+                    nazivOglasa = oglasStari.nazivOglasa,
+                    datumObjaveOglasa = oglasStari.datumObjaveOglasa,
+                    opisOglasa = oglasStari.opisOglasa,
+                    cijena = oglasStari.cijena,
+                    brojPregledaOglasa = oglasStari.brojPregledaOglasa,
+                    zavrsenaTransakcija = oglasStari.zavrsenaTransakcija,
+                    aktivan = oglasStari.aktivan,
+                    idTipaOglasa = oglasStari.idTipaOglasa,
+                    idKategorije = oglasStari.idKategorije,
+                    idKorisnika = oglasStari.idKorisnika
+                };
+                noviOglasi.Add(noviOglas);
+            }
+
+            return noviOglasi;
         }
 
         // GET api/Oglasi/brojPregleda

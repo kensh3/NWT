@@ -85,6 +85,17 @@ namespace eDrvenija
 
             #endregion
 
+            #region Oglasi
+
+            /*config.Routes.MapHttpRoute(
+                name: "DajOglasePoKategoriji",
+                routeTemplate: "Oglasi/DajOglasePoKategoriji/{id}",
+                defaults: new { controller = "OglasiApi", Action = "DajOglasePoKategoriji", id = RouteParameter.Optional },
+                constraints: new { httpMethod = new System.Web.Http.Routing.HttpMethodConstraint(HttpMethod.Get) }
+            );*/
+
+            #endregion
+
             // Uncomment the following line of code to enable query support for actions with an IQueryable or IQueryable<T> return type.
             // To avoid processing unexpected or malicious queries, use the validation settings on QueryableAttribute to validate incoming queries.
             // For more information, visit http://go.microsoft.com/fwlink/?LinkId=279712.

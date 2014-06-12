@@ -438,6 +438,7 @@
     <Content Include="Views\Home\UrediOglas.cshtml" />
     <Content Include="Views\Home\DodajOglas.cshtml" />
     <Content Include="Views\Home\PreporuceniOglasi.cshtml" />
+    <Content Include="Views\Home\PregledOglasaPoKategoriji.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

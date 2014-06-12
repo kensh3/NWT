@@ -57,6 +57,18 @@ angular.module('edrvenija.factories', [])
         return $http.get(url + 'Getoglasi/' + id);
     }
 
+
+    var idKategorije = "";
+    OglasiFactory.getIdKategorije = function () {
+        return idKategorije;
+    }
+    OglasiFactory.setIdKategorije = function (id) {
+        idKategorije = id;
+    }
+    OglasiFactory.dajOglasePoKategoriji = function (id) {
+        return $http.get(url + 'DajOglasePoKategoriji/' + id);
+    }
+
     OglasiFactory.dajTopOglase = function () {
         return $http.get(url + 'DajTopCetiriPregledanaOglasa');
     }

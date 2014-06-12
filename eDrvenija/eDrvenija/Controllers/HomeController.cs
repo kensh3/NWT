@@ -82,6 +82,11 @@ namespace eDrvenija.eDrvenija.Controllers
             return View();
         }
 
+        public ActionResult PregledOglasaPoKategoriji()
+        {
+            return View();
+        }
+
         public ActionResult SetCulture(string culture)
         {
             // Validate input
